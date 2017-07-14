@@ -1,0 +1,61 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	margin: 0 0 60px 0;
+}
+
+#footer {
+	text-align: center;
+	height: 60px;
+	padding-top: 20px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+/************ MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 *******************************/
+
+@media screen and (max-width: 1200px) {
+
+
+}
+
+/************ MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 *******************************/
+
+@media screen and (max-width: 768px) {
+
+
+}
+
+/************ MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 *******************************/
+
+@media screen and (max-width: 640px) {
+
+
+}
+
+/************ MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 *******************************/
+
+@media screen and (max-width: 520px) {
+
+
+}
+
+/************ MEDIA 485 MEDIA 485 MEDIA 485 MEDIA 485 MEDIA 485 *******************************/
+
+@media screen and (max-width: 485px) {
+
+
+}
+
+
+
+
+
