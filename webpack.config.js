@@ -1,4 +1,3 @@
-var Dotenv = require('dotenv-webpack');
 
 module.exports = {
 
