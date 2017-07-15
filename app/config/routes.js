@@ -22,6 +22,7 @@ var SignIn = require("../components/children/SignIn");
 var Register = require("../components/children/Register");
 var Rules = require("../components/children/Rules");
 var Game = require("../components/children/Game");
+var Pieces = require("../components/children/Pieces");
 
 // exports the routes
 module.exports = (
@@ -41,6 +42,7 @@ module.exports = (
 
 		    {/* If user selects Play or Signs In, show Game component */}
 		    <Route path="game" component={Game} />
+			<Route path="pieces" component={Pieces} />
 
 		    {/* If user selects Rules, show Rules component */}
 		    <Route path="rules" component={Rules} />
