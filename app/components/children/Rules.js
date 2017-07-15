@@ -5,7 +5,7 @@ var Nav = require("./grandchildren/Nav");
 var Footer = require("./grandchildren/Footer");
 
 //set state and pass to Nav so Nav can determine which links to render
-var Rules = React.CreateClass( {
+var Rules = React.createClass( {
 
     getInitialState: function() {
         return ( 
