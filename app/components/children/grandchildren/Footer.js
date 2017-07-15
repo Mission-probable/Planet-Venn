@@ -1,13 +1,15 @@
-// dependency
 var React = require("react");
 
-var Footer = React.createClass({
-    render: function() {
+//making this a stateless component since it only needs to render
+const Footer = () => {
 	    return (
-	    	<p> This is the Footer </p>
+            <div id="footer">
+	    	    <p>Created by Project-Probable &copy 2017</p>
+                <a href="https://github.com/Mission-probable/Planet-Venn"><img src="../../../public/images/github.png" alt="github logo" width="50"/></a>
+            </div>
 	   	);
-	}
-});
+};
+
 
 module.exports = Footer;
 

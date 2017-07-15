@@ -1,7 +1,4 @@
-// dependency
 var React = require("react");
-
-// navigates within the application without full page reloads
 var Link = require("react-router").Link;
 
 var Nav = React.createClass({
@@ -10,11 +7,21 @@ var Nav = React.createClass({
 	    	// ****** Show Rules on Game Page
 	    	// ****** Show Play on Rules Page
 	    	// ****** Show Sign Out on Both Pages
-	    	<div className="container">
-		    	<Link to="/rules"><button className="btn btn-warning btn-sm"> Rules </button> </Link> 
-		    	<Link to="/game"><button className="btn btn-warning btn-sm"> Play </button> </Link>
-		    	<Link to="/home"><button className="btn btn-warning btn-sm"> Sign Out </button> </Link>
-		    </div>
+            //possibly make buttons separate components and use shouldComponentUpdate
+            //or make buttons active when we are on that page
+
+	    	<nav className="navbar navbar-default">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        <h1><img src="../../../public/images/logo.png" alt="logo" width="50"/> Planet Venn</h1>
+                    </div>
+                    <ul className="nav navbar-nav navbar-right">
+		    	        <li><Link to="/rules"><button className="btn btn-warning navbar-btn"> Rules </button> </Link></li>
+		    	        <li><Link to="/game"><button className="btn btn-warning navbar-btn"> Play </button> </Link></li>
+		    	        <li><Link to="/home"><button className="btn btn-warning navbar-btn"> Sign Out </button> </Link></li>
+                    </ul>
+                </div>
+		    </nav>
 	   	);
 	}
 });
