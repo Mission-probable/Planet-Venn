@@ -80,6 +80,22 @@ header button.btn {
 }
 
 /***** game page *****/
+#message-container {
+    border: 1px solid red;
+}
+
+#pieces-container {
+    border: 1px solid green;
+}
+
+#board-container {
+    border: 1px solid yellow;
+}
+
+#checklist-container {
+    border: 1px solid blue;
+}
+
 .big {
 	padding: 5px;
 	margin-left: 20px;
