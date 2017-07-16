@@ -1,8 +1,42 @@
 body { 	background-image: url("../images/background3.jpg");
 	   	background-size: cover;
 	   	color: yellow;
+        /*sticky footer positioning and no scroll horiz. bar*/
+        height: 100%;
+        overflow-x: hidden;
 }
 
+.container {
+    width: 100%;
+    padding: 0;
+}
+
+.navbar-default {
+    background-color: #28344E;
+    opacity: .75;
+    color: #B4CCCE;
+    border-bottom: 2px solid #B4CCCE;
+}
+.container-fluid {
+    background-color: #28344E;
+}
+
+/*wrapper for page content to push down sticky footer*/
+.wrapper {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -50px;
+    padding: 0 0 50px 0;
+}
+
+#footer {
+    background-color: #28344E;
+    opacity: .75;
+    color: #B4CCCE;
+    border-top: 2px solid #B4CCCE;
+    text-align: center;
+    height: 80px;
+}
 .big {
 	padding: 5px;
 	margin-left: 20px;
