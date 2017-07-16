@@ -18,6 +18,10 @@ button.btn {
     background-color: #B4CCCE;
 }
 
+button.btn:hover {
+    background-color: #DDDADF;
+}
+
 /***** home page ****/
 header {
     text-align: center;
@@ -29,12 +33,7 @@ header h1 {
     color: #B4CCCE;
 }
 header button.btn {
-
     margin: 30px 20px;
-}
-
-header button.btn:hover {
-    background-color: #DDDADF;
 }
 
 /**** navbar styling *****/
@@ -60,6 +59,12 @@ header button.btn:hover {
     text-align: center;
     width: 100%;
     height: 80px;
+}
+
+#footer img {
+    border: 1px solid #B4CCCE;
+    background-color: #B4CCCE;
+    border-radius: 50%;
 }
 
 /***** rules page ****/
