@@ -1,61 +1,38 @@
-* {
-	box-sizing: border-box;
+body { 	background-image: url("../images/background3.jpg");
+	   	background-size: cover;
+	   	color: yellow;
 }
 
-html {
-	position: relative;
-	min-height: 100%;
+.big {
+	padding: 5px;
+	margin-left: 20px;
+	margin-right: 20px;
+	width: 100px;
+	height: 100px;
+	z-index: 3;
 }
 
-body {
-	margin: 0 0 60px 0;
+.small {
+	width: 40px;
+	height: 40px;
+	z-index: 5;
 }
 
-#footer {
-	text-align: center;
-	height: 60px;
-	padding-top: 20px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
+#dropHere7 {
+	z-index: 7;
 }
 
-/************ MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 MEDIA 1200 *******************************/
-
-@media screen and (max-width: 1200px) {
-
-
+#category1, #category2, #category3 {
+	width: 150px;
+	height: 300px;
 }
 
-/************ MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 MEDIA 768 *******************************/
-
-@media screen and (max-width: 768px) {
-
-
+#category4 {
+	width: 600px;
+	height: 100px;
 }
 
-/************ MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 MEDIA 640 *******************************/
-
-@media screen and (max-width: 640px) {
-
-
+#category3 {
+	height: 200px;
+	margin-top: 25px;
 }
-
-/************ MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 MEDIA 520 *******************************/
-
-@media screen and (max-width: 520px) {
-
-
-}
-
-/************ MEDIA 485 MEDIA 485 MEDIA 485 MEDIA 485 MEDIA 485 *******************************/
-
-@media screen and (max-width: 485px) {
-
-
-}
-
-
-
-
-
