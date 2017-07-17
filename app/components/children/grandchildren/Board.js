@@ -7,7 +7,7 @@ var React = require("react");
 var Board = React.createClass({
     render: function() {
 	    return (
-	    	<p> This is the Board </p>
+	    	<p> This is where the Board might go and we can give it more room when needed</p>
 	   	);
 	}
 
