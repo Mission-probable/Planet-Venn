@@ -5,7 +5,7 @@
 
 var React = require("react");
 
-var Register = React.createClass({
+var SignUp = React.createClass({
     render: function() {
 	    return (
 	    	<p> This is a Register Form</p>
@@ -13,5 +13,5 @@ var Register = React.createClass({
 	}
 });
 
-module.exports = Register;
+module.exports = SignUp;
 
