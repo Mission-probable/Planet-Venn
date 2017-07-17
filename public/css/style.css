@@ -139,3 +139,23 @@ header img {
 	height: 200px;
 	margin-top: 25px;
 }
+
+#sunRedBig, #sunRedSmall {
+	filter: saturate(4);
+}
+
+#sunGreenBig, #satRedBig, #alienBlueBig {
+	filter: hue-rotate(90deg);
+}
+
+#sunBlueSmall {
+	filter: hue-rotate(180deg);
+}
+
+#satGreenSmall {
+	filter: hue-rotate(235deg);
+}
+
+#alienRedSmall {
+	filter: hue-rotate(255deg);
+}
