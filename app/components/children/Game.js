@@ -8,6 +8,7 @@ var Pieces = require("./grandchildren/Pieces");
 var Board = require("./grandchildren/Board");
 var Checklist = require("./grandchildren/Checklist");
 var Footer = require("./grandchildren/Footer");
+var Square = require("./grandchildren/Square");
 
 var Game = React.createClass({
 	render: function() {
@@ -20,6 +21,7 @@ var Game = React.createClass({
                     <div id="pieces-container" className="row">
                         <div className="col-sm-8">
 				            <Pieces />
+							<Square />
                         </div>
                         <div id="board-container" className="col-sm-1">
 				            <Board />
