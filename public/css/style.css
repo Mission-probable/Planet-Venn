@@ -35,6 +35,10 @@ header h1 {
 header button.btn {
     margin: 30px 20px;
 }
+header img {
+    border: 2px solid #28344E;
+    border-radius: 50%;
+}
 
 /**** navbar styling *****/
 .navbar-default {
@@ -45,6 +49,10 @@ header button.btn {
 }
 .container-fluid {
     background-color: #28344E;
+}
+.navbar-header img {
+    border: 2px solid #28344E;
+    border-radius: 50%;
 }
 
 /***** footer styling *****/
