@@ -1,17 +1,13 @@
 var React = require("react");
 var Link = require("react-router").Link;
 
-//build dumb component which receives props from SignUp and renders sign-up form
-const SignUpForm = ({
+//build dumb component which receives props from SignIn and renders sign-in form
+const SignInForm = ({
     onSubmit,
     onChange,
     user
 }) => (
     <form action="/" onSubmit={onSubmit}>
-        <div className="form-group">
-            <label htmlFor="nameInput">First Name</label>
-            <input type="text" className="form-control" id="nameInput" onChange={onChange} value={user.name} placeholder="Bob"/>
-        </div>
         <div className="form-group">
             <label htmlFor="emailInput">Email</label>
             <input type="email" className="form-control" id="emailInput" onChange={onChange} value={user.email}placeholder="email@email.com"/>
@@ -20,10 +16,10 @@ const SignUpForm = ({
             <label htmlFor="passwordInput">Password</label>
             <input type="password" className="form-control" id="emailInput" onChange={onChange} value={user.password} placeholder="password"/>
         </div>
-        <button type="submit" className="btn">Sign Me Up!</button>
-        <p>Already have an account? <Link to={"/signin"}>Sign In</Link></p>
+        <button type="submit" className="btn">Sign In!</button>
+        <p>Don't have an account? <Link to={"/signup"}>Sign Up</Link></p>
     </form>
 );
 
-module.exports = SignUpForm;
+module.exports = SignInForm;
 
