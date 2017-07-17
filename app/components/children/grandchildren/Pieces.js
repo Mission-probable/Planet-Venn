@@ -2,19 +2,6 @@
 import React from "react";
 var Link = require("react-router").Link;
 
-// Moon - Red - Big
-// Star - Green - Small
-// Comet - Blue - Big
-// Moon - Red - Small
-// Star - Green - Big
-// Comet - Blue - Small
-// Moon - Green - Big
-// Star - Red - Small
-// Comet - Red - Big
-// Moon - Blue - Small
-// Star - Blue - Big
-// Comet - Green - Small
-
 var Pieces = React.createClass({
 
   // Here we render the component
@@ -30,20 +17,20 @@ var Pieces = React.createClass({
 														<p>Incorrect places: <span id="wrong">0</span></p>
 														<div className="panel-body">
 														
-																<img id="1" className="big piece" data-shape="circle" data-color="red" data-size="big" data-spot="false" data-placed="false" src="./images/m_red.png" />
-																<img id="2" className="small piece" data-shape="star" data-color="green" data-size="small" data-spot="false" data-placed="false" src="./images/s_green.png" />
-																<img id="3" className="big piece" data-shape="box" data-color="blue" data-size="big" data-spot="false" data-placed="false" src="./images/c_blue.png" />
-																<img id="4" className="small piece" data-shape="circle" data-color="red" data-size="small" data-spot="false" data-placed="false" src="./images/m_red.png" />
+																<img id="satBlueBig" className="big piece" data-shape="sat" data-color="blue" data-size="big" data-spot="false" data-placed="false" src="./images/sat.gif" />
+																<img id="alienGreenSmall" className="small piece" data-shape="alien" data-color="green" data-size="small" data-spot="false" data-placed="false" src="./images/alien.gif" />
+																<img id="sunRedBig" className="big piece" data-shape="sun" data-color="red" data-size="big" data-spot="false" data-placed="false" src="./images/sun.gif" />
+																<img id="sunBlueSmall" className="small piece" data-shape="sun" data-color="blue" data-size="small" data-placed="false" src="./images/sun.gif" />
 
-																<img id="5" className="big piece" data-shape="star" data-color="green" data-size="big" data-placed="false" src="./images/s_green.png" />
-																<img id="6" className="small piece" data-shape="box" data-color="blue" data-size="small" data-placed="false" src="./images/c_blue.png" />
-																<img id="7" className="big piece" data-shape="circle" data-color="green" data-size="big" data-placed="false" src="./images/m_green.png" />
-																<img id="8" className="small piece" data-shape="star" data-color="red" data-size="small" data-placed="false" src="./images/s_red.png" />
-
-																<img id="9" className="big piece" data-shape="box" data-color="red" data-size="big" data-placed="false" src="./images/c_red.png" />
-																<img id="10" className="small piece" data-shape="circle" data-color="blue" data-size="small" data-placed="false" src="./images/m_blue.png" />
-																<img id="11" className="big piece" data-shape="star" data-color="blue" data-size="big" data-placed="false" src="./images/s_blue.png" />
-																<img id="12" className="small piece" data-shape="box" data-color="green" data-size="small" data-placed="false" src="./images/c_green.png" />
+																<img id="alienGreenBig" className="big piece" data-shape="alien" data-color="green" data-size="big" data-placed="false" src="./images/alien.gif" />
+																<img id="satBlueSmall" className="small piece" data-shape="sat" data-color="blue" data-size="small" data-placed="false" src="./images/sat.gif" />
+																<img id="sunGreenBig" className="big piece" data-shape="sun" data-color="green" data-size="big" data-placed="false" src="./images/sun.gif" />
+																<img id="alienRedSmall" className="small piece" data-shape="alien" data-color="red" data-size="small" data-placed="false" src="./images/alien.gif" />
+															
+																<img id="alienBlueBig" className="big piece" data-shape="alien" data-color="blue" data-size="big" data-placed="false" src="./images/alien.gif" />
+																<img id="satGreenSmall" className="small piece" data-shape="sat" data-color="green" data-size="small" data-placed="false" src="./images/sat.gif" />
+																<img id="satRedBig" className="big piece" data-shape="sat" data-color="red" data-size="big" data-placed="false" src="./images/sat.gif" />
+																<img id="sunRedSmall" className="small piece" data-shape="sun" data-color="red" data-size="small" data-spot="false" data-placed="false" src="./images/sun.gif" />
 
 														</div>
 												</div>
