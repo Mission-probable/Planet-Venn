@@ -1,3 +1,8 @@
+/* #00487B .75 opacity backgrounds */
+/* #02CBF6 font */
+/* #F2B979 accent */
+
+
 html {
     position: relative;
     min-height: 100%;
@@ -5,7 +10,7 @@ html {
 
 body { 	background-image: url("../images/background3.jpg");
 	   	background-size: cover;
-	   	color: yellow;
+	   	color: #02CBF6;
         margin: 0 0 80px 0;
 }
 
@@ -15,11 +20,12 @@ body { 	background-image: url("../images/background3.jpg");
 }
 
 button.btn {
-    background-color: #B4CCCE;
+    background-color: #F2B979;
+    color: #00487B;
 }
 
 button.btn:hover {
-    background-color: #DDDADF;
+    opacity: .75;
 }
 
 /***** home page ****/
@@ -30,28 +36,26 @@ header {
 }
 header h1 {
     font-size: 100px;
-    color: #B4CCCE;
 }
 header button.btn {
     margin: 30px 20px;
 }
 header img {
-    border: 2px solid #28344E;
+    border: 2px solid #00487B;
     border-radius: 50%;
 }
 
 /**** navbar styling *****/
 .navbar-default {
-    background-color: #28344E;
+    background-color: #00487B;
     opacity: .75;
-    color: #B4CCCE;
-    border-bottom: 2px solid #B4CCCE;
+    border-bottom: 2px solid #F2B979;
 }
 .container-fluid {
-    background-color: #28344E;
+    background-color: #00487B;
 }
 .navbar-header img {
-    border: 2px solid #28344E;
+    border: 2px solid #00487B;
     border-radius: 50%;
 }
 
@@ -59,10 +63,9 @@ header img {
 #footer {
     position: absolute;
     bottom: 0;
-    background-color: #28344E;
-    opacity: .75;
-    color: #B4CCCE;
-    border-top: 2px solid #B4CCCE;
+    background-color: #00487B;
+    opacity: .75;;
+    border-top: 2px solid #F2B979;
     padding-top: 10px;
     text-align: center;
     width: 100%;
@@ -70,14 +73,13 @@ header img {
 }
 
 #footer img {
-    border: 1px solid #B4CCCE;
-    background-color: #B4CCCE;
+    border: 1px solid #02CBF6;
+    background-color: #02CBF6;
     border-radius: 50%;
 }
 
 /***** rules page ****/
 #rules-container {
-    color: #B4CCCE;
     background: #28344E;
     opacity: .75;
 }
