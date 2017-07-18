@@ -1,11 +1,14 @@
 var React = require("react");
 import {Link} from "react-router";
+//get form components from react-bootstrap
 import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 
-var SignIn = React.createClass({
+
+var SignUp = React.createClass({
     getInitialState: function() {
         return {
             user: {
+                name: "",
                 email: "",
                 password: ""
             }
@@ -24,31 +27,45 @@ var SignIn = React.createClass({
         event.preventDefault();
 
         //string for HTTP body message
+        var name = encodeURIComponent(this.state.user.name);
         var email = encodeURIComponent(this.state.user.email);
         var password = encodeURIComponent(this.state.user.password);
-        var formData = `email=${email}&password=${password}`;
+        var formData = `name=${name}&email=${email}&password=${password}`;
 
-        //AJAX request (sadly no jQuery)
+        //AJAX request (with no jQuery)
         var xhr = new XMLHttpRequest();
-        xhr.open("post", "/auth/signin");
-        xhr.setRequestHeader("Content-type", "applicaton/x-www-form-urlencoded");
+        xhr.open("post", "/auth/signup");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.responseType = "json";
         xhr.addEventListener("load", () => {
-            if (xhr.status === 200) {
-                console.log("SignIn.js ajax request valid");
+            if (xhr.status === 2000) {
+                console.log("SignUp.js ajax req. - form is valid");
             } else {
-                console.log("SignIn.js ajax request problem- xhr.status: ", xhr.status);
+                console.log("SignUp.js ajax req failed: ", xhr.status);
             }
         });
         xhr.send(formData);
 
+        console.log("name:", this.state.user.name);
         console.log("email: ", this.state.user.email);
         console.log("password: ", this.state.user.password);
     },
     render: function() {
 	    return (
 	    	<div>
-               <form action="/" onSubmit={this.processForm}>
+                <form action="/" onSubmit={this.processForm}>
+
+                    <FormGroup controlId="nameInput">
+                        <ControlLabel>Name</ControlLabel>
+                        <FormControl
+                        name="name"
+                        type="text"
+                        placeholder="Bob"
+                        onChange={this.changeUser} 
+                        value={this.state.user.name} 
+                        >
+                        </FormControl>
+                    </FormGroup>
 
                     <FormGroup controlId="emailInput">
                         <ControlLabel>Email</ControlLabel>
@@ -74,12 +91,15 @@ var SignIn = React.createClass({
                         </FormControl>
                     </FormGroup>
                     
-                    <button type="submit">Sign In!</button>
-                    <p>Dont' already have an account? <Link to={"/signup"}>Sign In</Link></p>
+                    <button type="submit">Sign Me Up!</button>
+                    <p>Already have an account? <Link to={"/signin"}>Sign In</Link></p>
                 </form>
             </div>
 	   	);
 	}
 });
 
-module.exports = SignIn;
+module.exports = SignUp;
+
+
+

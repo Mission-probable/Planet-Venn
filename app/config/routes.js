@@ -19,7 +19,7 @@ var hashHistory = router.hashHistory;
 var Main = require("../components/Main");
 var Home = require("../components/children/Home");
 var SignIn = require("../components/children/SignIn");
-var Register = require("../components/children/Register");
+var SignUp = require("../components/children/SignUp");
 var Rules = require("../components/children/Rules");
 var Game = require("../components/children/Game");
 
@@ -37,7 +37,7 @@ module.exports = (
 			<Route path="signin" component={SignIn} />
 
 			{/* Show Register Form */}
-			<Route path="register" component={Register} />
+			<Route path="signup" component={SignUp} />
 
 		    {/* If user selects Play or Signs In, show Game component */}
 		    <Route path="game" component={Game} />
