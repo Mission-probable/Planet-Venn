@@ -12,5 +12,5 @@ var Pieces = React.createClass({
 });
 
 module.exports = Pieces;
-;
+
 

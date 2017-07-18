@@ -16,6 +16,7 @@ var SignIn = React.createClass({
 	    return (
 	    	<div className="container">
 	    		<p> This is a Sign In Form</p>
+	    		<a href="/auth/facebook"> Log In With Facebook </a> </br>
 	    		<Link to="/game"><button className="btn btn-warning btn-sm"> Sign In </button> </Link>
 	    	</div>
 	   	);

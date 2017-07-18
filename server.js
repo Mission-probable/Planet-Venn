@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 var dotenv = require("dotenv");
 
 // controller
-var routes = require("./controllers/game_controller.js");
+var routes = require("./controllers/game_controller.js"); 
 
 // loads environment variables from .env file into process.env
 dotenv.load();
