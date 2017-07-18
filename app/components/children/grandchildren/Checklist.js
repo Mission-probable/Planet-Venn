@@ -8,8 +8,8 @@ var Checklist = React.createClass({
 		return (
 			<div className="row">
 				<div className="col-sm-12">
-					<div className="checklistDiv panel panel-primary">
-						<div className="panel-heading">
+					<div className="panel panel-primary">
+						<div className="panel-heading checklistDiv ">
 							<h3 className="panel-title text-center">Help Card (Optional)</h3>
 							<button type="button" className="btn btn-danger btn-sm">Reset All Cells</button>
 							<p>Click cells to place an X if that category is incorrect.</p>
