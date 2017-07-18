@@ -23,7 +23,7 @@ var Game = React.createClass({
 				            <Pieces />
 							<Square />
                         </div>
-                        <div id="board-container" className="col-sm-1">
+                        <div id="board-container" className="col-sm-2">
 				            <Board />
                         </div>
                         <div id="checklist-container" className="col-sm-2">
