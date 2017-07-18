@@ -10,11 +10,11 @@ const SignInForm = ({
     <form action="/" onSubmit={onSubmit}>
         <div className="form-group">
             <label htmlFor="emailInput">Email</label>
-            <input type="email" className="form-control" id="emailInput" onChange={onChange} value={user.email}placeholder="email@email.com"/>
+            <input type="email" className="form-control" name="emailInput" onChange={onChange} value={user.email}placeholder="email@email.com"/>
         </div>
         <div className="form-group">
             <label htmlFor="passwordInput">Password</label>
-            <input type="password" className="form-control" id="emailInput" onChange={onChange} value={user.password} placeholder="password"/>
+            <input type="password" className="form-control" name="emailInput" onChange={onChange} value={user.password} placeholder="password"/>
         </div>
         <button type="submit" className="btn">Sign In!</button>
         <p>Don't have an account? <Link to={"/signup"}>Sign Up</Link></p>
