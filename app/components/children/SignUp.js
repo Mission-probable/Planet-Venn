@@ -1,11 +1,11 @@
 var React = require("react");
+var SignUpForm = require("./grandchildren/SignUpForm");
 
-var SignInForm = require("./grandchildren/SignInForm");
-
-var SignIn = React.createClass({
+var SignUp = React.createClass({
     getInitialState: function() {
         return {
             user: {
+                name: "",
                 email: "",
                 password: ""
             }
@@ -24,31 +24,33 @@ var SignIn = React.createClass({
         event.preventDefault();
 
         //string for HTTP body message
+        var name = encodeURIComponent(this.state.user.name);
         var email = encodeURIComponent(this.state.user.email);
         var password = encodeURIComponent(this.state.user.password);
-        var formData = `email=${email}&password=${password}`;
+        var formData = `name=${name}&email=${email}&password=${password}`;
 
-        //AJAX request (sadly no jQuery)
+        //AJAX request (with no jQuery)
         var xhr = new XMLHttpRequest();
-        xhr.open("post", "/auth/signin");
-        xhr.setRequestHeader("Content-type", "applicaton/x-www-form-urlencoded");
+        xhr.open("post", "/auth/signup");
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhr.responseType = "json";
         xhr.addEventListener("load", () => {
-            if (xhr.status === 200) {
-                console.log("SignIn.js ajax request valid");
+            if (xhr.status === 2000) {
+                console.log("SignUp.js ajax req. - form is valid");
             } else {
-                console.log("SignIn.js ajax request problem- xhr.status: ", xhr.status);
+                console.log("SignUp.js ajax req failed: ", xhr.status);
             }
         });
         xhr.send(formData);
 
+        console.log("name:", this.state.user.name);
         console.log("email: ", this.state.user.email);
         console.log("password: ", this.state.user.password);
     },
     render: function() {
 	    return (
 	    	<div>
-                <SignInForm
+                <SignUpForm
                     onSubmit= {this.processForm}
                     onChange= {this.changeUser}
                     user={this.state.user}
@@ -58,4 +60,5 @@ var SignIn = React.createClass({
 	}
 });
 
-module.exports = SignIn;
+module.exports = SignUp;
+
