@@ -1,6 +1,6 @@
 var React = require("react");
-
-var SignInForm = require("./grandchildren/SignInForm");
+import {Link} from "react-router";
+import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 
 var SignIn = React.createClass({
     getInitialState: function() {
@@ -48,11 +48,35 @@ var SignIn = React.createClass({
     render: function() {
 	    return (
 	    	<div>
-                <SignInForm
-                    onSubmit= {this.processForm}
-                    onChange= {this.changeUser}
-                    user={this.state.user}
-                />
+               <form action="/" onSubmit={this.processForm}>
+
+                    <FormGroup controlId="emailInput">
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl
+                        name="email"
+                        type="email"
+                        placeholder="mail@mail.com"
+                        onChange={this.changeUser} 
+                        value={this.state.user.email} 
+                        >
+                        </FormControl>
+                    </FormGroup>
+
+                    <FormGroup controlId="passwordInput">
+                        <ControlLabel>Password</ControlLabel>
+                        <FormControl
+                        name="password"
+                        type="password"
+                        placeholder="password"
+                        onChange={this.changeUser} 
+                        value={this.state.user.password} 
+                        >
+                        </FormControl>
+                    </FormGroup>
+                    
+                    <button type="submit">Sign In!</button>
+                    <p>Dont' already have an account? <Link to={"/signup"}>Sign In</Link></p>
+                </form>
             </div>
 	   	);
 	}
