@@ -3,7 +3,16 @@
 var React = require("react");
 
 var Checklist = React.createClass({
-
+	handleClick: function(event) {
+		console.log("inside handleClick in checklist");
+    	// prevents default submission
+  	  	event.preventDefault();
+  	  	// clears input fields
+  	  	var inputs = document.getElementsByTagName("input");
+    	for(var i=0;i<inputs.length;i++) {
+        	inputs[i].value = '';
+    	}
+  	},
     render: function() {
 		return (
 			<div className="row">
@@ -11,7 +20,7 @@ var Checklist = React.createClass({
 					<div className="panel panel-primary">
 						<div className="panel-heading checklistDiv ">
 							<h3 className="panel-title text-center">Help Card (Optional)</h3>
-							<button type="button" className="btn btn-danger btn-sm">Reset All Cells</button>
+							<button type="button" className="btn btn-danger btn-sm" onClick={this.handleClick}>Reset All Cells</button>
 							<p>Click cells to place an X if that category is incorrect.</p>
 							<div className="tablePanel panel-body">
 								<table>
@@ -25,43 +34,43 @@ var Checklist = React.createClass({
 									<tbody>
 									   	<tr>
 										    <td> Red </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Blue </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Green </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Satellite </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Planet </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Alien </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Big </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Little </td>
-										    <td></td> 
-										    <td></td>
+										    <td className="cell"> <input type="text"/> </td> 
+										    <td className="cell"> <input type="text"/> </td>
 									   	</tr>
 									</tbody>
 								</table>

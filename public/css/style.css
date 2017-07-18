@@ -118,6 +118,16 @@ table {
     padding: 10px;
 }
 
+input {
+    width: 100%;
+    border: 0px solid;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: transparent;
+}
+
 /***** game page *****/
 #message-container {
     border: 1px solid red;
