@@ -89,6 +89,45 @@ header img {
     margin-bottom: 10px;
 }
 
+/***** checklist *****/
+
+.checklistDiv {
+    height: 1000px;
+}
+
+.tablePanel {
+    text-align: center;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+
+td {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+table {
+    margin-left: -12px;
+}
+
+#left {
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    border: 0px solid;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: transparent;
+}
+
 /***** game page *****/
 #message-container {
     border: 1px solid red;
@@ -100,10 +139,6 @@ header img {
 
 #board-container {
     border: 1px solid yellow;
-}
-
-#checklist-container {
-    border: 1px solid blue;
 }
 
 .big {
