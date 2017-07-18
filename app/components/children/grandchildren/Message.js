@@ -6,7 +6,7 @@ var React = require("react");
 var Message = React.createClass({
     render: function() {
 	    return (
-	    	<p> This is the Message Board </p>
+	    	<p> This is the Message container </p>
 	   	);
 	}
 });
