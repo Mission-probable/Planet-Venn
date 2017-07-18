@@ -19,11 +19,11 @@ var Game = React.createClass({
 		    	        <Message />
                     </div>
                     <div id="pieces-container" className="row">
-                        <div className="col-sm-8">
+                        <div className="col-sm-2">
 				            <Pieces />
 							<Square />
                         </div>
-                        <div id="board-container" className="col-sm-2">
+                        <div id="board-container" className="col-sm-8">
 				            <Board />
                         </div>
                         <div id="checklist-container" className="col-sm-2">
