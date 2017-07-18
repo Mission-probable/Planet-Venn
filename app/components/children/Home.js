@@ -1,6 +1,5 @@
 // dependency
 var React = require("react");
-
 // navigates within the application without full page reloads
 var Link = require("react-router").Link;
 

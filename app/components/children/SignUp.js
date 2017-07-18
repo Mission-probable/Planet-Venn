@@ -1,5 +1,8 @@
 var React = require("react");
-var SignUpForm = require("./grandchildren/SignUpForm");
+import {Link} from "react-router";
+//get form components from react-bootstrap
+import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
+
 
 var SignUp = React.createClass({
     getInitialState: function() {
@@ -50,15 +53,53 @@ var SignUp = React.createClass({
     render: function() {
 	    return (
 	    	<div>
-                <SignUpForm
-                    onSubmit= {this.processForm}
-                    onChange= {this.changeUser}
-                    user={this.state.user}
-                />
+                <form action="/" onSubmit={this.processForm}>
+
+                    <FormGroup controlId="nameInput">
+                        <ControlLabel>Name</ControlLabel>
+                        <FormControl
+                        name="name"
+                        type="text"
+                        placeholder="Bob"
+                        onChange={this.changeUser} 
+                        value={this.state.user.name} 
+                        >
+                        </FormControl>
+                    </FormGroup>
+
+                    <FormGroup controlId="emailInput">
+                        <ControlLabel>Email</ControlLabel>
+                        <FormControl
+                        name="email"
+                        type="email"
+                        placeholder="mail@mail.com"
+                        onChange={this.changeUser} 
+                        value={this.state.user.email} 
+                        >
+                        </FormControl>
+                    </FormGroup>
+
+                    <FormGroup controlId="passwordInput">
+                        <ControlLabel>Password</ControlLabel>
+                        <FormControl
+                        name="password"
+                        type="password"
+                        placeholder="password"
+                        onChange={this.changeUser} 
+                        value={this.state.user.password} 
+                        >
+                        </FormControl>
+                    </FormGroup>
+                    
+                    <button type="submit">Sign Me Up!</button>
+                    <p>Already have an account? <Link to={"/signin"}>Sign In</Link></p>
+                </form>
             </div>
 	   	);
 	}
 });
 
 module.exports = SignUp;
+
+
 
