@@ -50,7 +50,9 @@ header img {
 .navbar-default {
     background-color: #00487B;
     opacity: .75;
+    border: none;
     border-bottom: 2px solid #F2B979;
+
 }
 .container-fluid {
     background-color: #00487B;
@@ -139,14 +141,6 @@ input {
     opacity: .8;
     text-align: center;
     border: 2px solid #F2B979;
-}
-
-#pieces-container {
-    border: 1px solid green;
-}
-
-#board-container {
-    border: 1px solid yellow;
 }
 
 .big {

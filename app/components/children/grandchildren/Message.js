@@ -5,8 +5,10 @@ var Message = React.createClass({
 	    return (
 	    	<div className="panel">
                 <div className="panel-body">
-                    <h3>Player messages will go here</h3>
-                    <h3>Player score will go here</h3> 
+                    <div className="row">
+                        <h4 className="col-sm-10">Player messages will go here</h4>
+                        <h4 className="col-sm-2">Player score</h4> 
+                    </div>
                 </div>
             </div>
 	   	);
