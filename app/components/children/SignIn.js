@@ -80,7 +80,7 @@ var SignIn = React.createClass({
                     </FormGroup>
                     
                     <button type="submit">Sign In!</button>
-                    <p>Dont' already have an account? <Link to={"/signup"}>Sign In</Link></p>
+                    <p>Don't already have an account? <Link to={"/signup"}>Sign In</Link></p>
                 </form>
                 <Footer />
             </div>
