@@ -161,18 +161,14 @@ input {
 }
 
 #category1, #category2, #category3 {
-	width: 150px;
-	height: 300px;
+	width: 100%;
+    height: 200px;
+    margin-top: 25px;
 }
 
 #category4 {
-	width: 600px;
+	width: 100%;
 	height: 100px;
-}
-
-#category3 {
-	height: 200px;
-	margin-top: 25px;
 }
 
 #sunRedBig, #sunRedSmall {
