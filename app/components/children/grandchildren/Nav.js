@@ -1,24 +1,19 @@
 var React = require("react");
 var Link = require("react-router").Link;
+var NavButton = require("./great-grandchildren/NavButton");
 
 var Nav = React.createClass({
     render: function() {
 	    return (
-	    	// ****** Show Rules on Game Page
-	    	// ****** Show Play on Rules Page
-	    	// ****** Show Sign Out on Both Pages
-            //possibly make buttons separate components and use shouldComponentUpdate
-            //or make buttons active when we are on that page
-
 	    	<nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
                         <h1><Link to="/home"><img src="./images/planet.jpg" alt="logo" width="50"/> Planet Venn</Link></h1>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
-		    	        <li><Link to="/rules"><button className="btn  navbar-btn"> Rules </button> </Link></li>
-		    	        <li><Link to="/game"><button className="btn  navbar-btn"> Play </button> </Link></li>
-		    	        <li><Link to="/home"><button className="btn  navbar-btn"> Sign Out </button> </Link></li>
+                        <NavButton link="/rules" class="btn navbar-btn" text="Rules" />
+		    	        <NavButton link="/game" class="btn navbar-btn" text="Play" />
+                        <NavButton link="/home" class="btn navbar-btn" text="Sign Out" />
                     </ul>
                 </div>
 		    </nav>
