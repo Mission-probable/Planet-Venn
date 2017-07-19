@@ -20,6 +20,16 @@ body { 	background-image: url("../images/background3.jpg");
     padding: 0;
 }
 
+a {
+    color: #02CBF6;
+}
+
+a:hover {
+    color: #02CBF6;
+    text-decoration: none;
+    opacity: .8;
+}
+
 button.btn {
     background-color: #02CBF6;
     color: #00487B;

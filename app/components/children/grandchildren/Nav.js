@@ -13,7 +13,7 @@ var Nav = React.createClass({
 	    	<nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <h1><img src="./images/planet.jpg" alt="logo" width="50"/> Planet Venn</h1>
+                        <h1><Link to="/home"><img src="./images/planet.jpg" alt="logo" width="50"/> Planet Venn</Link></h1>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
 		    	        <li><Link to="/rules"><button className="btn  navbar-btn"> Rules </button> </Link></li>
