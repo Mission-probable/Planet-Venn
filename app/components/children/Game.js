@@ -21,7 +21,6 @@ var Game = React.createClass({
                     <div id="pieces-container" className="row">
                         <div className="col-sm-2">
 				            <Pieces />
-							<Square />
                         </div>
                         <div id="board-container" className="col-sm-8">
 				            <Board />
