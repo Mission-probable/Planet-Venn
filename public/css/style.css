@@ -6,6 +6,7 @@
 html {
     position: relative;
     min-height: 100%;
+    background-color: #00487B;
 }
 
 body { 	background-image: url("../images/background3.jpg");
@@ -130,7 +131,14 @@ input {
 
 /***** game page *****/
 #message-container {
-    border: 1px solid red;
+    margin: 20px;
+}
+
+.panel {
+    background-color: #00487B;
+    opacity: .8;
+    text-align: center;
+    border: 2px solid #F2B979;
 }
 
 #pieces-container {

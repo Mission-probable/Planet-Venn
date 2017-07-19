@@ -1,12 +1,14 @@
-// here we give messages to the user - see user flow
-
-// dependency
 var React = require("react");
 
 var Message = React.createClass({
     render: function() {
 	    return (
-	    	<p> This is the Message container </p>
+	    	<div className="panel">
+                <div className="panel-body">
+                    <h3>Player messages will go here</h3>
+                    <h3>Player score will go here</h3> 
+                </div>
+            </div>
 	   	);
 	}
 });
