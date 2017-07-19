@@ -9,6 +9,7 @@ var Board = React.createClass({
   render: function () {
     return (
       <div className="row">
+
         <div className="col-sm-4">
           <BoardVenn id={'category1'} />
           <h1>NONE OF THE ABOVE</h1>
@@ -22,6 +23,7 @@ var Board = React.createClass({
         <div className="col-sm-2">
           <BoardVenn id={'category2'} />
         </div>
+
       </div>
     );
   }
