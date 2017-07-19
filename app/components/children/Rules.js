@@ -6,18 +6,11 @@ var Footer = require("./grandchildren/Footer");
 
 //set state and pass to Nav so Nav can determine which links to render
 var Rules = React.createClass( {
-
-    getInitialState: function() {
-        return ( 
-            {currentPage: "rules"}
-        )
-    },
-
     render: function() {
 	    return (
 	    	<div className="container">
 
-		    	<Nav currentPage={this.state.currentPage} />
+		    	<Nav currentPage="rules" />
 
                 <div className="row">
                     <div id="rules-container" className="col-md-10 col-md-offset-1">

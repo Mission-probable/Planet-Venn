@@ -75,6 +75,9 @@ header img {
     border: 2px solid #00487B;
     border-radius: 50%;
 }
+.hidden-button {
+    display: none;
+}
 
 /***** footer styling *****/
 #footer {
