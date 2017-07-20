@@ -1,8 +1,12 @@
 const jwt = require('jsonwebtoken');
 const User = require('mongoose').model('User');
 const PassportLocalStrategy = require('passport-local').Strategy;
-const jwtSecret = "bumrush to inifinity696969";
+// const config = require('../../config');
 
+
+/**
+ * Return the Passport Local Strategy object.
+ */
 module.exports = new PassportLocalStrategy({
   usernameField: 'email',
   passwordField: 'password',
@@ -14,6 +18,7 @@ module.exports = new PassportLocalStrategy({
     password: password.trim()
   };
 
+  // find a user by email address
   return User.findOne({ email: userData.email }, (err, user) => {
     if (err) { return done(err); }
 
@@ -24,6 +29,7 @@ module.exports = new PassportLocalStrategy({
       return done(error);
     }
 
+    // check if a hashed user's password is equal to a value saved in the database
     return user.comparePassword(userData.password, (passwordErr, isMatch) => {
       if (err) { return done(err); }
 
@@ -33,16 +39,15 @@ module.exports = new PassportLocalStrategy({
 
         return done(error);
       }
-      
+
       const payload = {
         sub: user._id
       };
 
-      const token = jwt.sign(payload, jwtSecret);
+      // create a token string
+      const token = jwt.sign(payload, process.env.JWTSECRET);
       const data = {
-        name: user.name,
-        _id: user._id,
-        email: user.email
+        name: user.name
       };
 
       return done(null, token, data);

@@ -1,21 +1,37 @@
 
+//*********NOT WORKING WITH ORIGINAL MONGOOSE CODE; USES 
+//*********models.connect(config.dbUri); INSTEAD
+
 // dependencies
-var express = require("express");
-var bodyParser = require("body-parser");
+const express = require('express');
+const bodyParser = require('body-parser');
+const passport = require('passport');
 var logger = require("morgan");
-// var mongoose = require("mongoose");
-// var dotenv = require("dotenv");
+var dotenv = require("dotenv");
 
-// start on changes for authentication(unfinished but leave it for now)
+// schema
+var models = require('./models');
 
-// var passport = require("passport");
-// var config = require("./config");
-// var models = require("./models");
+// loads environment variables from .env file into process.env
+dotenv.load();
 
-//connect to the database and load model
-// models.connect(config.dbUri);
+// connects to the database and load models
+models.connect(process.env.DBURI);
 
-var app = express();
+// authentication files
+const localSignupStrategy = require('./controllers/authentication/local-signup');
+const localLoginStrategy = require('./controllers/authentication/local-login');
+const authCheckMiddleware = require('./controllers/authentication/auth-check');
+
+// routes
+const authRoutes = require('./controllers/auth_controller');
+const apiRoutes = require('./controllers/api_controller');
+
+// sets mongoose to leverage Promises
+// mongoose.Promise = Promise;
+
+// initializes express
+const app = express();
 
 // sets port
 var PORT = process.env.PORT || 3000;
@@ -23,86 +39,48 @@ var PORT = process.env.PORT || 3000;
 // logs every request to the console
 app.use(logger("dev"));
 
-// parses data
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));//*****
-
-// serves static content from the "public" directory
+// tell the app to look for static files in these directories
 app.use(express.static(process.cwd() + "/public"));
-
-//initialize passport
-// app.use(passport.initialize());
-//load passport strategies
-// var localSignupStrategy = require("./passport/local-signup");
-// var localSigninStrategy = require("./passport/local-signin");
-// passport.use("local-signup", localSignupStrategy);
-// passport.use("local-signin", localSigninStrategy);
-
-//pass the authentication checker middleware
-// var authCheckMiddleware = require("./middleware/auth-check");
-// app.use("/api", authCheckMiddleware);
-
-//routes
-var authRoutes = require("./controllers/auth_controller");
-app.use("/auth", authRoutes);
-
-// listens on port 3000
-app.listen(PORT, function() {
-  	console.log("Listening on " + PORT);
-});
-
-
-
-// ***** original server.js code */
-
-// // controller
-// var routes = require("./controllers/game_controller.js");
-
-// // loads environment variables from .env file into process.env
-// dotenv.load();
-
-// // sets mongoose to leverage Promises
-// mongoose.Promise = Promise;
-
-// // initializes express
-// var app = express();
-
-// // sets port
-// var PORT = process.env.PORT || 3000;
-
-// // logs every request to the console
-// app.use(logger("dev"));
+// app.use(express.static('./client/dist/'));
 
 // // parses data
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: false }));//*****
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// // serves static content from the "public" directory
-// app.use(express.static(process.cwd() + "/public"));
+// passes the passport middleware
+app.use(passport.initialize());
 
+// loads passport strategies
+passport.use('local-signup', localSignupStrategy);
+passport.use('local-login', localLoginStrategy);
 
+// passes middleware to check authentication
+app.use('/api', authCheckMiddleware);
 
-// // hooks Mongoose with the MongoDB database 
-// //***************** once we deploy to heroku we can uncomment out this ********************
-// // var mongoConfig = process.env.MONGODB_URI || "mongodb://localhost/planetvenn";
+// handles routes
+app.use('/auth', authRoutes);
+app.use('/api', apiRoutes);
+
+// hooks Mongoose with the MongoDB database 
+//***************** once we deploy to heroku we can uncomment out this ********************
+// var mongoConfig = process.env.MONGODB_URI || "mongodb://localhost/planetvenn";
 // var mongoConfig = "mongodb://localhost/planetvenn";
 // mongoose.connect(mongoConfig);
 
-// // saves our mongoose connection to db
+//saves our mongoose connection to db
 // var db = mongoose.connection;
 
-// // displays any Mongoose errors
+//displays any Mongoose errors
 // db.on("error", function(error) {
 //    console.log("Mongoose Error: ", error);
 // });
 
-// // displays success message once logged into db
+//displays success message once logged into db
 // db.once("open", function() {
 // 	console.log("Mongoose connection successful.");
 // });
 
-// // listens on port 3000
-// app.listen(PORT, function() {
-//   	console.log("Listening on " + PORT);
-// });
-
+// listens on port 3000
+app.listen(PORT, () => {
+  console.log("Listening on " + PORT);
+});

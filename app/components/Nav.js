@@ -1,6 +1,7 @@
+
 var React = require("react");
 var Link = require("react-router").Link;
-var NavButton = require("./great-grandchildren/NavButton");
+var NavButton = require("./children/NavButton");
 
 var Nav = React.createClass({
     getInitialState: function() {
@@ -30,22 +31,25 @@ var Nav = React.createClass({
 
     },
     render: function() {
-	    return (
-	    	<nav className="navbar navbar-default">
+        return (
+            <nav className="navbar navbar-default">
                 <div className="container-fluid">
                     <div className="navbar-header">
-                        <h1><Link to="/home"><img src="./images/planet.jpg" alt="logo" width="50"/> Planet Venn</Link></h1>
+                        <h1><Link to="/logout"><img src="./images/planet.jpg" alt="logo" width="50"/> Planet Venn</Link></h1>
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <NavButton link="/rules" class={this.state.rulesClass} text="Rules" />
-		    	        <NavButton link="/game" class={this.state.playClass} text="Play" />
-                        <NavButton link="/home" class={this.state.homeClass} text="Sign Out" />
+                        <NavButton link="/" class={this.state.playClass} text="Play" />
+                        <NavButton link="/logout" class={this.state.homeClass} text="Sign Out" />
                     </ul>
                 </div>
-		    </nav>
-	   	);
-	}
+            </nav>
+        );
+    }
 });
 
 module.exports = Nav;
+
+
+
 
