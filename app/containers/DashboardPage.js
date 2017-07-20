@@ -49,7 +49,7 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-          <Nav />
+          <Nav currentPage="play"/>
           <div id="message-container" className="row">
               <Message />
           </div>
