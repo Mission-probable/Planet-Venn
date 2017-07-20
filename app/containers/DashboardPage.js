@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../utils/Auth';
-import Dashboard from '../components/Dashboard.js';
+import Game from '../components/Game.js';
 
 var Nav = require('../components/Nav');
 var Message = require('../components/Message');
