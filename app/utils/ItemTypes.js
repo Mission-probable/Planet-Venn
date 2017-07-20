@@ -1,5 +1,5 @@
 exports.ItemTypes = {
   PLANET: 'planet',
-  MARTIAN: 'martian',
+  ALIEN: 'alien',
   SATELITE: 'satelite'
 };
