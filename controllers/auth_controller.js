@@ -4,13 +4,6 @@ const passport = require('passport');
 
 const router = new express.Router();
 
-/**
- * Validate the sign up form
- *
- * @param {object} payload - the HTTP body message
- * @returns {object} The result of validation. Object contains a boolean validation result,
- *                   errors tips, and a global message for the whole form.
- */
 function validateSignupForm(payload) {
   const errors = {};
   let isFormValid = true;
@@ -20,21 +13,17 @@ function validateSignupForm(payload) {
     isFormValid = false;
     errors.email = 'Please provide a correct email address.';
   }
-
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length < 8) {
     isFormValid = false;
     errors.password = 'Password must have at least 8 characters.';
   }
-
   if (!payload || typeof payload.name !== 'string' || payload.name.trim().length === 0) {
     isFormValid = false;
     errors.name = 'Please provide your name.';
   }
-
   if (!isFormValid) {
     message = 'Check the form for errors.';
   }
-
   return {
     success: isFormValid,
     message,
@@ -42,13 +31,6 @@ function validateSignupForm(payload) {
   };
 }
 
-/**
- * Validate the login form
- *
- * @param {object} payload - the HTTP body message
- * @returns {object} The result of validation. Object contains a boolean validation result,
- *                   errors tips, and a global message for the whole form.
- */
 function validateLoginForm(payload) {
   const errors = {};
   let isFormValid = true;
@@ -58,16 +40,13 @@ function validateLoginForm(payload) {
     isFormValid = false;
     errors.email = 'Please provide your email address.';
   }
-
   if (!payload || typeof payload.password !== 'string' || payload.password.trim().length === 0) {
     isFormValid = false;
     errors.password = 'Please provide your password.';
   }
-
   if (!isFormValid) {
     message = 'Check the form for errors.';
   }
-
   return {
     success: isFormValid,
     message,
@@ -84,8 +63,6 @@ router.post('/signup', (req, res, next) => {
       errors: validationResult.errors
     });
   }
-
-
   return passport.authenticate('local-signup', (err) => {
     if (err) {
       if (err.name === 'MongoError' && err.code === 11000) {
@@ -99,13 +76,11 @@ router.post('/signup', (req, res, next) => {
           }
         });
       }
-
       return res.status(400).json({
         success: false,
         message: 'Could not process the form.'
       });
     }
-
     return res.status(200).json({
       success: true,
       message: 'You have successfully signed up! Now you should be able to log in.'
@@ -115,6 +90,7 @@ router.post('/signup', (req, res, next) => {
 
 router.post('/login', (req, res, next) => {
   const validationResult = validateLoginForm(req.body);
+
   if (!validationResult.success) {
     return res.status(400).json({
       success: false,
@@ -122,8 +98,6 @@ router.post('/login', (req, res, next) => {
       errors: validationResult.errors
     });
   }
-
-
   return passport.authenticate('local-login', (err, token, userData) => {
     if (err) {
       if (err.name === 'IncorrectCredentialsError') {
@@ -132,14 +106,11 @@ router.post('/login', (req, res, next) => {
           message: err.message
         });
       }
-
       return res.status(400).json({
         success: false,
         message: 'Could not process the form.'
       });
     }
-
-
     return res.json({
       success: true,
       message: 'You have successfully logged in!',
@@ -148,6 +119,5 @@ router.post('/login', (req, res, next) => {
     });
   })(req, res, next);
 });
-
 
 module.exports = router;

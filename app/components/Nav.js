@@ -28,7 +28,6 @@ var Nav = React.createClass({
                 homeClass: "hidden-button",
             });
         }
-
     },
     render: function() {
         return (

@@ -4,7 +4,6 @@ import React, { PropTypes } from 'react';
 var Nav = require("../components/Nav");
 var Footer = require("../components/Footer");
 
-//set state and pass to Nav so Nav can determine which links to render
 var Rules = React.createClass( {
     render: function() {
         return (

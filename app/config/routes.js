@@ -13,7 +13,6 @@ const routes = {
   // base component (wrapper for the whole application).
   component: Base,
   childRoutes: [
-
     {
       path: '/',
       getComponent: (location, callback) => {
@@ -24,37 +23,30 @@ const routes = {
         }
       }
     },
-
     {
       path: '/rules',
       component: Rules
     },
-
     {
         path: '/play',
         component: DashboardPage
     },
-
     {
       path: '/login',
       component: LoginPage
     },
-
     {
       path: '/signup',
       component: SignUpPage
     },
-
     {
       path: '/logout',
       onEnter: (nextState, replace) => {
         Auth.deauthenticateUser();
-
         // change the current URL to /
         replace('/');
       }
     }
-
   ]
 };
 
