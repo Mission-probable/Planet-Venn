@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react';
 import Auth from '../utils/Auth';
 import LoginForm from '../components/LoginForm.js';
 var Nav = require('../components/Nav');
+var Footer = require('../components/Footer')
 
 class LoginPage extends React.Component {
 
@@ -111,6 +112,7 @@ class LoginPage extends React.Component {
             successMessage={this.state.successMessage}
             user={this.state.user}
           />
+          <Footer />
       </div>
     );
   }
