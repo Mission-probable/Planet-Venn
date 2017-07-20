@@ -2,6 +2,10 @@ var React = require("react");
 import {Link} from "react-router";
 import {FormGroup, FormControl, ControlLabel} from "react-bootstrap";
 
+// components
+var Nav = require("./grandchildren/Nav");
+var Footer = require("./grandchildren/Footer");
+
 var SignIn = React.createClass({
     getInitialState: function() {
         return {
@@ -48,6 +52,7 @@ var SignIn = React.createClass({
     render: function() {
 	    return (
 	    	<div>
+                <Nav currentPage="signin" />
                <form action="/" onSubmit={this.processForm}>
 
                     <FormGroup controlId="emailInput">
@@ -75,8 +80,9 @@ var SignIn = React.createClass({
                     </FormGroup>
                     
                     <button type="submit">Sign In!</button>
-                    <p>Dont' already have an account? <Link to={"/signup"}>Sign In</Link></p>
+                    <p>Don't already have an account? <Link to={"/signup"}>Sign In</Link></p>
                 </form>
+                <Footer />
             </div>
 	   	);
 	}

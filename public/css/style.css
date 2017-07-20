@@ -10,6 +10,7 @@ html {
 
 body { 	background-image: url("../images/background3.jpg");
 	   	background-size: cover;
+        font-family: "Josefin Sans", sans-serif;
 	   	color: #02CBF6;
         margin: 0 0 80px 0;
 }
@@ -17,6 +18,16 @@ body { 	background-image: url("../images/background3.jpg");
 .container {
     width: 100%;
     padding: 0;
+}
+
+a {
+    color: #02CBF6;
+}
+
+a:hover {
+    color: #02CBF6;
+    text-decoration: none;
+    opacity: .8;
 }
 
 button.btn {
@@ -35,6 +46,7 @@ header {
     margin-top: 10%;
 }
 header h1 {
+    font-family: "Megrim", cursive;
     font-size: 100px;
 }
 header button.btn {
@@ -49,14 +61,22 @@ header img {
 .navbar-default {
     background-color: #00487B;
     opacity: .75;
+    border: none;
     border-bottom: 2px solid #F2B979;
+
 }
 .container-fluid {
     background-color: #00487B;
 }
+.navbar-header h1 {
+    font-family: "Megrim", cursive;
+}
 .navbar-header img {
     border: 2px solid #00487B;
     border-radius: 50%;
+}
+.hidden-button {
+    display: none;
 }
 
 /***** footer styling *****/
@@ -80,7 +100,7 @@ header img {
 
 /***** rules page ****/
 #rules-container {
-    background: #28344E;
+    background: #00487B;
     opacity: .75;
 }
 
@@ -129,16 +149,15 @@ input {
 }
 
 /***** game page *****/
+/*****message comp*****/
 #message-container {
-    border: 1px solid red;
+    margin: 20px;
 }
-
-#pieces-container {
-    border: 1px solid green;
-}
-
-#board-container {
-    border: 1px solid yellow;
+.panel {
+    background-color: #00487B;
+    opacity: .8;
+    text-align: center;
+    border: 2px solid #F2B979;
 }
 
 .big {
