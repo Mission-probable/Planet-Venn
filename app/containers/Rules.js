@@ -1,20 +1,20 @@
-var React = require("react");
+import React, { PropTypes } from 'react';
 
 // components
-var Nav = require("./grandchildren/Nav");
-var Footer = require("./grandchildren/Footer");
+var Nav = require("../components/Nav");
+var Footer = require("../components/Footer");
 
 //set state and pass to Nav so Nav can determine which links to render
 var Rules = React.createClass( {
     render: function() {
-	    return (
-	    	<div className="container">
+        return (
+            <div className="container">
 
-		    	<Nav currentPage="rules" />
+                <Nav currentPage="rules" />
 
                 <div className="row">
                     <div id="rules-container" className="col-md-10 col-md-offset-1">
-		    	        <h2>How to Play</h2>
+                        <h2>How to Play</h2>
                         <ol>
                             <li>To start playing, place one of your game pieces into a section of the game board.  The game board has 4 sections: category 1, both categories, category 2 and neither category.</li>
                             <li>If your guess was correct, your piece will remain in the correct section.  If not, your piece will return to your unplayed pieces.</li>
@@ -26,12 +26,14 @@ var Rules = React.createClass( {
                     </div>
                 </div>
                     
-		    	<Footer />
+                <Footer />
 
             </div>
-	   	);
-	}
+        );
+    }
 });
 
 module.exports = Rules;
+
+
 

@@ -8,10 +8,10 @@ html {
     min-height: 100%;
 }
 
-body { 	background-image: url("../images/background3.jpg");
-	   	background-size: cover;
+body {  background-image: url("../images/background3.jpg");
+      background-size: cover;
         font-family: "Josefin Sans", sans-serif;
-	   	color: #02CBF6;
+      color: #02CBF6;
         margin: 0 0 80px 0;
 }
 
@@ -148,6 +148,13 @@ input {
     background-color: transparent;
 }
 
+/***** auth forms *****/
+#LogInForm, #signUpForm {
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+
 /***** game page *****/
 /*****message comp*****/
 #message-container {
@@ -161,51 +168,53 @@ input {
 }
 
 .big {
-	padding: 5px;
-	margin-left: 20px;
-	margin-right: 20px;
-	width: 100px;
-	height: 100px;
-	z-index: 3;
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 3;
 }
 
 .small {
-	width: 40px;
-	height: 40px;
-	z-index: 5;
+  width: 40px;
+  height: 40px;
+  z-index: 5;
 }
 
 #dropHere7 {
-	z-index: 7;
+  z-index: 7;
 }
 
 #category1, #category2, #category3 {
-	width: 100%;
+  width: 100%;
     padding-bottom: 75%;
     margin-top: 25px;
 }
 
 #category4 {
-	width: 100%;
-	padding-bottom: 15%;
+  width: 100%;
+  padding-bottom: 15%;
 }
 
 #sunRedBig, #sunRedSmall {
-	filter: saturate(4);
+  filter: saturate(4);
 }
 
 #sunGreenBig, #satRedBig, #alienBlueBig {
-	filter: hue-rotate(90deg);
+  filter: hue-rotate(90deg);
 }
 
 #sunBlueSmall {
-	filter: hue-rotate(180deg);
+  filter: hue-rotate(180deg);
 }
 
 #satGreenSmall {
-	filter: hue-rotate(235deg);
+  filter: hue-rotate(235deg);
 }
 
 #alienRedSmall {
-	filter: hue-rotate(255deg);
+  filter: hue-rotate(255deg);
 }
+
+

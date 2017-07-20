@@ -5,13 +5,13 @@ var only = 0;
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
-	var j, x, i;
-	for (i = a.length; i; i--) {
-	    j = Math.floor(Math.random() * i);
-	    x = a[i - 1];
-	    a[i - 1] = a[j];
-	    a[j] = x;
-	}	
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }   
 }
 var allRules = ["red", "blue", "green", "circle", "box", "star", "big", "small"];
 shuffle(allRules);
@@ -213,4 +213,3 @@ function guessRules() {
     alert("All pieces placed");
     $("#rule1guess").fadeIn("slow");
     $("#rule2guess").fadeIn("slow");
-}

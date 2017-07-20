@@ -1,54 +1,56 @@
+import Base from '../components/Base.js';
+import HomePage from '../components/HomePage.js';
+import DashboardPage from '../containers/DashboardPage.js';
+import LoginPage from '../containers/LoginPage.js';
+import SignUpPage from '../containers/SignUpPage.js';
+import Rules from '../containers/Rules.js';
+import Auth from '../utils/Auth';
 
-// dependencies
-var React = require("react");
-var router = require("react-router");
+import Nav from '../components/Nav.js';
 
-// displays individual routes
-var Route = router.Route;
 
-// contains prop configurations and all routes
-var Router = router.Router;
+const routes = {
+  // base component (wrapper for the whole application).
+  component: Base,
+  childRoutes: [
 
-// acts as a catch all route
-var IndexRoute = router.IndexRoute;
+    {
+      path: '/',
+      getComponent: (location, callback) => {
+        if (Auth.isUserAuthenticated()) {
+          callback(null, DashboardPage);
+        } else {
+          callback(null, HomePage);
+        }
+      }
+    },
 
-// handles routing client side without a server
-var hashHistory = router.hashHistory;
+    {
+      path: '/rules',
+      component: Rules
+    },
 
-// components
-var Main = require("../components/Main");
-var Home = require("../components/children/Home");
-var SignIn = require("../components/children/SignIn");
-var SignUp = require("../components/children/SignUp");
-var Rules = require("../components/children/Rules");
-var Game = require("../components/children/Game");
+    {
+      path: '/login',
+      component: LoginPage
+    },
 
-// exports the routes
-module.exports = (
+    {
+      path: '/signup',
+      component: SignUpPage
+    },
 
-	<Router history={hashHistory}>
+    {
+      path: '/logout',
+      onEnter: (nextState, replace) => {
+        Auth.deauthenticateUser();
 
-		<Route path="/" component={Main} >
+        // change the current URL to /
+        replace('/');
+      }
+    }
 
-			{/* If user logs out ... */}
-		    <Route path="home" component={Home} />
+  ]
+};
 
-			{/* Show SignIn Form */}
-			<Route path="signin" component={SignIn} />
-
-			{/* Show Register Form */}
-			<Route path="signup" component={SignUp} />
-
-		    {/* If user selects Play or Signs In, show Game component */}
-		    <Route path="game" component={Game} />
-
-		    {/* If user selects Rules, show Rules component */}
-		    <Route path="rules" component={Rules} />
-
-		    {/* If user selects any other path... show home page */}
-		    <IndexRoute component={Home} />
-
-	  	</Route>
-
-	</Router>
-);
+export default routes;
