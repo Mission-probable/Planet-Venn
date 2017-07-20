@@ -31,6 +31,11 @@ const routes = {
     },
 
     {
+        path: '/play',
+        component: DashboardPage
+    },
+
+    {
       path: '/login',
       component: LoginPage
     },

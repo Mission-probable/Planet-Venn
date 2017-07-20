@@ -9,7 +9,7 @@ const HomePage = () => (
                 <h1><img src="./images/planet.jpg" alt="logo" width="100"/> Planet Venn</h1>
               	<Link to="/signup"><button className="btn btn-lg"> Sign Up </button> </Link>
                	<Link to="/login"><button className="btn btn-lg"> Sign In </button> </Link>
-                <Link to="/rules"><button className="btn btn-lg"> Just Play </button> </Link>
+                <Link to="/play"><button className="btn btn-lg"> Just Play </button> </Link>
             </header>
         </div>
 	</div>
