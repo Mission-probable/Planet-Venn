@@ -1,4 +1,6 @@
 var React = require('react');
+var DragDropContext = require('react-dnd').DragDropContext;
+var HTML5Backend = require('react-dnd-html5-backend');
 var Pieces = require('./Pieces');
 var Board = require('./Board');
 var Checklist = require('./Checklist');
@@ -21,4 +23,4 @@ var GameSpace = React.createClass({
   }
 });
 
-module.exports = GameSpace;
+module.exports = DragDropContext(HTML5Backend)(GameSpace);
