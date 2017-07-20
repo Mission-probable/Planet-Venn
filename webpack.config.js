@@ -1,9 +1,10 @@
+const path = require('path');
 
 module.exports = {
 
     // sets entry point 
-    entry: "./app/app.js",
-
+    entry: path.join(__dirname, '/client/src/app.js'),
+ 
     // designates file to output plain compiled JavaScript 
     output: {
         filename: "public/bundle.js"
@@ -16,7 +17,7 @@ module.exports = {
                 // works with files with an .js or .jsx extension
                 test: /\.jsx?$/,
                 // processes files in our app folder
-                include: /app/,
+                include: path.join(__dirname, '/client/src'),
                 loader: "babel-loader",
                 query: {
                     // specifies transformations 
@@ -26,5 +27,10 @@ module.exports = {
         ]
     },
     // lets us debug our react code in Chrome dev tools
-    devtool: "eval-source-map"
+    devtool: "eval-source-map",
+    /*test for auth*/
+    resolve: {
+        extensions: ['.js', '.jsx']
+    },
+    watch: false
 };
