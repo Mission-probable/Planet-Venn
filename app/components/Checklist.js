@@ -1,5 +1,3 @@
-
-// dependency
 var React = require("react");
 
 var Checklist = React.createClass({
@@ -81,7 +79,6 @@ var Checklist = React.createClass({
 			</div>
 		);
 	}
-
 });
 
 module.exports = Checklist;

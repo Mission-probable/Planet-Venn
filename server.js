@@ -1,8 +1,3 @@
-
-//*********NOT WORKING WITH ORIGINAL MONGOOSE CODE; USES 
-//*********models.connect(config.dbUri); INSTEAD
-
-// dependencies
 const express = require('express');
 const bodyParser = require('body-parser');
 const passport = require('passport');
@@ -27,9 +22,6 @@ const authCheckMiddleware = require('./controllers/authentication/auth-check');
 const authRoutes = require('./controllers/auth_controller');
 const apiRoutes = require('./controllers/api_controller');
 
-// sets mongoose to leverage Promises
-// mongoose.Promise = Promise;
-
 // initializes express
 const app = express();
 
@@ -41,7 +33,6 @@ app.use(logger("dev"));
 
 // tell the app to look for static files in these directories
 app.use(express.static(process.cwd() + "/public"));
-// app.use(express.static('./client/dist/'));
 
 // // parses data
 app.use(bodyParser.json());
@@ -60,25 +51,6 @@ app.use('/api', authCheckMiddleware);
 // handles routes
 app.use('/auth', authRoutes);
 app.use('/api', apiRoutes);
-
-// hooks Mongoose with the MongoDB database 
-//***************** once we deploy to heroku we can uncomment out this ********************
-// var mongoConfig = process.env.MONGODB_URI || "mongodb://localhost/planetvenn";
-// var mongoConfig = "mongodb://localhost/planetvenn";
-// mongoose.connect(mongoConfig);
-
-//saves our mongoose connection to db
-// var db = mongoose.connection;
-
-//displays any Mongoose errors
-// db.on("error", function(error) {
-//    console.log("Mongoose Error: ", error);
-// });
-
-//displays success message once logged into db
-// db.once("open", function() {
-// 	console.log("Mongoose connection successful.");
-// });
 
 // listens on port 3000
 app.listen(PORT, () => {

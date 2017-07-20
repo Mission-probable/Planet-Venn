@@ -1,6 +1,6 @@
 import React from 'react';
 import Auth from '../utils/Auth';
-import Dashboard from '../components/Dashboard.js';
+import Game from '../components/Game.js';
 
 var Nav = require('../components/Nav');
 var Message = require('../components/Message');
@@ -11,9 +11,6 @@ var Footer = require('../components/Footer');
 
 class DashboardPage extends React.Component {
 
-  /**
-   * Class constructor.
-   */
   constructor(props) {
     super(props);
 
@@ -27,9 +24,6 @@ class DashboardPage extends React.Component {
     };
   }
 
-  /**
-   * This method will be executed after initial rendering.
-   */
   componentDidMount() {
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/dashboard');
@@ -66,10 +60,8 @@ class DashboardPage extends React.Component {
           </div>
           <Footer />
       </div>
-
     );
   }
-
 }
 
 export default DashboardPage;

@@ -4,7 +4,6 @@ var Link = require('react-router').Link;
 
 var Pieces = React.createClass({
 
-  // Here we render the component
   render: function () {
     return (
       <div className="row">

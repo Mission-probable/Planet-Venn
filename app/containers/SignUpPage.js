@@ -4,14 +4,8 @@ var Nav = require('../components/Nav');
 var Footer = require('../components/Footer');
 
 class SignUpPage extends React.Component {
-
-  /**
-   * Class constructor.
-   */
   constructor(props, context) {
     super(props, context);
-
-    // set the initial component state
     this.state = {
       errors: {},
       user: {
@@ -20,16 +14,10 @@ class SignUpPage extends React.Component {
         password: ''
       }
     };
-
     this.processForm = this.processForm.bind(this);
     this.changeUser = this.changeUser.bind(this);
   }
 
-  /**
-   * Process the form.
-   *
-   * @param {object} event - the JavaScript event object
-   */
   processForm(event) {
     // prevent default action. in this case, action is the form submission event
     event.preventDefault();
@@ -47,9 +35,6 @@ class SignUpPage extends React.Component {
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
-        // success
-
-        // change the component-container state
         this.setState({
           errors: {}
         });
@@ -61,10 +46,8 @@ class SignUpPage extends React.Component {
         this.context.router.replace('/login');
       } else {
         // failure
-
         const errors = xhr.response.errors ? xhr.response.errors : {};
         errors.summary = xhr.response.message;
-
         this.setState({
           errors
         });
@@ -73,11 +56,7 @@ class SignUpPage extends React.Component {
     xhr.send(formData);
   }
 
-  /**
-   * Change the user object.
-   *
-   * @param {object} event - the JavaScript event object
-   */
+  /*** Change the user object.***/
   changeUser(event) {
     const field = event.target.name;
     const user = this.state.user;
@@ -88,9 +67,6 @@ class SignUpPage extends React.Component {
     });
   }
 
-  /**
-   * Render the component.
-   */
   render() {
     return (
       <div>
@@ -105,7 +81,6 @@ class SignUpPage extends React.Component {
       </div>
     );
   }
-
 }
 
 SignUpPage.contextTypes = {
