@@ -4,9 +4,7 @@ import Game from '../components/Game.js';
 
 var Nav = require('../components/Nav');
 var Message = require('../components/Message');
-var Pieces = require('../components/Pieces');
-var Board = require('../components/Board');
-var Checklist = require('../components/Checklist');
+var GameSpace = require('../components/GameSpace');
 var Footer = require('../components/Footer');
 
 class DashboardPage extends React.Component {
@@ -43,22 +41,12 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-          <Nav currentPage="play"/>
-          <div id="message-container" className="row">
-              <Message />
-          </div>
-          <div id="pieces-container" className="row">
-              <div className="col-sm-2">
-                  <Pieces />
-              </div>
-              <div id="board-container" className="col-sm-8">
-                  <Board />
-              </div>
-              <div id="checklist-container" className="col-sm-2">
-                  <Checklist />
-              </div>
-          </div>
-          <Footer />
+        <Nav currentPage="play"/>
+        <div id="message-container" className="row">
+          <Message />
+        </div>
+        <GameSpace />
+        <Footer />
       </div>
     );
   }
