@@ -7,9 +7,11 @@ var Checklist = React.createClass({
   	  	event.preventDefault();
   	  	// clears input fields
   	  	var inputs = document.getElementsByTagName("input");
-    	for(var i=0;i<inputs.length;i++) {
-        	inputs[i].value = '';
-    	}
+		for(var i = 0; i < inputs.length; i++) {
+    		if(inputs[i].type == "checkbox") {
+        		inputs[i].checked = false; 
+    		}  
+		}
   	},
     render: function() {
 		return (
@@ -25,50 +27,50 @@ var Checklist = React.createClass({
 									<thead>
 									   	<tr>
 										    <th></th>
-										    <th id="left">Left</th> 
-										    <th>Right</th>
+										    <th id="left">Category 1</th> 
+										    <th>Category 2</th>
 									   	</tr>
 									</thead>
 									<tbody>
 									   	<tr>
 										    <td> Red </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Blue </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Green </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Satellite </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
-										    <td> Planet </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td> Sun </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Alien </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Big </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									   	<tr>
 										    <td> Little </td>
-										    <td className="cell"> <input type="text"/> </td> 
-										    <td className="cell"> <input type="text"/> </td>
+										    <td className="cell"> <input type="checkbox"/> </td> 
+										    <td className="cell"> <input type="checkbox"/> </td>
 									   	</tr>
 									</tbody>
 								</table>
