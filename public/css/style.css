@@ -123,10 +123,8 @@ header img {
     text-align: center;
     border: 2px solid #F2B979;
 }
+
 /***** checklist component*****/
-.checklistDiv {
-    height: 1000px;
-}
 .tablePanel {
     text-align: center;
 }

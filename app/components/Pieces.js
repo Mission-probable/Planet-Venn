@@ -8,7 +8,7 @@ var Pieces = React.createClass({
     return (
       <div className="row">
         <div className="col-sm-12">
-          <div className="panel panel-primary">
+          <div className="panel">
             <div className="panel-heading">
               <h3 className="panel-title text-center">Playable Pieces</h3>
               <button type="button" id="resetPieces" className="btn btn-danger btn-sm">Reset All Pieces</button>
