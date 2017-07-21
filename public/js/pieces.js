@@ -5,37 +5,66 @@ var only = 0;
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
-    var j, x, i;
-    for (i = a.length; i; i--) {
-        j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
-    }   
+	var j, x, i;
+	for (i = a.length; i; i--) {
+	    j = Math.floor(Math.random() * i);
+	    x = a[i - 1];
+	    a[i - 1] = a[j];
+	    a[j] = x;
+	}	
 }
-var allRules = ["red", "blue", "green", "circle", "box", "star", "big", "small"];
+var allRules = ["red", "blue", "green", "sat", "alien", "sun", "big", "small"];
 shuffle(allRules);
+checkRules();
 
+// This checks to make sure no 2 rules are the same type (ie, both cannot be colors)
+function checkRules() {
+    if (allRules[1] === "red" || allRules[1] === "blue" || allRules[1] === "green") {
+        if (allRules[2] != "red" && allRules[2] != "blue" && allRules[2] != "green") {
+            return;
+        } else {
+            shuffle(allRules);
+            checkRules();
+        }
+    }
+
+    if (allRules[1] === "sat" || allRules[1] === "alien" || allRules[1] === "sun") {
+        if (allRules[2] != "sat" && allRules[2] != "alien" && allRules[2] != "sun") {
+            return;
+        } else {
+            shuffle(allRules);
+            checkRules();
+        }
+    }
+
+    if (allRules[1] === "big" || allRules[1] === "small") {
+        if (allRules[2] != "big" && allRules[2] != "small") {
+            return;
+        } else {
+            shuffle(allRules);
+            checkRules();
+        }
+    }
+}
 
 // This allows pieces to be draggable/droppable
-$( function() {
+$(function() {
+    console.log("FINAL - RULE 1 is " + allRules[1]);
+    console.log("FINAL - RULE 2 is " + allRules[2]);
+
     $("#category1").attr("data-rule", allRules[1]);
     $("#category2").attr("data-rule", allRules[2]);
 
-    console.log($("#category1").attr("data-rule"));
-    console.log($("#category2").attr("data-rule"));
-
-
-    $(".piece").draggable();
-    $("img").mouseup(function() {
+    $("img").draggable();
+    $("img").mousedown(function() {
         var itemShape = $(this).attr("data-shape");
         var itemColor = $(this).attr("data-color");
         var itemSize = $(this).attr("data-size");
-        var alreadyPlaced = $(this).attr("data-spot");
         var id = this.id;
         var alreadyPlaced = $("#" + id).attr("data-placed");
+        console.log(alreadyPlaced);
 
-        // This is just for BLUE objects
+        // This is just for RULE 1 objects
         $("#category1").droppable({
             drop: function() {
                 var rule1 = $("#category1").attr("data-rule");
@@ -47,7 +76,6 @@ $( function() {
                         wrong++;
                         $("#wrong").html(wrong);
                         console.log("Wrong");
-                        // $("#" + id).draggable({ revert: "valid" });
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     } else if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
@@ -56,16 +84,10 @@ $( function() {
                         console.log("Correct");
                         right++;
                         $("#right").html(right);
-                        // $("#" + id).draggable("disable");
-                        if (right === 12) {
-                            guessRules();
-                        }
-
                     } else {
                         wrong++;
                         $("#wrong").html(wrong);
                         console.log("Wrong");
-                        // $("#" + id).draggable({ revert: "valid" });
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     }
@@ -73,7 +95,7 @@ $( function() {
             }
         });
     
-        // This is just for MOON objects
+        // This is just for RULE 2 objects
         $("#category2").droppable({
             drop: function() {
                 var rule1 = $("#category1").attr("data-rule");
@@ -85,7 +107,6 @@ $( function() {
                         wrong++;
                         $("#wrong").html(wrong);
                         console.log("Wrong");
-                        // $("#" + id).draggable({ revert: "valid" });
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     } else if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
@@ -94,16 +115,10 @@ $( function() {
                         console.log("Correct");
                         right++;
                         $("#right").html(right);
-                        // $("#" + id).draggable("disable");
-                        if (right === 12) {
-                            guessRules();
-                        }
-
                     } else {
                         wrong++;
                         $("#wrong").html(wrong);
                         console.log("Wrong");
-                        // $("#" + id).draggable({ revert: "valid" });
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     }
@@ -111,52 +126,35 @@ $( function() {
             }
         });
 
-        // This is just for BLUE & MOON objects
+        // This is just for RULE 1 AND RULE 2 objects
         $("#category3").droppable({
             drop: function() {
-                var rule1 = $("#category1").attr("data-rule");
-                var rule2 = $("#category2").attr("data-rule");
+                if (alreadyPlaced === "false") {
+                    var rule1 = $("#category1").attr("data-rule");
+                    var rule2 = $("#category2").attr("data-rule");
 
-                console.log("Rule 1 is " + rule1);
-                console.log("Rule 2 is " + rule2);
-                console.log("Item Shape is " + itemShape);
-                console.log("Item Color is " + itemColor);
-                console.log("Item Size is " + itemSize);
-
-                if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize && alreadyPlaced === "false") {
-                    gotboth = gotboth + 1;
-                    console.log("Gotboth is " + gotboth);
-                } else {
-                    gotboth = 0;
-                    console.log("Gotboth is " + gotboth);
-                }
-                    
-                if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize && alreadyPlaced === "false") {
-                    gotboth = gotboth + 1;
-                } else {
-                    gotboth = 0;
-                }
-
-                if (gotboth === 2) {
-                    gotboth = 0;
-                    alreadyPlaced = "true";
-                    $("#" + id).attr("data-placed", "true");
-                    console.log("Correct");
-                    right++;
-                    $("#right").html(right);
-                    // $("#" + id).draggable("disable");
-                    if (right === 12) {
-                        guessRules();
+                    if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
+                        if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
+                            alreadyPlaced = "true";
+                            $("#" + id).attr("data-placed", "true");
+                            console.log("Correct");
+                            right++;
+                            $("#right").html(right);
+                        } else {
+                            wrong++;
+                            $("#wrong").html(wrong);
+                            console.log("Wrong");
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        }
+                    } else {
+                            wrong++;
+                            $("#wrong").html(wrong);
+                            console.log("Wrong");
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
                     }
-                } else {
-                    gotboth = 0;
-                    wrong++;
-                    $("#wrong").html(wrong);
-                    console.log("Wrong");
-                    // $("#" + id).draggable({ revert: "valid" });
-                    $("#" + id).removeAttr("style");
-                    $("#" + id).attr("style", "position: relative");
-                }        
+                }
             }
         });
 
@@ -165,12 +163,6 @@ $( function() {
             drop: function() {
                 var rule1 = $("#category1").attr("data-rule");
                 var rule2 = $("#category2").attr("data-rule");
-                
-                console.log("Rule 1 is " + rule1);
-                console.log("Rule 2 is " + rule2);
-                console.log("Item Shape is " + itemShape);
-                console.log("Item Color is " + itemColor);
-                console.log("Item Size is " + itemSize);
 
                 if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
                     alreadyPlaced = "true";
@@ -178,16 +170,10 @@ $( function() {
                     console.log("Correct");
                     right++;
                     $("#right").html(right);
-                    // $("#" + id).draggable("disable");
-                    if (right === 12) {
-                        guessRules();
-                    }
-
                 } else {
                     wrong++;
                     $("#wrong").html(wrong);
                     console.log("Wrong");
-                    // $("#" + id).draggable({ revert: "valid" });
                     $("#" + id).removeAttr("style");
                     $("#" + id).attr("style", "position: relative");
                 }
@@ -209,7 +195,8 @@ $(document).on("click", "#resetPieces", function() {
     $("#right").html(right);
 });
 
-function guessRules() {
-    alert("All pieces placed");
-    $("#rule1guess").fadeIn("slow");
-    $("#rule2guess").fadeIn("slow");
+// function guessRules() {
+//     alert("All pieces placed");
+//     $("#rule1guess").fadeIn("slow");
+//     $("#rule2guess").fadeIn("slow");
+// }
