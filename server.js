@@ -26,7 +26,7 @@ const apiRoutes = require('./controllers/api_controller');
 const app = express();
 
 // sets port
-var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
 // logs every request to the console
 app.use(logger("dev"));
