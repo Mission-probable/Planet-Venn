@@ -125,7 +125,7 @@ header img {
 }
 /***** checklist component*****/
 .checklistDiv {
-    height: 1000px;
+    height: 760px;
 }
 .tablePanel {
     text-align: center;
@@ -216,13 +216,17 @@ input {
     border-width: 5px;
 }
 
-input[type=checkbox]
-{
-    margin-left: 85%;
-    filter: invert(75%) hue-rotate(180deg) brightness(1.7);
-  /* Double-sized Checkboxes */
-  -ms-transform: scale(2); /* IE */
-  -moz-transform: scale(2); /* FF */
-  -webkit-transform: scale(2.5); /* Safari and Chrome */
-  -o-transform: scale(2); /* Opera */
+.pretty.circle label i {
+    padding: 0px;
+}
+
+.pretty i {
+    padding: 0px;
+    font-size: 2em !important;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+.pretty i:before {
+    background-color: transparent;
 }
