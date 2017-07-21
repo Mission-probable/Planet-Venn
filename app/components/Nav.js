@@ -38,7 +38,7 @@ var Nav = React.createClass({
                     </div>
                     <ul className="nav navbar-nav navbar-right">
                         <NavButton link="/rules" class={this.state.rulesClass} text="Rules" />
-                        <NavButton link="/" class={this.state.playClass} text="Play" />
+                        <NavButton link="/play" class={this.state.playClass} text="Play" />
                         <NavButton link="/logout" class={this.state.homeClass} text="Sign Out" />
                     </ul>
                 </div>
