@@ -204,7 +204,7 @@ $(document).on("click", "#guesstherules", function() {
     var rule2guess = $("#rule2guess").val();
 
     if (rule1 === rule1guess && rule2 === rule2guess) {
-        alert("CONGRADULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
+        alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
     } else {
         alert("Sorry, but you are not correct");
     }
