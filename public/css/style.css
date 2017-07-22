@@ -231,3 +231,7 @@ input {
 .pretty i:before {
     background-color: transparent;
 }
+
+button, select {
+    font-size: 30px;
+}

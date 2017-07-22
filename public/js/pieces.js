@@ -195,6 +195,22 @@ $(document).on("click", "#resetPieces", function() {
     $("#right").html(right);
 });
 
+$(document).on("click", "#guesstherules", function() {
+    event.preventDefault();
+    
+    var rule1 = $("#category1").attr("data-rule");
+    var rule2 = $("#category2").attr("data-rule");
+    var rule1guess = $("#rule1guess").val();
+    var rule2guess = $("#rule2guess").val();
+
+    if (rule1 === rule1guess && rule2 === rule2guess) {
+        alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
+    } else {
+        alert("Sorry, but you are not correct");
+    }
+    
+});
+
 // function guessRules() {
 //     alert("All pieces placed");
 //     $("#rule1guess").fadeIn("slow");
