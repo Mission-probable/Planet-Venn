@@ -24,7 +24,8 @@ var Board = React.createClass({
 
                 <div className="row">
                     <div className="col-sm-12">
-                        <div className="welly" id="category4" data-rule="TBD" alreadyPlaced="false" />
+                        <div className="wellys" id="category5" data-rule="TBD" alreadyPlaced="false" />
+                        <img id="category4" data-rule="TBD" alreadyPlaced="false" src="./images/blackhole2.gif" />
                         <h4 className="text-center">Does Not Belong</h4>
                     </div>
                 </div>

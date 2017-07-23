@@ -12,7 +12,8 @@ var Checklist = React.createClass({
         		inputs[i].checked = false; 
     		}  
 		}
-  	},
+		},
+		
     render: function() {
 		return (
 			<div className="row">

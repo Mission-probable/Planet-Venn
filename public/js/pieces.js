@@ -16,6 +16,7 @@ function shuffle(a) {
 var allRules = ["red", "blue", "green", "sat", "alien", "sun", "big", "small"];
 shuffle(allRules);
 checkRules();
+startGame();
 
 // This checks to make sure no 2 rules are the same type (ie, both cannot be colors)
 function checkRules() {
@@ -47,6 +48,7 @@ function checkRules() {
     }
 }
 
+function startGame() {
 // This allows pieces to be draggable/droppable
 $(function() {
     console.log("FINAL - RULE 1 is " + allRules[1]);
@@ -55,8 +57,8 @@ $(function() {
     $("#category1").attr("data-rule", allRules[1]);
     $("#category2").attr("data-rule", allRules[2]);
 
-    $("img").draggable();
-    $("img").mousedown(function() {
+    $(".piece").draggable();
+    $(".piece").mousedown(function() {
         var itemShape = $(this).attr("data-shape");
         var itemColor = $(this).attr("data-color");
         var itemSize = $(this).attr("data-size");
@@ -166,6 +168,7 @@ $(function() {
 
                 if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
                     alreadyPlaced = "true";
+                    $("#" + id).addClass("rotate");
                     $("#" + id).attr("data-placed", "true");
                     console.log("Correct");
                     right++;
@@ -181,12 +184,14 @@ $(function() {
         });
     });
 });
+}
 
 //  This resets all pieces to it's original position
 $(document).on("click", "#resetPieces", function() {
     event.preventDefault();
     // This returns it to it's original position
     $(".piece").removeAttr("style");
+    $(".piece").removeClass("rotate");
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     right = 0;
