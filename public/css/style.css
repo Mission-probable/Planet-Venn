@@ -187,8 +187,10 @@ input {
 }
 
 #category4 {
-  width: 100%;
+  width: 75%;
+  height: 75%;
   margin-top: 0px;
+  margin-left: 10%;
   padding-bottom: 15%;
 }
 
@@ -234,4 +236,23 @@ input {
 
 button, select {
     font-size: 30px;
+}
+
+ #board-container {
+    z-index: -9999;
+} 
+
+.rotate {
+        -webkit-animation: 10s;
+        animation-fill-mode: forwards;
+        animation-name: rotateaway;
+}
+
+@-webkit-keyframes rotateaway {
+		from {
+                -webkit-transform: rotate(0deg) scale(3);
+		}
+		to {
+                -webkit-transform: rotate(359deg) scale(0.01);
+		}
 }

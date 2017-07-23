@@ -4,6 +4,10 @@ var Link = require('react-router').Link;
 
 var Pieces = React.createClass({
 
+componentDidMount: function() {
+  startGame();
+},
+
   render: function () {
     return (
       <div className="row">
