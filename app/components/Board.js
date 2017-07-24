@@ -2,17 +2,12 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
-import Drawer from 'material-ui/Drawer';
 
-import Checklist from './Checklist';
 
 var Board = React.createClass({
     getInitialState: function() {
         return (
-            {
-                value: "",
-                open: false
-            }
+            { value: "" }
         )
     },
 
@@ -22,12 +17,6 @@ var Board = React.createClass({
         )
     },
     
-    handleDrawerToggle: function() {
-        return (
-            this.setState({ open: this.state.open})
-        )
-    },
-
     render: function () {
         return (
             <div className="container">
@@ -56,10 +45,7 @@ var Board = React.createClass({
                     <MenuItem  value={"small"} primaryText="Small" />
                 </DropDownMenu>
            
-                <RaisedButton label="Use Checklist" onTouchTap={this.handleDrawerToggle} />
-                <Drawer width={200} openSecondary={true} open={this.state.open} >
-                 <Checklist />
-                </Drawer>
+                
 
                 <div id="venn">
                     

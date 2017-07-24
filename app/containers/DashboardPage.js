@@ -1,14 +1,16 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import FloatingActionButton from "material-ui/FloatingActionButton"
-import User from 'mui-icons/ionicons/ios-person';
+import Drawer from 'material-ui/Drawer';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Auth from '../utils/Auth';
 import Game from '../components/Game.js';
 import GameSpace from '../components/GameSpace';
 import Footer from '../components/Footer';
+import Checklist from '../components/Checklist';
 
 class DashboardPage extends React.Component {
+
 
   constructor(props) {
     super(props);
@@ -18,7 +20,8 @@ class DashboardPage extends React.Component {
       pieces: {
         sun: '/images/sun.gif',
         sat: '/images/sat.gif',
-        alien: '/images/alien.gif'
+        alien: '/images/alien.gif',
+        open: false
       }
     };
   }
@@ -39,10 +42,22 @@ class DashboardPage extends React.Component {
     });
     xhr.send();
   }
+
+    handleDrawerToggle() {
+        return (
+            this.setState({ open: this.state.open})
+        )
+    }
+
   render() {
     return (
       <div className="container">
-        <AppBar className="Material-AppBar" title= "Planet Venn"> <FloatingActionButton> <User /> </FloatingActionButton> </AppBar>
+        <AppBar className="Material-AppBar" title= "Planet Venn"> 
+            <RaisedButton label="Use Checklist" onTouchTap={this.handleDrawerToggle} />
+            <Drawer openSecondary={true} open={this.state.open} >
+                <Checklist />
+            </Drawer>
+        </AppBar>
         <GameSpace />
         <Footer />
       </div>
