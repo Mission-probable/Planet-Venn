@@ -1,14 +1,13 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
 import AppBar from 'material-ui/AppBar';
-import Drawer from 'material-ui/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
+
 
 import Auth from '../utils/Auth';
 import Game from '../components/Game.js';
 import GameSpace from '../components/GameSpace';
 import Footer from '../components/Footer';
-import Checklist from '../components/Checklist';
+
 
 class DashboardPage extends React.Component {
 
@@ -18,7 +17,6 @@ class DashboardPage extends React.Component {
 
     this.state = {
         secretData: '',
-        open: false,
          pieces: {
             sun: '/images/sun.gif',
             sat: '/images/sat.gif',
@@ -45,22 +43,10 @@ class DashboardPage extends React.Component {
     xhr.send();
   }
 
-    handleDrawerToggle() {
-        return(
-            this.setState({ open: !this.state.open})
-        )
-    }
-
   render() {
     return (
       <div className="container">
         <AppBar className="Material-AppBar" title= "Planet Venn">
-
-                <RaisedButton label="Use Checklist" onTouchTap={this.handleDrawerToggle} />
-                <Drawer openSecondary={true} open={this.state.open} >
-                    <Checklist />
-                </Drawer>
-
         </AppBar>
         <GameSpace />
         <Footer />
