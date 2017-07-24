@@ -49,11 +49,11 @@ var Board = React.createClass({
 
                 <div id="venn">
                     
-                    <div className="welly" id="category1" data-rule="red" alreadyPlaced="false"></div>
+                    <div id="category1" data-rule="red" alreadyPlaced="false"></div>
                     
-                    <div className="welly" id="category3" data-rule="TBD" alreadyPlaced="false"></div>
+                    <div id="category3" data-rule="TBD" alreadyPlaced="false"></div>
                        
-                    <div className="welly" id="category2" data-rule="sun" alreadyPlaced="false"></div>
+                    <div id="category2" data-rule="sun" alreadyPlaced="false"></div>
                     
                 </div>
               

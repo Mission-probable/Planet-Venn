@@ -8,6 +8,7 @@ html {
 }
 
 body {   
+    background-color: #00487B;
     font-family: "Josefin Sans", sans-serif;
     color: #02CBF6;
     margin: 0 0 80px 0;
@@ -48,11 +49,10 @@ header img {
     border-radius: 50%;
 }
 
-/**** navbar styling *****/
-.Material-AppBar {
-    background-color: #00487B !important;
-    color: #02CBF6 !important;
-    font-family: "Megrim", cursive !important;
+/*****nav*****/
+nav {
+    text-align: center;
+    color: white;
 }
 
 /***** footer styling *****/
@@ -90,7 +90,9 @@ header img {
 }
 
 /***** GAME PAGE *****/
-
+#logo {
+    font-family: "Megrim", cursive;
+}
 /*****pieces*****/
 .big {
   padding: 5px;
@@ -129,20 +131,20 @@ header img {
     height: 400px;
     width: 300px;
     border-radius: 50%;
-    border: 1px solid #02CBF6;
     display: flex;
     float: left;
-    opacity: .5;
+    opacity: .9;
     text-align: center;
 }
 
 #category1 {
-    background-color: #F2B979;
+    background-image: url("../images/io.jpg");
+    background-size: cover;
     padding-right: 100px;
 }
 
 #category2 {
-    background-color: red;
+    background-color: #AFB0A3;
     margin-left: -200px;
     padding-left: 100px;
 }
@@ -165,15 +167,9 @@ header img {
   height: 400px;
   margin-top: 10px;
   margin-left: 15%;
-
   border-radius: 50%;
 }
 
-
-.welly {
-    border-style: solid;
-    border-width: 5px;
-}
 
 .pretty.circle label i {
     padding: 0px;

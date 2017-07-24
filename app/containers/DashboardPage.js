@@ -1,7 +1,5 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
-import AppBar from 'material-ui/AppBar';
-
 
 import Auth from '../utils/Auth';
 import Game from '../components/Game.js';
@@ -46,10 +44,27 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-        <AppBar className="Material-AppBar" title= "Planet Venn">
-        </AppBar>
+
+        
+        <nav> 
+            <Row>
+                <Col sm={3}>
+                    <h1 id="logo">PLANET VENN</h1>
+                </Col>
+                <Col sm={6}>
+                    <h4># of moves goes here:</h4>
+                </Col>
+                <Col sm={3}>
+                    <h4>User icon</h4>
+                </Col>
+            </Row>
+        </nav>
+        
+
         <GameSpace />
+        
         <Footer />
+
       </div>
     );
   }
