@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import Auth from '../utils/Auth';
 import LoginForm from '../components/LoginForm.js';
-var Nav = require('../components/Nav');
+
 var Footer = require('../components/Footer')
 
 class LoginPage extends React.Component {
@@ -78,7 +78,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <div>
-          <Nav currentPage="signin" />
+
           <LoginForm
             onSubmit={this.processForm}
             onChange={this.changeUser}

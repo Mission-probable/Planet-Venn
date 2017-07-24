@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from '../components/SignUpForm.js';
-var Nav = require('../components/Nav');
+
 var Footer = require('../components/Footer');
 
 class SignUpPage extends React.Component {
@@ -70,7 +70,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <div>
-          <Nav currentPage="signup" />
+
           <SignUpForm
             onSubmit={this.processForm}
             onChange={this.changeUser}

@@ -1,11 +1,12 @@
 import React from 'react';
+import AppBar from 'material-ui/AppBar';
+import FloatingActionButton from "material-ui/FloatingActionButton"
+import User from 'mui-icons/ionicons/ios-person';
+
 import Auth from '../utils/Auth';
 import Game from '../components/Game.js';
-
-var Nav = require('../components/Nav');
-var Message = require('../components/Message');
-var GameSpace = require('../components/GameSpace');
-var Footer = require('../components/Footer');
+import GameSpace from '../components/GameSpace';
+import Footer from '../components/Footer';
 
 class DashboardPage extends React.Component {
 
@@ -41,10 +42,7 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-        <Nav currentPage="play"/>
-        <div id="message-container" className="row">
-          <Message />
-        </div>
+        <AppBar className="Material-AppBar" title= "Planet Venn"> <FloatingActionButton> <User /> </FloatingActionButton> </AppBar>
         <GameSpace />
         <Footer />
       </div>

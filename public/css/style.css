@@ -29,15 +29,6 @@ a:hover {
     opacity: .8;
 }
 
-button.btn {
-    background-color: #02CBF6;
-    color: #00487B;
-}
-
-button.btn:hover {
-    opacity: .75;
-}
-
 /***** home page ****/
 header {
     text-align: center;
@@ -48,33 +39,17 @@ header h1 {
     font-family: "Megrim", cursive;
     font-size: 100px;
 }
-header button.btn {
-    margin: 30px 20px;
-}
+
 header img {
     border: 2px solid #00487B;
     border-radius: 50%;
 }
 
 /**** navbar styling *****/
-.navbar-default {
-    background-color: #00487B;
-    opacity: .75;
-    border: none;
-    border-bottom: 2px solid #F2B979;
-}
-.container-fluid {
-    background-color: #00487B;
-}
-.navbar-header h1 {
-    font-family: "Megrim", cursive;
-}
-.navbar-header img {
-    border: 2px solid #00487B;
-    border-radius: 50%;
-}
-.hidden-button {
-    display: none;
+.Material-AppBar {
+    background-color: #00487B !important;
+    color: #02CBF6 !important;
+    font-family: "Megrim", cursive !important;
 }
 
 /***** footer styling *****/
@@ -113,16 +88,6 @@ header img {
 }
 
 /***** GAME PAGE *****/
-/*****message component*****/
-#message-container {
-    margin: 20px;
-}
-.panel {
-    background-color: #00487B;
-    opacity: .8;
-    text-align: center;
-    border: 2px solid #F2B979;
-}
 
 /***** checklist component*****/
 .checklistDiv {

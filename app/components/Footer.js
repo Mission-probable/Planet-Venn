@@ -1,6 +1,6 @@
 var React = require("react");
 
-//making this a stateless component since it only needs to render
+//making this a dumb component since it only needs to render
 const Footer = () => {
 	    return (
             <div id="footer">

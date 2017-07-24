@@ -1,15 +1,15 @@
 import React from 'react';
-import { Card, CardTitle } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 var Link = require("react-router").Link;
 
 const HomePage = () => (
   	<div className="container">
-        <div className="row">
-            <header className="col-sm-8 col-sm-offset-2">
+        <div>
+            <header>
                 <h1><img src="./images/planet.jpg" alt="logo" width="100"/> Planet Venn</h1>
-              	<Link to="/signup"><button className="btn btn-lg"> Sign Up </button> </Link>
-               	<Link to="/login"><button className="btn btn-lg"> Sign In </button> </Link>
-                <Link to="/play"><button className="btn btn-lg"> Just Play </button> </Link>
+              	<Link to="/signup"><RaisedButton label="Sign Up" /> </Link>
+               	<Link to="/login"><RaisedButton label="Sign In" /> </Link>
+                <Link to="/play"><RaisedButton label="Just Play" /> </Link>
             </header>
         </div>
 	</div>

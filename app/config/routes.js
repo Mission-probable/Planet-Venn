@@ -6,8 +6,6 @@ import SignUpPage from '../containers/SignUpPage.js';
 import Rules from '../containers/Rules.js';
 import Auth from '../utils/Auth';
 
-import Nav from '../components/Nav.js';
-
 
 const routes = {
   // base component (wrapper for the whole application).

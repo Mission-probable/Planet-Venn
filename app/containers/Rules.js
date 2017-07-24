@@ -1,15 +1,13 @@
 import React, { PropTypes } from 'react';
 
 // components
-var Nav = require("../components/Nav");
+
 var Footer = require("../components/Footer");
 
 var Rules = React.createClass( {
     render: function() {
         return (
             <div className="container">
-
-                <Nav currentPage="rules" />
 
                 <div className="row">
                     <div id="rules-container" className="col-md-10 col-md-offset-1">
