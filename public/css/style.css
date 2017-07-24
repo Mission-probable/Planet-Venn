@@ -253,6 +253,6 @@ button, select {
                 -webkit-transform: rotate(0deg) scale(3);
         }
 		to {
-                -webkit-transform: rotate(-1080deg) scale(0.001);
+                -webkit-transform: rotate(-720deg) scale(0.001);
 		}
 }
