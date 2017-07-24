@@ -9,7 +9,7 @@ componentDidMount: function() {
 
   render: function () {
     return (
-        <div class="container">
+        <div className="container">
               <RaisedButton label="Reset All Pieces" type="button" id="resetPieces" />
               <p>Correct places: <span id="right">0</span></p>
               <p>Incorrect places: <span id="wrong">0</span></p>

@@ -8,7 +8,7 @@ import Checklist from './Checklist';
 var GameSpace = React.createClass({
   render: function () {
     return (
-        <div class="container">
+        <div className="container">
             <Row>
                 <Col sm={3}>
                     <Pieces />
@@ -18,10 +18,6 @@ var GameSpace = React.createClass({
                     <Board />
                 </Col>
             </Row>
-
-            <div id="checklist-container">
-            <Checklist />
-            </div>
 
       </div>
     );

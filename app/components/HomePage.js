@@ -3,8 +3,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 var Link = require("react-router").Link;
 
 const HomePage = () => (
-  	<div className="container">
-        <div>
+
+        <div className="home-page">
             <header>
                 <h1><img src="./images/planet.jpg" alt="logo" width="100"/> Planet Venn</h1>
               	<Link to="/signup"><RaisedButton label="Sign Up" /> </Link>
@@ -12,7 +12,7 @@ const HomePage = () => (
                 <Link to="/play"><RaisedButton label="Just Play" /> </Link>
             </header>
         </div>
-	</div>
+
 );
 
 export default HomePage;

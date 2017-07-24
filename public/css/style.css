@@ -7,9 +7,7 @@ html {
     min-height: 100%;
 }
 
-body {  
-    background-image: url("../images/background3.jpg");
-    background-size: cover;
+body {   
     font-family: "Josefin Sans", sans-serif;
     color: #02CBF6;
     margin: 0 0 80px 0;
@@ -31,6 +29,10 @@ a:hover {
 }
 
 /***** home page ****/
+.home-page {
+    background-image: url("../images/background3.jpg");
+    background-size: cover;
+}
 header {
     text-align: center;
     padding: 50px;
