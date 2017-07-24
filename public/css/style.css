@@ -56,7 +56,6 @@ nav {
 }
 #logo {
     font-family: "Megrim", cursive;
-    text-align: left;
 }
 
 /***** footer styling *****/
@@ -95,8 +94,10 @@ nav {
 }
 
 /***** GAME PAGE *****/
-#button-row {
+#button-container {
+    margin-top: 30px;
     text-align: center;
+    border: yellow 1px solid;
 
 }
 /*****pieces*****/
