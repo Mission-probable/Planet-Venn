@@ -1,12 +1,10 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
-import Drawer from 'material-ui/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
 
 import Auth from '../utils/Auth';
 import GameSpace from '../components/GameSpace';
 import Footer from '../components/Footer';
-import Checklist from '../components/Checklist';
+
 
 class DashboardPage extends React.Component {
 
@@ -20,8 +18,7 @@ class DashboardPage extends React.Component {
             sun: '/images/sun.gif',
             sat: '/images/sat.gif',
             alien: '/images/alien.gif',  
-        },
-    
+        }, 
     };
   }
 
@@ -45,12 +42,12 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-
-        
+    
         <nav> 
             <Row>
-                <Col sm={3} />
-   
+                <Col sm={3}>
+                    <h4>Number of moves here</h4>
+                </Col>
                 <Col sm={6 }>
                     <h1 id="logo">Planet Venn</h1>
                 </Col>

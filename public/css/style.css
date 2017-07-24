@@ -1,32 +1,22 @@
-/* #00487B .75 opacity backgrounds */
-/* #02CBF6 font */
-/* #F2B979 accent */
-
 html {
     position: relative;
     min-height: 100%;
 }
 
 body {   
-    background-color: #00487B;
+    background-color: #002;
     font-family: "Josefin Sans", sans-serif;
-    color: #02CBF6;
+    color: #00BCD4;
     margin: 0 0 120px 0;
 }
-
 .container {
     width: 100%;
     padding: 0;
 }
 
-a {
-    color: #02CBF6;
-}
-
-a:hover {
-    color: #02CBF6;
-    text-decoration: none;
-    opacity: .8;
+.custom-button {
+    background-color:  #00BCD4 !important;
+    font-family: "Josefin Sans", sans-serif;
 }
 
 /***** home page ****/
@@ -48,6 +38,9 @@ header img {
     border: 2px solid #00487B;
     border-radius: 50%;
 }
+.button-spacing {
+    margin: 20px;
+}
 
 /*****nav*****/
 nav {
@@ -56,6 +49,10 @@ nav {
 }
 #logo {
     font-family: "Megrim", cursive;
+    color:  #00BCD4;
+    font-size: 50px;
+    margin: 0;
+    margin-bottom: 10px;
 }
 
 /***** footer styling *****/
@@ -63,16 +60,17 @@ nav {
     position: absolute;
     bottom: 0;
     background-color: #00487B;
+    opacity: .5;
     color: white;
     padding: 10px;
     text-align: center;
     width: 100%;
     height: 80px;
-    border-top: 1px solid #02CBF6
+    border-top: 1px solid  #00BCD4;
 }
 #footer img {
-    border: 1px solid #02CBF6;
-    background-color: #02CBF6;
+    border: 1px solid  #00BCD4;
+    background-color:  #00BCD4;
     border-radius: 50%;
 }
 
@@ -95,10 +93,8 @@ nav {
 
 /***** GAME PAGE *****/
 #button-container {
-    margin-top: 30px;
+    padding: 50px 0 10px 0;
     text-align: center;
-    border: yellow 1px solid;
-
 }
 /*****pieces*****/
 #pieces-container {
@@ -139,8 +135,8 @@ nav {
 
 /*****venn diagram*****/
 #venn div {
-    height: 400px;
-    width: 300px;
+    height: 350px;
+    width: 250px;
     border-radius: 50%;
     display: flex;
     float: left;

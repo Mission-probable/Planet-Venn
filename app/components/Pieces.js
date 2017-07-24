@@ -43,7 +43,6 @@ var Pieces = React.createClass({
     return (
         <div className="container">
             <div id="pieces-container">
-                <h4> Number of moves here </h4>
                 <img id="satBlueBig" className="big piece 1" data-shape="sat" data-color="blue" data-size="big" data-placed="false" src="./images/sat_still.gif" />
                 <img id="alienGreenSmall" className="small piece 2" data-shape="alien" data-color="green" data-size="small" data-placed="false" src="./images/alien_still.gif" />
                 <img id="sunRedBig" className="big piece 3" data-shape="sun" data-color="red" data-size="big" data-placed="false" src="./images/sun_still.gif" />
@@ -75,7 +74,7 @@ var Pieces = React.createClass({
                     </Col>
 
                     <Col sm={6}>
-                    <RaisedButton type="button" label="Make a Guess" id="guesstherules" />
+                    <RaisedButton type="button" label="Make a Guess" id="guesstherules" primary={true} className="button-spacing" />
                     </Col>
 
                     <Col sm={3}>
@@ -94,11 +93,11 @@ var Pieces = React.createClass({
                 <Row>
                     
                     <Col sm={6}>
-                        <RaisedButton label="Reset Pieces" type="button" id="resetPieces" />
+                        <RaisedButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
                     </Col>
 
                     <Col sm={6}>
-                        <RaisedButton label="Use Checklist"  onTouchTap={this.handleDrawerToggle} />
+                        <RaisedButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
                         <Drawer open={this.state.open} openSecondary={true} >
                             <Checklist />
                         </Drawer>
