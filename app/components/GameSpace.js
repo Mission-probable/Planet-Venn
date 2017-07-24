@@ -15,14 +15,21 @@ var GameSpace = React.createClass({
         return (
             { 
                 open: false,
-                value: 1
+                value1: 1,
+                value2: 2
             }
         )
     },
 
-    handleDropDownChange: function(event, index, value) {
+    handleDropDown1Change: function(event, index, value) {
         return (
-            this.setState({ value: value })
+            this.setState({ value1: value })
+        )
+    },
+
+    handleDropDown2Change: function(event, index, value) {
+        return (
+            this.setState({ value2: value })
         )
     },
 
@@ -49,7 +56,7 @@ var GameSpace = React.createClass({
                         </Col>
                         <Col sm={1} />
                         <Col sm={1}>
-                        <DropDownMenu id="rule1guess" value={this.state.value} onChange={this.handleDropDownChange}>
+                        <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
                             <MenuItem value={1} primaryText="Red" />
                             <MenuItem value={2} primaryText="Green" />
                             <MenuItem  value={3} primaryText="Blue" />
@@ -66,7 +73,7 @@ var GameSpace = React.createClass({
                         </Col>
 
                         <Col sm={1}>
-                               <DropDownMenu id="rule2guess" value={this.state.value} onChange={this.handleDropDownChange}>
+                               <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
                             <MenuItem value={1} primaryText="Red" />
                             <MenuItem value={2} primaryText="Green" />
                             <MenuItem  value={3} primaryText="Blue" />
