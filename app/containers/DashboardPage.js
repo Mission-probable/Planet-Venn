@@ -1,24 +1,28 @@
 import React from 'react';
+import { Row, Col } from 'react-grid-system';
+import AppBar from 'material-ui/AppBar';
+
+
 import Auth from '../utils/Auth';
 import Game from '../components/Game.js';
+import GameSpace from '../components/GameSpace';
+import Footer from '../components/Footer';
 
-var Nav = require('../components/Nav');
-var Message = require('../components/Message');
-var GameSpace = require('../components/GameSpace');
-var Footer = require('../components/Footer');
 
 class DashboardPage extends React.Component {
+
 
   constructor(props) {
     super(props);
 
     this.state = {
-      secretData: '',
-      pieces: {
-        sun: '/images/sun.gif',
-        sat: '/images/sat.gif',
-        alien: '/images/alien.gif'
-      }
+        secretData: '',
+         pieces: {
+            sun: '/images/sun.gif',
+            sat: '/images/sat.gif',
+            alien: '/images/alien.gif',  
+        },
+    
     };
   }
 
@@ -38,13 +42,12 @@ class DashboardPage extends React.Component {
     });
     xhr.send();
   }
+
   render() {
     return (
       <div className="container">
-        <Nav currentPage="play"/>
-        <div id="message-container" className="row">
-          <Message />
-        </div>
+        <AppBar className="Material-AppBar" title= "Planet Venn">
+        </AppBar>
         <GameSpace />
         <Footer />
       </div>

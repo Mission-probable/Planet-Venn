@@ -1,26 +1,49 @@
-var React = require('react');
-var DragDropContext = require('react-dnd').DragDropContext;
-var HTML5Backend = require('react-dnd-html5-backend');
-var Pieces = require('./Pieces');
-var Board = require('./Board');
-var Checklist = require('./Checklist');
+import React from 'react';
+import { Row, Col } from "react-grid-system";
+import Drawer from 'material-ui/Drawer';
+import RaisedButton from 'material-ui/RaisedButton';
+
+import Pieces from './Pieces';
+import Board from './Board';
+import Checklist from './Checklist';
+
 
 var GameSpace = React.createClass({
-  render: function () {
-    return (
-      <div id="pieces-container" className="row">
-        <div className="col-sm-3">
-          <Pieces />
-        </div>
-        <div id="board-container" className="col-sm-6">
-          <Board />
-        </div>
-        <div id="checklist-container" className="col-sm-3">
-          <Checklist />
-        </div>
-      </div>
+    getInitialState: function() {
+        return (
+            { open: false }
+        )
+    },
+
+    handleDrawerToggle: function() {
+        return(
+            this.setState({ open: !this.state.open})
+        )
+    },
+
+    render: function () {
+        return (
+            <div className="container">
+                <Row>
+                    <Col sm={3}>
+                        <Pieces />
+                    </Col>
+
+                    <Col sm={9}>
+
+                <RaisedButton label="Checklist" onTouchTap={this.handleDrawerToggle} />
+                <Drawer openSecondary={true} open={this.state.open} >
+                    <Checklist />
+                </Drawer>
+
+                        <Board />
+
+                    </Col>
+   
+                </Row>
+            </div>
     );
   }
 });
 
-module.exports = DragDropContext(HTML5Backend)(GameSpace);
+module.exports = GameSpace;

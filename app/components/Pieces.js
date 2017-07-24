@@ -1,6 +1,5 @@
-// Include React
 import React from 'react';
-var Link = require('react-router').Link;
+import RaisedButton from 'material-ui/RaisedButton';
 
 var Pieces = React.createClass({
 
@@ -10,16 +9,11 @@ componentDidMount: function() {
 
   render: function () {
     return (
-      <div className="row">
-        <div className="col-sm-12">
-          <div className="panel">
-            <div className="panel-heading">
-              <h3 className="panel-title text-center">Playable Pieces</h3>
-              <button type="button" id="resetPieces" className="btn btn-danger btn-sm">Reset All Pieces</button>
+        <div className="container">
+              <RaisedButton label="Reset All Pieces" type="button" id="resetPieces" />
               <p>Correct places: <span id="right">0</span></p>
               <p>Incorrect places: <span id="wrong">0</span></p>
-              <div className="panel-body">
-
+              
                 <img id="satBlueBig" className="big piece 1" data-shape="sat" data-color="blue" data-size="big" data-placed="false" src="./images/sat_still.gif" />
                 <img id="alienGreenSmall" className="small piece 2" data-shape="alien" data-color="green" data-size="small" data-placed="false" src="./images/alien_still.gif" />
                 <img id="sunRedBig" className="big piece 3" data-shape="sun" data-color="red" data-size="big" data-placed="false" src="./images/sun_still.gif" />
@@ -36,13 +30,7 @@ componentDidMount: function() {
                 <img id="sunRedSmall" className="small piece 12" data-shape="sun" data-color="red" data-size="small" data-placed="false" src="./images/sun_still.gif" />
 
               </div>
-            </div>
-          </div>
-        </div>
 
-        {this.props.children}
-
-      </div>
 
     );
   }

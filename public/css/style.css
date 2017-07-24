@@ -7,11 +7,10 @@ html {
     min-height: 100%;
 }
 
-body {  background-image: url("../images/background3.jpg");
-      background-size: cover;
-        font-family: "Josefin Sans", sans-serif;
-      color: #02CBF6;
-        margin: 0 0 80px 0;
+body {   
+    font-family: "Josefin Sans", sans-serif;
+    color: #02CBF6;
+    margin: 0 0 80px 0;
 }
 
 .container {
@@ -29,16 +28,11 @@ a:hover {
     opacity: .8;
 }
 
-button.btn {
-    background-color: #02CBF6;
-    color: #00487B;
-}
-
-button.btn:hover {
-    opacity: .75;
-}
-
 /***** home page ****/
+.home-page {
+    background-image: url("../images/background3.jpg");
+    background-size: cover;
+}
 header {
     text-align: center;
     padding: 50px;
@@ -48,33 +42,17 @@ header h1 {
     font-family: "Megrim", cursive;
     font-size: 100px;
 }
-header button.btn {
-    margin: 30px 20px;
-}
+
 header img {
     border: 2px solid #00487B;
     border-radius: 50%;
 }
 
 /**** navbar styling *****/
-.navbar-default {
-    background-color: #00487B;
-    opacity: .75;
-    border: none;
-    border-bottom: 2px solid #F2B979;
-}
-.container-fluid {
-    background-color: #00487B;
-}
-.navbar-header h1 {
-    font-family: "Megrim", cursive;
-}
-.navbar-header img {
-    border: 2px solid #00487B;
-    border-radius: 50%;
-}
-.hidden-button {
-    display: none;
+.Material-AppBar {
+    background-color: #00487B !important;
+    color: #02CBF6 !important;
+    font-family: "Megrim", cursive !important;
 }
 
 /***** footer styling *****/
@@ -82,9 +60,8 @@ header img {
     position: absolute;
     bottom: 0;
     background-color: #00487B;
-    opacity: .75;;
-    border-top: 2px solid #F2B979;
-    padding-top: 10px;
+    color: white;
+    padding: 10px;
     text-align: center;
     width: 100%;
     height: 80px;
@@ -113,15 +90,124 @@ header img {
 }
 
 /***** GAME PAGE *****/
-/*****message component*****/
-#message-container {
-    margin: 20px;
+
+/*****pieces*****/
+.big {
+  padding: 5px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 100px;
+  height: 100px;
+  z-index: 3;
 }
-.panel {
-    background-color: #00487B;
-    opacity: .8;
+.small {
+  width: 40px;
+  height: 40px;
+  z-index: 5;
+}
+#dropHere7 {
+  z-index: 7;
+}
+#sunRedBig, #sunRedSmall {
+  filter: saturate(4);
+}
+#sunGreenBig, #satRedBig, #alienBlueBig {
+  filter: hue-rotate(90deg);
+}
+#sunBlueSmall {
+  filter: hue-rotate(180deg);
+}
+#satGreenSmall {
+  filter: hue-rotate(235deg);
+}
+#alienRedSmall {
+  filter: hue-rotate(255deg);
+}
+
+/*****venn diagram*****/
+#venn div {
+    height: 400px;
+    width: 300px;
+    border-radius: 50%;
+    border: 1px solid #02CBF6;
+    display: flex;
+    float: left;
+    opacity: .5;
     text-align: center;
-    border: 2px solid #F2B979;
+}
+
+#category1 {
+    background-color: #F2B979;
+    padding-right: 100px;
+}
+
+#category2 {
+    background-color: red;
+    margin-left: -200px;
+    padding-left: 100px;
+}
+
+#venn #category3 {
+    border: 0;
+    height: 250px;
+    width: 100px;
+    left: -100px;
+    top: 100px;
+    position: relative;
+    text-align: center;
+    z-index: 10;
+    opacity: 1;
+}
+
+/*****black hole*****/
+#category4 {
+  width: 400px;
+  height: 400px;
+  margin-top: 10px;
+  margin-left: 15%;
+
+  border-radius: 50%;
+}
+
+
+.welly {
+    border-style: solid;
+    border-width: 5px;
+}
+
+.pretty.circle label i {
+    padding: 0px;
+}
+
+.pretty i {
+    padding: 0px;
+    font-size: 2em !important;
+    margin-top: 20%;
+    margin-left: 20%;
+}
+
+.pretty i:before {
+    background-color: transparent;
+}
+
+
+ #board-container {
+    z-index: -9999;
+} 
+
+.rotate {
+        -webkit-animation: 10s;
+        animation-fill-mode: forwards;
+        animation-name: rotateaway;
+}
+
+@-webkit-keyframes rotateaway {
+		from {
+                -webkit-transform: rotate(0deg) scale(3);
+        }
+		to {
+                -webkit-transform: rotate(-720deg) scale(0.001);
+		}
 }
 
 /***** checklist component*****/
@@ -159,100 +245,3 @@ input {
     background-color: transparent;
 }
 
-
-.big {
-  padding: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 100px;
-  height: 100px;
-  z-index: 3;
-}
-
-.small {
-  width: 40px;
-  height: 40px;
-  z-index: 5;
-}
-
-#dropHere7 {
-  z-index: 7;
-}
-
-#category1, #category2, #category3 {
-    width: 120%;
-    padding-bottom: 75%;
-    margin-top: 25px;
-    margin-left: -20px;
-}
-
-#category4 {
-  width: 75%;
-  height: 75%;
-  margin-top: 0px;
-  margin-left: 10%;
-  padding-bottom: 15%;
-}
-
-#sunRedBig, #sunRedSmall {
-  filter: saturate(4);
-}
-
-#sunGreenBig, #satRedBig, #alienBlueBig {
-  filter: hue-rotate(90deg);
-}
-
-#sunBlueSmall {
-  filter: hue-rotate(180deg);
-}
-
-#satGreenSmall {
-  filter: hue-rotate(235deg);
-}
-
-#alienRedSmall {
-  filter: hue-rotate(255deg);
-}
-
-.welly {
-    border-style: solid;
-    border-width: 5px;
-}
-
-.pretty.circle label i {
-    padding: 0px;
-}
-
-.pretty i {
-    padding: 0px;
-    font-size: 2em !important;
-    margin-top: 20%;
-    margin-left: 20%;
-}
-
-.pretty i:before {
-    background-color: transparent;
-}
-
-button, select {
-    font-size: 30px;
-}
-
- #board-container {
-    z-index: -9999;
-} 
-
-.rotate {
-        -webkit-animation: 10s;
-        animation-fill-mode: forwards;
-        animation-name: rotateaway;
-}
-
-@-webkit-keyframes rotateaway {
-		from {
-                -webkit-transform: rotate(0deg) scale(3);
-        }
-		to {
-                -webkit-transform: rotate(-720deg) scale(0.001);
-		}
-}
