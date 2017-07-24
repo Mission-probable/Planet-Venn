@@ -15,7 +15,7 @@ var GameSpace = React.createClass({
         return (
             { 
                 open: false,
-                value: ""
+                value: 1
             }
         )
     },
@@ -35,51 +35,57 @@ var GameSpace = React.createClass({
     render: function () {
         return (
             <div className="container">
+                <div id="button-row">
+                    <Row>
+                        <Col sm={2}>
+
+                            <RaisedButton label="Reset Pieces" type="button" id="resetPieces" />
+                        </Col>
+                        <Col sm={2}>
+                            <RaisedButton label="Use Checklist"  onTouchTap={this.handleDrawerToggle} />
+                            <Drawer open={this.state.open} openSecondary={true} >
+                                <Checklist />
+                            </Drawer>
+                        </Col>
+                        <Col sm={1} />
+                        <Col sm={1}>
+                        <DropDownMenu id="rule1guess" value={this.state.value} onChange={this.handleDropDownChange}>
+                            <MenuItem value={1} primaryText="Red" />
+                            <MenuItem value={2} primaryText="Green" />
+                            <MenuItem  value={3} primaryText="Blue" />
+                            <MenuItem  value={4} primaryText="Satellite" />
+                            <MenuItem  value={5} primaryText="Alien" />
+                            <MenuItem  value={6} primaryText="Sun" />
+                            <MenuItem  value={7} primaryText="Big" />
+                            <MenuItem  value={8} primaryText="Small" />
+                        </DropDownMenu>
+                        </Col>
+
+                        <Col sm={2}>
+                        <RaisedButton type="button" label="Make a Guess" id="guesstherules" />
+                        </Col>
+
+                        <Col sm={1}>
+                               <DropDownMenu id="rule2guess" value={this.state.value} onChange={this.handleDropDownChange}>
+                            <MenuItem value={1} primaryText="Red" />
+                            <MenuItem value={2} primaryText="Green" />
+                            <MenuItem  value={3} primaryText="Blue" />
+                            <MenuItem  value={4} primaryText="Satellite" />
+                            <MenuItem  value={5} primaryText="Alien" />
+                            <MenuItem  value={6} primaryText="Sun" />
+                            <MenuItem  value={7} primaryText="Big" />
+                            <MenuItem  value={8} primaryText="Small" />
+                        </DropDownMenu>
+                            
+                        </Col>
+                    </Row>
+                </div>
                 
                 <Row>
-                    <Col sm={3}>
-                        <RaisedButton label="Use Checklist"  onTouchTap={this.handleDrawerToggle} />
-                        <Drawer open={this.state.open} openSecondary={true} >
-                            <Checklist />
-                        </Drawer>
-                    </Col>
-                    <Col sm={2}>
-                    <DropDownMenu id="rule1guess" value={this.state.value} onChange={this.handleChange}>
-                        <MenuItem value={"red"} primaryText="Red" />
-                        <MenuItem value={"green"} primaryText="Green" />
-                        <MenuItem  value={"blue"} primaryText="Blue" />
-                        <MenuItem  value={"sat"} primaryText="Satellite" />
-                        <MenuItem  value={"alien"} primaryText="Alien" />
-                        <MenuItem  value={"sun"} primaryText="Sun" />
-                        <MenuItem  value={"big"} primaryText="Big" />
-                        <MenuItem  value={"small"} primaryText="Small" />
-                    </DropDownMenu>
-                    </Col>
-                    <Col sm={2}>
-                     <RaisedButton type="button" label="Make a Guess" id="guesstherules" />
-                    </Col>
-                    <Col sm={2}>
-                        <DropDownMenu id="rule2guess" value={this.state.value} onChange={this.handleChange}>
-                            <MenuItem value={"red"} primaryText="Red" />
-                            <MenuItem value={"green"} primaryText="Green" />
-                            <MenuItem  value={"blue"} primaryText="Blue" />
-                            <MenuItem  value={"sat"} primaryText="Satellite" />
-                            <MenuItem  value={"alien"} primaryText="Alien" />
-                            <MenuItem  value={"sun"} primaryText="Sun" />
-                            <MenuItem  value={"big"} primaryText="Big" />
-                            <MenuItem  value={"small"} primaryText="Small" />
-                        </DropDownMenu>
-                        
-                    </Col>
-                </Row>
-
-                <Row>
-                    <Col sm={3}>
+                    <Col sm={4}>
                         <Pieces />
                     </Col>
-                    <Col sm={1}>
-                    </Col>
-               
+                  
                     <Col sm={8}>
                         <Board />
                     </Col>

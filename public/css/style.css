@@ -19,10 +19,6 @@ body {
     padding: 0;
 }
 
-.center-row {
-    text-align: center !important;
-}
-
 a {
     color: #02CBF6;
 }
@@ -99,10 +95,14 @@ nav {
 }
 
 /***** GAME PAGE *****/
+#button-row {
+    text-align: center;
 
+}
 /*****pieces*****/
 #pieces-container {
     text-align: center;
+    margin: 10px;
 }
 .big {
   padding: 5px;
@@ -173,11 +173,10 @@ nav {
 
 /*****black hole*****/
 #category4 {
-  width: 400px;
-  height: 400px;
-  margin-top: 10px;
-  margin-left: 15%;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
+  margin-left: 20%;
 }
 
 

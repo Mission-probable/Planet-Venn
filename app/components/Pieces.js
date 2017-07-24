@@ -27,10 +27,7 @@ componentDidMount: function() {
             <img id="satRedBig" className="big piece 11" data-shape="sat" data-color="red" data-size="big" data-placed="false" src="./images/sat_still.gif" />
             <img id="sunRedSmall" className="small piece 12" data-shape="sun" data-color="red" data-size="small" data-placed="false" src="./images/sun_still.gif" />
 
-            <RaisedButton label="Reset Pieces" type="button" id="resetPieces" />
         </div>
-
-
     );
   }
 });
