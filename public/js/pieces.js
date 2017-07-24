@@ -2,6 +2,11 @@ let right = 0;
 let wrong = 0;
 var gotboth = 0;
 var only = 0;
+var itemShape = "";
+var itemColor = "";
+var itemSize = "";
+var id = 0;
+var alreadyPlaced = "";
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
@@ -57,39 +62,36 @@ function startGame() {
         $("#category1").attr("data-rule", allRules[1]);
         $("#category2").attr("data-rule", allRules[2]);
 
+        rule1 = $("#category1").attr("data-rule");
+        rule2 = $("#category2").attr("data-rule");
+        state = $(this).attr("data-placed");
+
         $(".piece").draggable();
         $(".piece").mousedown(function() {
-            var itemShape = $(this).attr("data-shape");
-            var itemColor = $(this).attr("data-color");
-            var itemSize = $(this).attr("data-size");
-            var id = this.id;
-            var alreadyPlaced = $("#" + id).attr("data-placed");
-            console.log(alreadyPlaced);
+            itemShape = $(this).attr("data-shape");
+            itemColor = $(this).attr("data-color");
+            itemSize = $(this).attr("data-size");
+            id = this.id;
+            alreadyPlaced = $("#" + id).attr("data-placed");
 
             // This is just for RULE 1 objects
             $("#category1").droppable({
                 drop: function() {
-                    var rule1 = $("#category1").attr("data-rule");
-                    var rule2 = $("#category2").attr("data-rule");
-
                     if (alreadyPlaced === "false") {
-                        
                         if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
                             wrong++;
                             $("#wrong").html(wrong);
-                            console.log("Wrong");
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         } else if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
                             alreadyPlaced = "true";
                             $("#" + id).attr("data-placed", "true");
-                            console.log("Correct");
+                            animate();
                             right++;
                             $("#right").html(right);
                         } else {
                             wrong++;
                             $("#wrong").html(wrong);
-                            console.log("Wrong");
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
@@ -100,27 +102,21 @@ function startGame() {
             // This is just for RULE 2 objects
             $("#category2").droppable({
                 drop: function() {
-                    var rule1 = $("#category1").attr("data-rule");
-                    var rule2 = $("#category2").attr("data-rule");
-
                     if (alreadyPlaced === "false") {
-
                         if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
                             wrong++;
                             $("#wrong").html(wrong);
-                            console.log("Wrong");
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         } else if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
                             alreadyPlaced = "true";
                             $("#" + id).attr("data-placed", "true");
-                            console.log("Correct");
+                            animate();
                             right++;
                             $("#right").html(right);
                         } else {
                             wrong++;
                             $("#wrong").html(wrong);
-                            console.log("Wrong");
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
@@ -132,27 +128,22 @@ function startGame() {
             $("#category3").droppable({
                 drop: function() {
                     if (alreadyPlaced === "false") {
-                        var rule1 = $("#category1").attr("data-rule");
-                        var rule2 = $("#category2").attr("data-rule");
-
                         if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
                             if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
                                 alreadyPlaced = "true";
                                 $("#" + id).attr("data-placed", "true");
-                                console.log("Correct");
+                                animate();
                                 right++;
                                 $("#right").html(right);
                             } else {
                                 wrong++;
                                 $("#wrong").html(wrong);
-                                console.log("Wrong");
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                             }
                         } else {
                                 wrong++;
                                 $("#wrong").html(wrong);
-                                console.log("Wrong");
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                         }
@@ -163,20 +154,18 @@ function startGame() {
             // This is just for objects that don't go into either category
             $("#category4").droppable({
                 drop: function() {
-                    var rule1 = $("#category1").attr("data-rule");
-                    var rule2 = $("#category2").attr("data-rule");
-
+                    
                     if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
+                        $("#" + id).position( { of: $(this), my: 'center', at: 'top+41%' } );
                         alreadyPlaced = "true";
                         $("#" + id).addClass("rotate");
                         $("#" + id).attr("data-placed", "true");
-                        console.log("Correct");
+                        animate();
                         right++;
                         $("#right").html(right);
                     } else {
                         wrong++;
                         $("#wrong").html(wrong);
-                        console.log("Wrong");
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     }
@@ -186,14 +175,42 @@ function startGame() {
     });
 }
 
+function animate() {
+    if (itemShape === "alien" && alreadyPlaced === "true") {
+        $("#" + id).attr("src", "./images/alien.gif");
+    } else if (itemShape === "sat" && alreadyPlaced === "true") {
+        $("#" + id).attr("src", "./images/sat.gif");
+    } else if (itemShape === "sun" && alreadyPlaced === "true") {
+        $("#" + id).attr("src", "./images/sun.gif");
+    }
+}
+
+function stopAnimate() {
+    for (var i = 0; i < 12; i++) {
+        var shape = $("." + i).attr("data-shape");
+        
+        if (shape === "alien" && alreadyPlaced === "true") {
+            $("." + i).attr("src", "./images/alien_still.gif");
+        } else if (shape === "sat" && alreadyPlaced === "true") {
+            $("." + i).attr("src", "./images/sat_still.gif");
+        } else if (shape === "sun" && alreadyPlaced === "true") {
+            $("." + i).attr("src", "./images/sun_still.gif");
+        }
+        $("#" + i).attr("data-placed", "false");
+    }
+}
+
+
 //  This resets all pieces to it's original position
 $(document).on("click", "#resetPieces", function() {
     event.preventDefault();
     // This returns it to it's original position
     $(".piece").removeAttr("style");
     $(".piece").removeClass("rotate");
+    stopAnimate();
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
+    $(".piece").attr("data-placed", "false");
     right = 0;
     wrong = 0;
     $("#wrong").html(wrong);

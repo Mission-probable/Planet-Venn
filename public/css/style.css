@@ -251,8 +251,8 @@ button, select {
 @-webkit-keyframes rotateaway {
 		from {
                 -webkit-transform: rotate(0deg) scale(3);
-		}
+        }
 		to {
-                -webkit-transform: rotate(359deg) scale(0.01);
+                -webkit-transform: rotate(-720deg) scale(0.001);
 		}
 }
