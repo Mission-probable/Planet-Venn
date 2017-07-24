@@ -1,4 +1,5 @@
 import React from 'react';
+import RaisedButton from 'material-ui/RaisedButton';
 
 var Pieces = React.createClass({
 
@@ -9,8 +10,7 @@ componentDidMount: function() {
   render: function () {
     return (
         <div class="container">
-              <h3>Playable Pieces</h3>
-              <button type="button" id="resetPieces">Reset All Pieces</button>
+              <RaisedButton label="Reset All Pieces" type="button" id="resetPieces" />
               <p>Correct places: <span id="right">0</span></p>
               <p>Incorrect places: <span id="wrong">0</span></p>
               

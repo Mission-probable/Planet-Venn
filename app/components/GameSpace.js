@@ -1,22 +1,23 @@
-var React = require('react');
-var DragDropContext = require('react-dnd').DragDropContext;
-var HTML5Backend = require('react-dnd-html5-backend');
-var Pieces = require('./Pieces');
-var Board = require('./Board');
-var Checklist = require('./Checklist');
+import React from 'react';
+import { Row, Col } from "react-grid-system";
+
+import Pieces from './Pieces';
+import Board from './Board';
+import Checklist from './Checklist';
 
 var GameSpace = React.createClass({
   render: function () {
     return (
         <div class="container">
+            <Row>
+                <Col sm={3}>
+                    <Pieces />
+                </Col>
 
-            <div id="pieces-container">
-            <Pieces />
-            </div>
-
-            <div id="board-container">
-            <Board />
-            </div>
+                <Col sm={9}>
+                    <Board />
+                </Col>
+            </Row>
 
             <div id="checklist-container">
             <Checklist />
@@ -27,4 +28,4 @@ var GameSpace = React.createClass({
   }
 });
 
-module.exports = DragDropContext(HTML5Backend)(GameSpace);
+module.exports = GameSpace;
