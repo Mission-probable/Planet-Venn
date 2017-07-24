@@ -1,11 +1,12 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
+import Drawer from 'material-ui/Drawer';
+import RaisedButton from 'material-ui/RaisedButton';
 
 import Auth from '../utils/Auth';
-import Game from '../components/Game.js';
 import GameSpace from '../components/GameSpace';
 import Footer from '../components/Footer';
-
+import Checklist from '../components/Checklist';
 
 class DashboardPage extends React.Component {
 
@@ -49,17 +50,17 @@ class DashboardPage extends React.Component {
         <nav> 
             <Row>
                 <Col sm={3}>
-                    <h1 id="logo">PLANET VENN</h1>
+                    <h1 id="logo">Planet Venn</h1>
                 </Col>
-                <Col sm={6}>
+                <Col sm={6 }>
                     <h4># of moves goes here:</h4>
                 </Col>
+             
                 <Col sm={3}>
                     <h4>User icon</h4>
                 </Col>
             </Row>
         </nav>
-        
 
         <GameSpace />
         
