@@ -1,5 +1,5 @@
 import React from "react";
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 var Checklist = React.createClass({
 	handleClick: function(event) {
@@ -154,7 +154,7 @@ var Checklist = React.createClass({
                         </tr>
                     </tbody>
                 </table>
-                <RaisedButton label="Reset Table" onClick={this.handleClick} primary={true} />
+                <FlatButton label="Reset Table" onClick={this.handleClick} />
             </div>
         </div>		
 		);

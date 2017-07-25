@@ -45,9 +45,8 @@ class DashboardPage extends React.Component {
     
         <nav> 
             <Row>
-                <Col sm={3}>
-                    <h4>Number of moves here</h4>
-                </Col>
+                <Col sm={3} />
+            
                 <Col sm={6 }>
                     <h1 id="logo">Planet Venn</h1>
                 </Col>
