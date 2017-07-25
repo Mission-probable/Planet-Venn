@@ -83,7 +83,17 @@ nav {
 }
 
 /***** GAME PAGE *****/
+#score-container {
+    text-align: center;
+    border: 1px solid #00BCD4;
+    margin-left: 10px;
+}
 
+#make-a-guess {
+    background-color: #00BCD4;
+    margin-left: 10px;
+    text-align: center;
+}
 /*****pieces*****/
 #pieces-container {
     text-align: center;
@@ -126,12 +136,6 @@ nav {
     padding: 50px 0 10px 0;
     text-align: center;
 }
-#make-a-guess {
-    background-color: #00BCD4;
-    margin-left: 10px;
-    text-align: center;
-}
-
 
 /*****venn diagram*****/
 #venn div {
