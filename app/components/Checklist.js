@@ -1,4 +1,5 @@
-var React = require("react");
+import React from "react";
+import RaisedButton from 'material-ui/RaisedButton';
 
 var Checklist = React.createClass({
 	handleClick: function(event) {
@@ -153,7 +154,7 @@ var Checklist = React.createClass({
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" onClick={this.handleClick}>Reset All Cells</button>
+                <RaisedButton label="Reset Table" onClick={this.handleClick} primary={true} />
             </div>
         </div>		
 		);

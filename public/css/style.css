@@ -218,6 +218,7 @@ nav {
     height: 100%;
     background-color: #00BCD4;
     padding: 5px;
+    font-size: 15px;
 }
 .tablePanel {
     text-align: center;
@@ -228,11 +229,7 @@ table, th, td {
     padding: 5px;
 }
 td {
-    padding-top: 8px;
-    padding-bottom: 8px;
-}
-table {
-    margin-left: -12px;
+    padding: 8px 4px;
 }
 #left {
     padding: 10px;
