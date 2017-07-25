@@ -1,5 +1,11 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import IconButton from 'material-ui/IconButton';
+import UserIcon from 'material-ui/svg-icons/action/account-circle';
+import {cyan500} from 'material-ui/styles/colors';
+import { Link } from "react-router";
 
 import Auth from '../utils/Auth';
 import GameSpace from '../components/GameSpace';
@@ -45,15 +51,23 @@ class DashboardPage extends React.Component {
     
         <nav> 
             <Row>
-                <Col sm={3}>
-                    <h4>Number of moves here</h4>
-                </Col>
+                <Col sm={3} />
+            
                 <Col sm={6 }>
                     <h1 id="logo">Planet Venn</h1>
                 </Col>
-             
-                <Col sm={3}>
-                    <h4>User icon</h4>
+                
+                <Col sm={2} />
+
+                <Col sm={1}>
+                    <IconMenu 
+                    iconButtonElement={<IconButton><UserIcon color={cyan500} /></IconButton>}
+                    anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
+                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
+                    >
+                        <MenuItem primaryText="Scores" />
+                        <Link to="/"><MenuItem primaryText="Sign Out" /></Link>
+                    </IconMenu>
                 </Col>
             </Row>
         </nav>

@@ -1,16 +1,20 @@
 import React from 'react';
 import { Row, Col } from "react-grid-system";
 import Drawer from 'material-ui/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
+import Dialog from 'material-ui/Dialog';
 
+import Rules from './Rules';
 import Checklist from './Checklist';
+
 var Pieces = React.createClass({
      getInitialState: function() {
         return (
             { 
-                open: false,
+                drawerOpen: false,
+                rulesOpen: false,
                 value1: 1,
                 value2: 2
             }
@@ -35,13 +39,64 @@ var Pieces = React.createClass({
 
     handleDrawerToggle: function() {
         return(
-            this.setState({ open: !this.state.open})
+            this.setState({ drawerOpen: !this.state.drawerOpen})
+        )
+    },
+
+    handleRulesOpen: function() {
+        return(
+            this.setState({ rulesOpen: true })
+        )
+    },
+
+    handleRulesClose: function() {
+        return(
+            this.setState({ rulesOpen: false })
         )
     },
 
     render: function () {
+
+
     return (
         <div className="container">
+            <div id="score-container">
+                <h2>Score</h2>
+            </div>
+            <div id="make-a-guess">
+                <Row>
+                    
+                    <Col sm={4}>
+                        <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
+                            <MenuItem value={1} primaryText="Red" />
+                            <MenuItem value={2} primaryText="Green" />
+                            <MenuItem  value={3} primaryText="Blue" />
+                            <MenuItem  value={4} primaryText="Satellite" />
+                            <MenuItem  value={5} primaryText="Alien" />
+                            <MenuItem  value={6} primaryText="Sun" />
+                            <MenuItem  value={7} primaryText="Big" />
+                            <MenuItem  value={8} primaryText="Small" />
+                        </DropDownMenu>
+                    </Col>
+
+                    <Col sm={4}>
+                        <FlatButton type="button" label="Guess" id="guesstherules" className="button-spacing" />
+                    </Col>
+
+                    <Col sm={4}>
+                        <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
+                            <MenuItem value={1} primaryText="Red" />
+                            <MenuItem value={2} primaryText="Green" />
+                            <MenuItem  value={3} primaryText="Blue" />
+                            <MenuItem  value={4} primaryText="Satellite" />
+                            <MenuItem  value={5} primaryText="Alien" />
+                            <MenuItem  value={6} primaryText="Sun" />
+                            <MenuItem  value={7} primaryText="Big" />
+                            <MenuItem  value={8} primaryText="Small" />
+                        </DropDownMenu>
+                    </Col>   
+                </Row>
+            </div>
             <div id="pieces-container">
                 <img id="satBlueBig" className="big piece 1" data-shape="sat" data-color="blue" data-size="big" data-placed="false" src="./images/sat_still.gif" />
                 <img id="alienGreenSmall" className="small piece 2" data-shape="alien" data-color="green" data-size="small" data-placed="false" src="./images/alien_still.gif" />
@@ -59,46 +114,22 @@ var Pieces = React.createClass({
                 <img id="sunRedSmall" className="small piece 12" data-shape="sun" data-color="red" data-size="small" data-placed="false" src="./images/sun_still.gif" />
             </div>
             <div id="button-container">
-                <Row>
-                    <Col sm={3}>
-                    <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
-                        <MenuItem value={1} primaryText="Red" />
-                        <MenuItem value={2} primaryText="Green" />
-                        <MenuItem  value={3} primaryText="Blue" />
-                        <MenuItem  value={4} primaryText="Satellite" />
-                        <MenuItem  value={5} primaryText="Alien" />
-                        <MenuItem  value={6} primaryText="Sun" />
-                        <MenuItem  value={7} primaryText="Big" />
-                        <MenuItem  value={8} primaryText="Small" />
-                    </DropDownMenu>
+
+                <Row>  
+                    <Col sm={4}>
+                        <FlatButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
                     </Col>
 
-                    <Col sm={6}>
-                    <RaisedButton type="button" label="Make a Guess" id="guesstherules" primary={true} className="button-spacing" />
+                     <Col sm={4}>
+                        <FlatButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} className="button-spacing" />
+                        <Dialog  actions={<FlatButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
+                            <Rules />
+                        </Dialog>
                     </Col>
 
-                    <Col sm={3}>
-                        <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
-                            <MenuItem value={1} primaryText="Red" />
-                            <MenuItem value={2} primaryText="Green" />
-                            <MenuItem  value={3} primaryText="Blue" />
-                            <MenuItem  value={4} primaryText="Satellite" />
-                            <MenuItem  value={5} primaryText="Alien" />
-                            <MenuItem  value={6} primaryText="Sun" />
-                            <MenuItem  value={7} primaryText="Big" />
-                            <MenuItem  value={8} primaryText="Small" />
-                        </DropDownMenu>
-                    </Col>
-                </Row>
-                <Row>
-                    
-                    <Col sm={6}>
-                        <RaisedButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
-                    </Col>
-
-                    <Col sm={6}>
-                        <RaisedButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
-                        <Drawer open={this.state.open} openSecondary={true} >
+                    <Col sm={4}>
+                        <FlatButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
+                        <Drawer open={this.state.drawerOpen} openSecondary={true} >
                             <Checklist />
                         </Drawer>
                     </Col>

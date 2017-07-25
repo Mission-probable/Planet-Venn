@@ -10,11 +10,11 @@ var GameSpace = React.createClass({
         return (
             <div className="container">                
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={5}>
                         <Pieces />
                     </Col>
                   
-                    <Col sm={8}>
+                    <Col sm={7}>
                         <Board />
                     </Col>
                 </Row>
