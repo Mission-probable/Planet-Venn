@@ -5,7 +5,7 @@ html {
 
 body {   
     background-color: #002;
-    font-family: "Josefin Sans", sans-serif;
+    font-family: "Roboto", sans-serif;
     color: #00BCD4;
     margin: 0 0 60px 0;
 }
@@ -68,8 +68,7 @@ nav {
 
 /***** rules page ****/
 #rules-container {
-    background: #00487B;
-    opacity: .75;
+    color: #002;
 }
 #rules-container li {
     font-size: 20px;

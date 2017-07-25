@@ -120,7 +120,7 @@ var Pieces = React.createClass({
 
                      <Col sm={4}>
                         <RaisedButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} className="button-spacing" />
-                        <Dialog title="Planet Venn Rules" actions={<RaisedButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
+                        <Dialog  actions={<RaisedButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
                             <Rules />
                         </Dialog>
                     </Col>
