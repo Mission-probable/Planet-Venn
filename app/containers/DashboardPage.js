@@ -1,10 +1,7 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
-import AppBar from 'material-ui/AppBar';
-
 
 import Auth from '../utils/Auth';
-import Game from '../components/Game.js';
 import GameSpace from '../components/GameSpace';
 import Footer from '../components/Footer';
 
@@ -21,8 +18,7 @@ class DashboardPage extends React.Component {
             sun: '/images/sun.gif',
             sat: '/images/sat.gif',
             alien: '/images/alien.gif',  
-        },
-    
+        }, 
     };
   }
 
@@ -46,10 +42,26 @@ class DashboardPage extends React.Component {
   render() {
     return (
       <div className="container">
-        <AppBar className="Material-AppBar" title= "Planet Venn">
-        </AppBar>
+    
+        <nav> 
+            <Row>
+                <Col sm={3}>
+                    <h4>Number of moves here</h4>
+                </Col>
+                <Col sm={6 }>
+                    <h1 id="logo">Planet Venn</h1>
+                </Col>
+             
+                <Col sm={3}>
+                    <h4>User icon</h4>
+                </Col>
+            </Row>
+        </nav>
+
         <GameSpace />
+        
         <Footer />
+
       </div>
     );
   }
