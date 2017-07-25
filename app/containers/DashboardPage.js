@@ -54,7 +54,7 @@ class DashboardPage extends React.Component {
                 <Col sm={3} />
             
                 <Col sm={6 }>
-                    <h1 id="logo">Planet Venn</h1>
+                    <Link to="/"><h1 id="logo">Planet Venn</h1></Link>
                 </Col>
                 
                 <Col sm={2} />
@@ -66,7 +66,7 @@ class DashboardPage extends React.Component {
                     targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                     >
                         <MenuItem primaryText="Scores" />
-                        <Link to="/"><MenuItem primaryText="Sign Out" /></Link>
+                        <Link to="/logout"><MenuItem primaryText="Sign Out" /></Link>
                     </IconMenu>
                 </Col>
             </Row>
