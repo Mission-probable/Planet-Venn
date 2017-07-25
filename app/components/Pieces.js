@@ -59,26 +59,11 @@ var Pieces = React.createClass({
                 <img id="sunRedSmall" className="small piece 12" data-shape="sun" data-color="red" data-size="small" data-placed="false" src="./images/sun_still.gif" />
             </div>
             <div id="button-container">
+            <div id="make-a-guess">
                 <Row>
-                    <Col sm={3}>
-                    <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
-                        <MenuItem value={1} primaryText="Red" />
-                        <MenuItem value={2} primaryText="Green" />
-                        <MenuItem  value={3} primaryText="Blue" />
-                        <MenuItem  value={4} primaryText="Satellite" />
-                        <MenuItem  value={5} primaryText="Alien" />
-                        <MenuItem  value={6} primaryText="Sun" />
-                        <MenuItem  value={7} primaryText="Big" />
-                        <MenuItem  value={8} primaryText="Small" />
-                    </DropDownMenu>
-                    </Col>
-
-                    <Col sm={6}>
-                    <RaisedButton type="button" label="Make a Guess" id="guesstherules" primary={true} className="button-spacing" />
-                    </Col>
-
-                    <Col sm={3}>
-                        <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
+                    
+                        <Col sm={4}>
+                        <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
                             <MenuItem value={1} primaryText="Red" />
                             <MenuItem value={2} primaryText="Green" />
                             <MenuItem  value={3} primaryText="Blue" />
@@ -88,10 +73,28 @@ var Pieces = React.createClass({
                             <MenuItem  value={7} primaryText="Big" />
                             <MenuItem  value={8} primaryText="Small" />
                         </DropDownMenu>
-                    </Col>
+                        </Col>
+
+                        <Col sm={4}>
+                        <RaisedButton type="button" label="Guess" id="guesstherules" primary={true} className="button-spacing" />
+                        </Col>
+
+                        <Col sm={4}>
+                            <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
+                                <MenuItem value={1} primaryText="Red" />
+                                <MenuItem value={2} primaryText="Green" />
+                                <MenuItem  value={3} primaryText="Blue" />
+                                <MenuItem  value={4} primaryText="Satellite" />
+                                <MenuItem  value={5} primaryText="Alien" />
+                                <MenuItem  value={6} primaryText="Sun" />
+                                <MenuItem  value={7} primaryText="Big" />
+                                <MenuItem  value={8} primaryText="Small" />
+                            </DropDownMenu>
+                        </Col>
+                   
                 </Row>
-                <Row>
-                    
+ </div>
+                <Row>  
                     <Col sm={6}>
                         <RaisedButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
                     </Col>

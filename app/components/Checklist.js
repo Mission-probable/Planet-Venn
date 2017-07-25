@@ -18,9 +18,9 @@ var Checklist = React.createClass({
 		return (
 			
         <div className="checklistDiv ">
-            <h3 >Help Card (Optional)</h3>
-            <button type="button" onClick={this.handleClick}>Reset All Cells</button>
-            <p>Click cells to place an X if that category is incorrect.</p>
+            <h3 >Checklist (Optional)</h3>
+            
+            <p>Click to place an X if the category is ruled out.</p>
             <div >
                 <table>
                     <thead>
@@ -137,7 +137,7 @@ var Checklist = React.createClass({
                             </td>
                         </tr>
                         <tr>
-                            <td> Little </td>
+                            <td> Small </td>
                             <td className="cell">
                                 <div className="pretty plain o-danger smooth a-jelly">
                                     <input type="checkbox" /> 
@@ -153,6 +153,7 @@ var Checklist = React.createClass({
                         </tr>
                     </tbody>
                 </table>
+                <button type="button" onClick={this.handleClick}>Reset All Cells</button>
             </div>
         </div>		
 		);
