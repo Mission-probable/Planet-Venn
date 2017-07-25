@@ -51,6 +51,12 @@ nav {
     margin-bottom: 50px;
 }
 
+nav button svg {
+    width: 35px !important;
+    height: 35px !important;
+    margin-right: 10px;
+}
+
 /***** footer styling *****/
 #footer {
     position: absolute;
@@ -91,6 +97,7 @@ nav {
 
 #make-a-guess {
     background-color: #00BCD4;
+    margin-bottom: 20px;
     margin-left: 10px;
     text-align: center;
 }

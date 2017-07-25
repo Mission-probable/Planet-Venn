@@ -61,7 +61,7 @@ var Pieces = React.createClass({
     return (
         <div className="container">
             <div id="score-container">
-                <h2>Score: ______</h2>
+                <h2>Score</h2>
             </div>
             <div id="make-a-guess">
                 <Row>
