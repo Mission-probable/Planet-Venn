@@ -1,11 +1,10 @@
 import React from 'react';
 import { Row, Col } from "react-grid-system";
 import Drawer from 'material-ui/Drawer';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';
 import MenuItem from 'material-ui/MenuItem';
 import Dialog from 'material-ui/Dialog';
-
 
 import Rules from './Rules';
 import Checklist from './Checklist';
@@ -78,7 +77,7 @@ var Pieces = React.createClass({
                     </Col>
 
                     <Col sm={4}>
-                        <RaisedButton type="button" label="Guess" id="guesstherules" primary={true} className="button-spacing" />
+                        <FlatButton type="button" label="Guess" id="guesstherules" className="button-spacing" />
                     </Col>
 
                     <Col sm={4}>
@@ -115,18 +114,18 @@ var Pieces = React.createClass({
 
                 <Row>  
                     <Col sm={4}>
-                        <RaisedButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
+                        <FlatButton label="Reset Pieces" type="button" id="resetPieces" primary={true} className="button-spacing" />
                     </Col>
 
                      <Col sm={4}>
-                        <RaisedButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} className="button-spacing" />
-                        <Dialog  actions={<RaisedButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
+                        <FlatButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} className="button-spacing" />
+                        <Dialog  actions={<FlatButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
                             <Rules />
                         </Dialog>
                     </Col>
 
                     <Col sm={4}>
-                        <RaisedButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
+                        <FlatButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
                         <Drawer open={this.state.drawerOpen} openSecondary={true} >
                             <Checklist />
                         </Drawer>

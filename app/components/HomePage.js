@@ -1,6 +1,6 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
-var Link = require("react-router").Link;
+import { Link } from"react-router";
 
 const HomePage = () => (
 
