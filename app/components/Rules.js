@@ -1,8 +1,4 @@
-import React, { PropTypes } from 'react';
-
-// components
-
-var Footer = require("../components/Footer");
+import React from 'react';
 
 var Rules = React.createClass( {
     render: function() {
@@ -22,9 +18,7 @@ var Rules = React.createClass( {
                         </ol>
                     </div>
                 </div>
-                    
-                <Footer />
-
+                
             </div>
         );
     }

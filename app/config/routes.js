@@ -3,7 +3,6 @@ import HomePage from '../components/HomePage.js';
 import DashboardPage from '../containers/DashboardPage.js';
 import LoginPage from '../containers/LoginPage.js';
 import SignUpPage from '../containers/SignUpPage.js';
-import Rules from '../containers/Rules.js';
 import Auth from '../utils/Auth';
 
 
@@ -20,10 +19,6 @@ const routes = {
           callback(null, HomePage);
         }
       }
-    },
-    {
-      path: '/rules',
-      component: Rules
     },
     {
         path: '/play',
