@@ -18,7 +18,6 @@ function shuffle(a) {
 var allRules = ["red", "blue", "green", "sat", "alien", "sun", "big", "small"];
 shuffle(allRules);
 checkRules();
-startGame();
 
 // This checks to make sure no 2 rules are the same type (ie, both cannot be colors)
 function checkRules() {
@@ -53,6 +52,7 @@ function checkRules() {
 function startGame() {
     // This allows pieces to be draggable/droppable
     $(function() {
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
         console.log("FINAL - RULE 1 is " + allRules[1]);
         console.log("FINAL - RULE 2 is " + allRules[2]);
 
