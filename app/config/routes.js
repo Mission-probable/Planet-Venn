@@ -1,8 +1,8 @@
 import Base from '../components/Base.js';
 import HomePage from '../components/HomePage.js';
-import DashboardPage from '../containers/DashboardPage.js';
-import LoginPage from '../containers/LoginPage.js';
-import SignUpPage from '../containers/SignUpPage.js';
+import DashboardPage from '../components/DashboardPage.js';
+import LoginPage from '../components/LoginPage.js';
+import SignUpPage from '../components/SignUpPage.js';
 import Auth from '../utils/Auth';
 
 

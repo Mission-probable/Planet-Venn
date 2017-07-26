@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col } from "react-grid-system";
 
-import Pieces from './Pieces';
-import Board from './Board';
+import Pieces from './grandchildren/Pieces';
+import Board from './grandchildren/Board';
 
 var GameSpace = React.createClass({
     
@@ -10,11 +10,11 @@ var GameSpace = React.createClass({
         return (
             <div className="container">                
                 <Row>
-                    <Col sm={5}>
+                    <Col sm={4}>
                         <Pieces />
                     </Col>
                   
-                    <Col sm={7}>
+                    <Col sm={8}>
                         <Board />
                     </Col>
                 </Row>
