@@ -216,7 +216,7 @@ nav button svg {
     z-index: -9999;
 } 
 
-.rotate {
+.rotateAway {
         -webkit-animation: 10s;
         animation-fill-mode: forwards;
         animation-name: rotateaway;
@@ -224,10 +224,23 @@ nav button svg {
 
 @-webkit-keyframes rotateaway {
 		from {
-                -webkit-transform: rotate(0deg) scale(3);
+                -webkit-transform: rotate(0deg) scale(1);
         }
 		to {
                 -webkit-transform: rotate(-720deg) scale(0.001);
+		}
+}
+
+#rotate {
+		-webkit-animation: rotation 2s infinite linear;
+}
+
+@-webkit-keyframes rotation {
+		from {
+				-webkit-transform: rotate(0deg);
+		}
+		to {
+				-webkit-transform: rotate(359deg);
 		}
 }
 

@@ -1,4 +1,4 @@
-let right = 0;
+let moves = 0;
 var itemShape = "";
 var itemColor = "";
 var itemSize = "";
@@ -18,7 +18,6 @@ function shuffle(a) {
 var allRules = ["red", "blue", "green", "sat", "alien", "sun", "big", "small"];
 shuffle(allRules);
 checkRules();
-startGame();
 
 // This checks to make sure no 2 rules are the same type (ie, both cannot be colors)
 function checkRules() {
@@ -51,9 +50,9 @@ function checkRules() {
 }
 
 function startGame() {
-    $("#newGame").hide();
     // This allows pieces to be draggable/droppable
     $(function() {
+        console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
         console.log("FINAL - RULE 1 is " + allRules[1]);
         console.log("FINAL - RULE 2 is " + allRules[2]);
 
@@ -66,53 +65,12 @@ function startGame() {
 
         $(".piece").draggable();
         $(".piece").mousedown(function() {
+            var dontduplicate = 0;
             itemShape = $(this).attr("data-shape");
             itemColor = $(this).attr("data-color");
             itemSize = $(this).attr("data-size");
             id = this.id;
             alreadyPlaced = $("#" + id).attr("data-placed");
-
-            // This is just for RULE 1 objects
-            $("#category1").droppable({
-                drop: function() {
-                    if (alreadyPlaced === "false") {
-                        if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
-                            $("#" + id).removeAttr("style");
-                            $("#" + id).attr("style", "position: relative");
-                        } else if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
-                            alreadyPlaced = "true";
-                            $("#" + id).attr("data-placed", "true");
-                            animate();
-                            right++;
-                            $("#right").html(right);
-                        } else {
-                            $("#" + id).removeAttr("style");
-                            $("#" + id).attr("style", "position: relative");
-                        }
-                    }
-                }
-            });
-        
-            // This is just for RULE 2 objects
-            $("#category2").droppable({
-                drop: function() {
-                    if (alreadyPlaced === "false") {
-                        if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
-                            $("#" + id).removeAttr("style");
-                            $("#" + id).attr("style", "position: relative");
-                        } else if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
-                            alreadyPlaced = "true";
-                            $("#" + id).attr("data-placed", "true");
-                            animate();
-                            right++;
-                            $("#right").html(right);
-                        } else {
-                            $("#" + id).removeAttr("style");
-                            $("#" + id).attr("style", "position: relative");
-                        }
-                    }
-                }
-            });
 
             // This is just for RULE 1 AND RULE 2 objects
             $("#category3").droppable({
@@ -123,20 +81,59 @@ function startGame() {
                                 alreadyPlaced = "true";
                                 $("#" + id).attr("data-placed", "true");
                                 animate();
-                                right++;
-                                $("#right").html(right);
                             } else {
-
-
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                             }
                         } else {
-
-
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                         }
+                        moves++;
+                        $("#moves").html(moves);
+                        dontduplicate = 1;
+                    }
+                }
+            });
+
+            // This is just for RULE 1 objects
+            $("#category1").droppable({
+                drop: function() {
+                    if (alreadyPlaced === "false" && dontduplicate === 0) {
+                        if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        } else if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
+                            alreadyPlaced = "true";
+                            $("#" + id).attr("data-placed", "true");
+                            animate();
+                        } else {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        }
+                        moves++;
+                        $("#moves").html(moves);
+                    }
+                }
+            });
+        
+            // This is just for RULE 2 objects
+            $("#category2").droppable({
+                drop: function() {
+                    if (alreadyPlaced === "false" && dontduplicate === 0) {
+                        if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        } else if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
+                            alreadyPlaced = "true";
+                            $("#" + id).attr("data-placed", "true");
+                            animate();
+                        } else {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        }
+                        moves++;
+                        $("#moves").html(moves);
                     }
                 }
             });
@@ -144,19 +141,19 @@ function startGame() {
             // This is just for objects that don't go into either category
             $("#category4").droppable({
                 drop: function() {
-                    
-                    if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
-                        // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
-                        alreadyPlaced = "true";
-                        $("#" + id).addClass("rotate blackhole");
-                        $("#" + id).attr("data-placed", "true");
-                        animate();
-                        right++;
-                        $("#right").html(right);
-                    } else {
-                        wrong++
-                        $("#" + id).removeAttr("style");
-                        $("#" + id).attr("style", "position: relative");
+                    if (alreadyPlaced === "false" && dontduplicate === 0) {
+                        if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
+                            // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
+                            alreadyPlaced = "true";
+                            $("#" + id).addClass("rotate blackhole");
+                            $("#" + id).attr("data-placed", "true");
+                            animate();
+                        } else {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        }
+                        moves++;
+                        $("#moves").html(moves);
                     }
                 }
             });
@@ -189,20 +186,22 @@ function stopAnimate() {
     }
 }
 
-
-//  This resets all pieces to it's original position
-$(document).on("click", "#resetPieces", function() {
-    event.preventDefault();
+function resetPieces() {
     // This returns it to it's original position
     $(".piece").removeAttr("style");
-    $(".piece").removeClass("rotateAway rotate");
+    $(".piece").removeClass("rotateAway rotate blackhole");
     stopAnimate();
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     $(".piece").attr("data-placed", "false");
-    right = 0;
-    wron
-    $("#right").html(right);
+    moves = 0;
+    $("#moves").html(moves);
+}
+
+//  This resets all pieces to it's original position
+$(document).on("click", "#resetPieces", function() {
+    event.preventDefault();
+    resetPieces();
 });
 
 $(document).on("click", "#guesstherules", function() {
@@ -216,14 +215,30 @@ $(document).on("click", "#guesstherules", function() {
     if (rule1 === rule1guess && rule2 === rule2guess) {
         alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
     } else {
-        alert("Sorry, but you are not correct");
         $(".blackhole").toggleClass("rotate rotateAway");
-        $("#newGame").show();
     }
 });
 
-// function guessRules() {
-//     alert("All pieces placed");
-//     $("#rule1guess").fadeIn("slow");
-//     $("#rule2guess").fadeIn("slow");
-// }
+function playAgain() {
+    resetPieces();
+    shuffle(allRules);
+    checkRules();
+    startGame();
+};
+
+
+
+
+
+// These functions are for the snackbar in Pieces.js component
+    // For testing, 
+    // For a correct guess, enter a = 1
+    // For an incorrect guess, enter a = 0
+function getMessage() {
+    var a = 1;
+    if (a === 1) {
+        return "CONGRATULATIONS, YOU HAVE WON!!";
+    } else {
+        return "Sorry, you guessed incorrectly";
+    }
+}
