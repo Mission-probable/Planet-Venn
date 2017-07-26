@@ -1,7 +1,4 @@
 let right = 0;
-let wrong = 0;
-var gotboth = 0;
-var only = 0;
 var itemShape = "";
 var itemColor = "";
 var itemSize = "";
@@ -54,6 +51,7 @@ function checkRules() {
 }
 
 function startGame() {
+    $("#newGame").hide();
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("FINAL - RULE 1 is " + allRules[1]);
@@ -79,8 +77,6 @@ function startGame() {
                 drop: function() {
                     if (alreadyPlaced === "false") {
                         if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
-                            wrong++;
-                            $("#wrong").html(wrong);
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         } else if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
@@ -90,8 +86,6 @@ function startGame() {
                             right++;
                             $("#right").html(right);
                         } else {
-                            wrong++;
-                            $("#wrong").html(wrong);
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
@@ -104,8 +98,6 @@ function startGame() {
                 drop: function() {
                     if (alreadyPlaced === "false") {
                         if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
-                            wrong++;
-                            $("#wrong").html(wrong);
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         } else if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
@@ -115,8 +107,6 @@ function startGame() {
                             right++;
                             $("#right").html(right);
                         } else {
-                            wrong++;
-                            $("#wrong").html(wrong);
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
@@ -136,14 +126,14 @@ function startGame() {
                                 right++;
                                 $("#right").html(right);
                             } else {
-                                wrong++;
-                                $("#wrong").html(wrong);
+
+
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                             }
                         } else {
-                                wrong++;
-                                $("#wrong").html(wrong);
+
+
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                         }
@@ -156,16 +146,15 @@ function startGame() {
                 drop: function() {
                     
                     if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
-                        $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
+                        // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
                         alreadyPlaced = "true";
-                        $("#" + id).addClass("rotate");
+                        $("#" + id).addClass("rotate blackhole");
                         $("#" + id).attr("data-placed", "true");
                         animate();
                         right++;
                         $("#right").html(right);
                     } else {
-                        wrong++;
-                        $("#wrong").html(wrong);
+                        wrong++
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     }
@@ -206,14 +195,13 @@ $(document).on("click", "#resetPieces", function() {
     event.preventDefault();
     // This returns it to it's original position
     $(".piece").removeAttr("style");
-    $(".piece").removeClass("rotate");
+    $(".piece").removeClass("rotateAway rotate");
     stopAnimate();
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     $(".piece").attr("data-placed", "false");
     right = 0;
-    wrong = 0;
-    $("#wrong").html(wrong);
+    wron
     $("#right").html(right);
 });
 
@@ -229,8 +217,9 @@ $(document).on("click", "#guesstherules", function() {
         alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
     } else {
         alert("Sorry, but you are not correct");
+        $(".blackhole").toggleClass("rotate rotateAway");
+        $("#newGame").show();
     }
-    
 });
 
 // function guessRules() {
