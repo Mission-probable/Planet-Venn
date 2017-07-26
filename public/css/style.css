@@ -80,15 +80,6 @@ nav button svg {
     border-radius: 50%;
 }
 
-/***** rules page ****/
-#rules-container {
-    color: #002;
-}
-#rules-container li {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
 /***** auth forms *****/
 #LogInForm, #signUpForm {
   margin: 0 auto;
@@ -194,34 +185,26 @@ nav button svg {
   border-radius: 50%;
   margin-left: 20%;
 }
-
-
 .pretty.circle label i {
     padding: 0px;
 }
-
 .pretty i {
     padding: 0px;
     font-size: 2em !important;
     margin-top: 20%;
     margin-left: 20%;
 }
-
 .pretty i:before {
     background-color: transparent;
 }
-
-
- #board-container {
+#board-container {
     z-index: -9999;
 } 
-
 .rotateAway {
         -webkit-animation: 10s;
         animation-fill-mode: forwards;
         animation-name: rotateaway;
 }
-
 @-webkit-keyframes rotateaway {
 		from {
                 -webkit-transform: rotate(0deg) scale(1);
@@ -230,11 +213,9 @@ nav button svg {
                 -webkit-transform: rotate(-720deg) scale(0.001);
 		}
 }
-
 #rotate {
 		-webkit-animation: rotation 2s infinite linear;
 }
-
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);
@@ -276,4 +257,13 @@ input {
     margin: 0;
     text-align: center;
     background-color: transparent;
+}
+
+/***** rules modal ****/
+#rules-container {
+    color: #002;
+}
+#rules-container li {
+    font-size: 20px;
+    margin-bottom: 10px;
 }

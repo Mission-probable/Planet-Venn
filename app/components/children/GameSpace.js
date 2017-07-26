@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col } from "react-grid-system";
 
-import Pieces from './grandchildren/Pieces';
+import Play from './grandchildren/Play';
 import Board from './grandchildren/Board';
 
 var GameSpace = React.createClass({
@@ -11,7 +11,7 @@ var GameSpace = React.createClass({
             <div className="container">                
                 <Row>
                     <Col sm={4}>
-                        <Pieces />
+                        <Play />
                     </Col>
                   
                     <Col sm={8}>
@@ -23,4 +23,4 @@ var GameSpace = React.createClass({
     }
 });
 
-module.exports = GameSpace;
+export default GameSpace;
