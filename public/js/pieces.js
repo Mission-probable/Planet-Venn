@@ -1,9 +1,10 @@
-let right = 0;
+let moves = 0;
 var itemShape = "";
 var itemColor = "";
 var itemSize = "";
 var id = 0;
 var alreadyPlaced = "";
+$("#restart").hide();
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
@@ -51,7 +52,7 @@ function checkRules() {
 }
 
 function startGame() {
-    $("#newGame").hide();
+    $("#restart").hide();
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("FINAL - RULE 1 is " + allRules[1]);
@@ -72,6 +73,33 @@ function startGame() {
             id = this.id;
             alreadyPlaced = $("#" + id).attr("data-placed");
 
+
+            // This is just for RULE 1 AND RULE 2 objects
+            $("#category3").droppable({
+                drop: function() {
+                    if (alreadyPlaced === "false") {
+                        if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
+                            if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
+                                alreadyPlaced = "true";
+                                $("#" + id).attr("data-placed", "true");
+                                animate();
+                            } else {
+                                $("#" + id).removeAttr("style");
+                                $("#" + id).attr("style", "position: relative");
+                            }
+                        } else {
+                                $("#" + id).removeAttr("style");
+                                $("#" + id).attr("style", "position: relative");
+                        }
+                    }
+                    moves++;
+                    $("#moves").html(moves);
+                }
+            });
+
+
+
+
             // This is just for RULE 1 objects
             $("#category1").droppable({
                 drop: function() {
@@ -83,13 +111,13 @@ function startGame() {
                             alreadyPlaced = "true";
                             $("#" + id).attr("data-placed", "true");
                             animate();
-                            right++;
-                            $("#right").html(right);
                         } else {
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
                     }
+                    moves++;
+                    $("#moves").html(moves);
                 }
             });
         
@@ -104,60 +132,33 @@ function startGame() {
                             alreadyPlaced = "true";
                             $("#" + id).attr("data-placed", "true");
                             animate();
-                            right++;
-                            $("#right").html(right);
                         } else {
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
                     }
+                    moves++;
+                    $("#moves").html(moves);
                 }
             });
 
-            // This is just for RULE 1 AND RULE 2 objects
-            $("#category3").droppable({
-                drop: function() {
-                    if (alreadyPlaced === "false") {
-                        if (rule1 === itemShape || rule1 === itemColor || rule1 === itemSize) {
-                            if (rule2 === itemShape || rule2 === itemColor || rule2 === itemSize) {
-                                alreadyPlaced = "true";
-                                $("#" + id).attr("data-placed", "true");
-                                animate();
-                                right++;
-                                $("#right").html(right);
-                            } else {
-
-
-                                $("#" + id).removeAttr("style");
-                                $("#" + id).attr("style", "position: relative");
-                            }
-                        } else {
-
-
-                                $("#" + id).removeAttr("style");
-                                $("#" + id).attr("style", "position: relative");
-                        }
-                    }
-                }
-            });
+            
 
             // This is just for objects that don't go into either category
             $("#category4").droppable({
                 drop: function() {
-                    
                     if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
                         // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
                         alreadyPlaced = "true";
                         $("#" + id).addClass("rotate blackhole");
                         $("#" + id).attr("data-placed", "true");
                         animate();
-                        right++;
-                        $("#right").html(right);
                     } else {
-                        wrong++
                         $("#" + id).removeAttr("style");
                         $("#" + id).attr("style", "position: relative");
                     }
+                    moves++;
+                    $("#moves").html(moves);
                 }
             });
         });
@@ -200,9 +201,8 @@ $(document).on("click", "#resetPieces", function() {
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     $(".piece").attr("data-placed", "false");
-    right = 0;
-    wron
-    $("#right").html(right);
+    moves = 0;
+    $("#moves").html(moves);
 });
 
 $(document).on("click", "#guesstherules", function() {
@@ -218,12 +218,12 @@ $(document).on("click", "#guesstherules", function() {
     } else {
         alert("Sorry, but you are not correct");
         $(".blackhole").toggleClass("rotate rotateAway");
-        $("#newGame").show();
+        $("#restart").show();
     }
 });
 
-// function guessRules() {
-//     alert("All pieces placed");
-//     $("#rule1guess").fadeIn("slow");
-//     $("#rule2guess").fadeIn("slow");
-// }
+$(document).on("click", "#restart", function() {
+    shuffle(allRules);
+    checkRules();
+    startGame();
+});
