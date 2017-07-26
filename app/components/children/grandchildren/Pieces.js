@@ -86,7 +86,9 @@ var Pieces = React.createClass({
     return (
         <div className="container">
             <div id="score-container">
+
                 <h2>Moves made: <span id="moves">0</span></h2>
+
             </div>
             <div id="make-a-guess">
                 <Row>
