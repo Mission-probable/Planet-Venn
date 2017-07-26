@@ -8,8 +8,8 @@ import {cyan500} from 'material-ui/styles/colors';
 import { Link } from "react-router";
 
 import Auth from '../utils/Auth';
-import GameSpace from '../components/GameSpace';
-import Footer from '../components/Footer';
+import GameSpace from './children/GameSpace';
+import Footer from './children/Footer';
 
 
 class DashboardPage extends React.Component {
@@ -80,6 +80,5 @@ class DashboardPage extends React.Component {
     );
   }
 }
-
 export default DashboardPage;
 
