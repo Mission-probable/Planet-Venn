@@ -4,7 +4,6 @@ var itemColor = "";
 var itemSize = "";
 var id = 0;
 var alreadyPlaced = "";
-var dontduplicate = 0;
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
@@ -66,6 +65,7 @@ function startGame() {
 
         $(".piece").draggable();
         $(".piece").mousedown(function() {
+            var dontduplicate = 0;
             itemShape = $(this).attr("data-shape");
             itemColor = $(this).attr("data-color");
             itemSize = $(this).attr("data-size");
@@ -89,9 +89,9 @@ function startGame() {
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                         }
-                        dontduplicate = 1;
                         moves++;
                         $("#moves").html(moves);
+                        dontduplicate = 1;
                     }
                 }
             });
@@ -111,8 +111,8 @@ function startGame() {
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
-                            moves++;
-                            $("#moves").html(moves);
+                        moves++;
+                        $("#moves").html(moves);
                     }
                 }
             });
@@ -134,12 +134,9 @@ function startGame() {
                         }
                         moves++;
                         $("#moves").html(moves);
-                        dontduplicate = 0;
                     }
                 }
             });
-
-            
 
             // This is just for objects that don't go into either category
             $("#category4").droppable({
@@ -192,7 +189,7 @@ function stopAnimate() {
 function resetPieces() {
     // This returns it to it's original position
     $(".piece").removeAttr("style");
-    $(".piece").removeClass("rotateAway rotate");
+    $(".piece").removeClass("rotateAway rotate blackhole");
     stopAnimate();
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
