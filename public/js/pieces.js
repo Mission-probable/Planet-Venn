@@ -156,7 +156,7 @@ function startGame() {
                 drop: function() {
                     
                     if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
-                        $("#" + id).position( { of: $(this), my: 'center', at: 'top+41%' } );
+                        $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
                         alreadyPlaced = "true";
                         $("#" + id).addClass("rotate");
                         $("#" + id).attr("data-placed", "true");
