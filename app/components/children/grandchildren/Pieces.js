@@ -9,6 +9,10 @@ import Dialog from 'material-ui/Dialog';
 import Rules from './great-grandchildren/Rules';
 import Checklist from './great-grandchildren/Checklist';
 
+import Snackbar from 'material-ui/Snackbar';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+
 var Pieces = React.createClass({
      getInitialState: function() {
         return (
@@ -16,7 +20,10 @@ var Pieces = React.createClass({
                 drawerOpen: false,
                 rulesOpen: false,
                 value1: 1,
-                value2: 2
+                value2: 2,
+                message: getMessage(),
+                action: 'RESTART GAME?',
+                open: false,
             }
         )
     },
@@ -55,13 +62,31 @@ var Pieces = React.createClass({
         )
     },
 
-    render: function () {
+    // For the snackbar component
+    handleTouchTap: function() {
+        this.setState({
+        open: true,
+        });
+    },
 
+    // IF THE USER GUESSED CORRECTLY
+    handleActionTouchTap: function() {
+        this.setState({
+        open: false,
+        });
+        playAgain();
+    },
+
+    handleRequestClose: function() {
+        this.setState({ open: false, });
+    },
+
+    render: function () {
 
     return (
         <div className="container">
             <div id="score-container">
-                <h2>Score</h2>
+                <h2>Moves made: <span id="moves">0</span></h2>
             </div>
             <div id="make-a-guess">
                 <Row>
@@ -80,7 +105,9 @@ var Pieces = React.createClass({
                     </Col>
 
                     <Col sm={4}>
-                        <FlatButton type="button" label="Guess" id="guesstherules" className="button-spacing" />
+
+                        <FlatButton onTouchTap={this.handleTouchTap} label="Guess" id="guesstherules" className="button-spacing" />
+                        <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
                     </Col>
 
                     <Col sm={4}>
@@ -135,6 +162,7 @@ var Pieces = React.createClass({
                     </Col>
          
                 </Row>
+
             </div>
         </div>
     );

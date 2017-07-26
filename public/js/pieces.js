@@ -4,7 +4,7 @@ var itemColor = "";
 var itemSize = "";
 var id = 0;
 var alreadyPlaced = "";
-$("#restart").hide();
+var dontduplicate = 0;
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
@@ -52,7 +52,6 @@ function checkRules() {
 }
 
 function startGame() {
-    $("#restart").hide();
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("FINAL - RULE 1 is " + allRules[1]);
@@ -73,7 +72,6 @@ function startGame() {
             id = this.id;
             alreadyPlaced = $("#" + id).attr("data-placed");
 
-
             // This is just for RULE 1 AND RULE 2 objects
             $("#category3").droppable({
                 drop: function() {
@@ -91,14 +89,12 @@ function startGame() {
                                 $("#" + id).removeAttr("style");
                                 $("#" + id).attr("style", "position: relative");
                         }
+                        dontduplicate = 1;
+                        moves++;
+                        $("#moves").html(moves);
                     }
-                    moves++;
-                    $("#moves").html(moves);
                 }
             });
-
-
-
 
             // This is just for RULE 1 objects
             $("#category1").droppable({
@@ -115,9 +111,11 @@ function startGame() {
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
+                        if (dontduplicate === 0) {
+                            moves++;
+                            $("#moves").html(moves);
+                        }
                     }
-                    moves++;
-                    $("#moves").html(moves);
                 }
             });
         
@@ -136,9 +134,12 @@ function startGame() {
                             $("#" + id).removeAttr("style");
                             $("#" + id).attr("style", "position: relative");
                         }
+                        if (dontduplicate === 0) {
+                            moves++;
+                            $("#moves").html(moves);
+                        }
+                        dontduplicate = 0;
                     }
-                    moves++;
-                    $("#moves").html(moves);
                 }
             });
 
@@ -147,18 +148,20 @@ function startGame() {
             // This is just for objects that don't go into either category
             $("#category4").droppable({
                 drop: function() {
-                    if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
-                        // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
-                        alreadyPlaced = "true";
-                        $("#" + id).addClass("rotate blackhole");
-                        $("#" + id).attr("data-placed", "true");
-                        animate();
-                    } else {
-                        $("#" + id).removeAttr("style");
-                        $("#" + id).attr("style", "position: relative");
+                    if (alreadyPlaced === "false") {
+                        if (rule1 != itemShape && rule1 != itemColor && rule1 != itemSize && rule2 != itemShape && rule2 != itemColor && rule2 != itemSize) {
+                            // $("#" + id).position( { of: $(this), my: 'center', at: 'center' } );
+                            alreadyPlaced = "true";
+                            $("#" + id).addClass("rotate blackhole");
+                            $("#" + id).attr("data-placed", "true");
+                            animate();
+                        } else {
+                            $("#" + id).removeAttr("style");
+                            $("#" + id).attr("style", "position: relative");
+                        }
+                        moves++;
+                        $("#moves").html(moves);
                     }
-                    moves++;
-                    $("#moves").html(moves);
                 }
             });
         });
@@ -190,10 +193,7 @@ function stopAnimate() {
     }
 }
 
-
-//  This resets all pieces to it's original position
-$(document).on("click", "#resetPieces", function() {
-    event.preventDefault();
+function resetPieces() {
     // This returns it to it's original position
     $(".piece").removeAttr("style");
     $(".piece").removeClass("rotateAway rotate");
@@ -203,6 +203,12 @@ $(document).on("click", "#resetPieces", function() {
     $(".piece").attr("data-placed", "false");
     moves = 0;
     $("#moves").html(moves);
+}
+
+//  This resets all pieces to it's original position
+$(document).on("click", "#resetPieces", function() {
+    event.preventDefault();
+    resetPieces();
 });
 
 $(document).on("click", "#guesstherules", function() {
@@ -213,17 +219,38 @@ $(document).on("click", "#guesstherules", function() {
     var rule1guess = $("#rule1guess").val();
     var rule2guess = $("#rule2guess").val();
 
-    if (rule1 === rule1guess && rule2 === rule2guess) {
-        alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
-    } else {
-        alert("Sorry, but you are not correct");
-        $(".blackhole").toggleClass("rotate rotateAway");
-        $("#restart").show();
-    }
+    // if (rule1 === rule1guess && rule2 === rule2guess) {
+    //     alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
+    // } else {
+    //     $(".blackhole").toggleClass("rotate rotateAway");
+    // }
 });
 
-$(document).on("click", "#restart", function() {
+function playAgain() {
+    resetPieces();
     shuffle(allRules);
     checkRules();
     startGame();
-});
+};
+
+
+
+
+
+// These functions are for the snackbar in Pieces.js component
+    // For testing, 
+    // For a correct guess, enter a = 1
+    // For an incorrect guess, enter a = 0
+function getMessage() {
+    var a = 1;
+    if (a === 1) {
+        blackholeSuck();
+        return "CONGRATULATIONS, YOU HAVE WON!!";
+    } else {
+        return "Sorry, you guessed incorrectly";
+    }
+}
+
+function blackholeSuck() {
+    $(".blackhole").toggleClass("rotate rotateAway");
+}
