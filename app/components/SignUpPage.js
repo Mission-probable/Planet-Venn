@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import SignUpForm from './children/SignUpForm.js';
 
-var Footer = require('./children/Footer');
+import Footer from './children/Footer';
 
 class SignUpPage extends React.Component {
   constructor(props, context) {

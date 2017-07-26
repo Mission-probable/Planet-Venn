@@ -12,20 +12,13 @@ import GameSpace from './children/GameSpace';
 import Footer from './children/Footer';
 import Score from './children/grandchildren/great-grandchildren/Score';
 
-
 class DashboardPage extends React.Component {
-
 
   constructor(props) {
     super(props);
 
     this.state = {
-        secretData: '',
-         pieces: {
-            sun: '/images/sun.gif',
-            sat: '/images/sat.gif',
-            alien: '/images/alien.gif',  
-        }, 
+        secretData: ''
     };
   }
 
@@ -48,7 +41,7 @@ class DashboardPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
     
         <nav> 
             <Row>
