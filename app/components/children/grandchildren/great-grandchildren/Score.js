@@ -21,7 +21,6 @@ class Score extends Component {
         this.handleTouchTap = this.handleTouchTap.bind(this);
         this.handleActionTouchTap = this.handleActionTouchTap.bind(this);
         this.handleRequestClose = this.handleRequestClose.bind(this);
-
     }
 
     componentDidMount() {
