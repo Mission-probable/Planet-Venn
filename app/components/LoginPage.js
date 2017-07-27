@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
+
 import Auth from '../utils/Auth';
 import LoginForm from './children/LoginForm.js';
-
-var Footer = require('./children/Footer')
+import Footer from './children/Footer';
 
 class LoginPage extends React.Component {
 

@@ -1,38 +1,32 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Row, Col } from "react-grid-system";
 
-var Board = React.createClass({
+class Board extends Component {
    
-    render: function () {
+    render() {
         return (
-            <div className="container">
-              
+            <div>   
                 <Row>
-                    <div id="venn">
-                        
+                    <div id="venn">                    
                         <div id="category1" data-rule="red" alreadyPlaced="false"></div>
                         
                         <div id="category3" data-rule="TBD" alreadyPlaced="false"></div>
-                        
-                        <div id="category2" data-rule="sun" alreadyPlaced="false"></div>
-                        
+         
+                        <div id="category2" data-rule="sun" alreadyPlaced="false"></div>           
                     </div>
-                </Row>
-              
+                </Row>           
                 <div>
                     <div>
                        
                         <div id="category5" data-rule="TBD" alreadyPlaced="false"></div>
-                        <img id="category4" data-rule="TBD" alreadyPlaced="false" src="./images/blackhole2.gif" />
                         
-                    </div>
-        
-                   
+                        <img id="category4" data-rule="TBD" alreadyPlaced="false" src="./images/blackhole2.gif" />                 
+                    </div>     
                 </div>
            </div>
         );
     }
-});
+};
 
-module.exports = Board;
+export default Board;
 

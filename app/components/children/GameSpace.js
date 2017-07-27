@@ -1,26 +1,28 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Row, Col } from "react-grid-system";
 
 import Pieces from './grandchildren/Pieces';
 import Board from './grandchildren/Board';
+import Options from './grandchildren/Options';
 
-var GameSpace = React.createClass({
+class GameSpace extends Component{
     
-    render: function () {
+    render() {
         return (
-            <div className="container">                
+            <div>                
                 <Row>
-                    <Col sm={4}>
+                    <Col sm={3}>
                         <Pieces />
                     </Col>
                   
-                    <Col sm={8}>
+                    <Col sm={9}>
                         <Board />
                     </Col>
                 </Row>
+                <Options />
             </div>
         );
     }
-});
+};
 
-module.exports = GameSpace;
+export default GameSpace;

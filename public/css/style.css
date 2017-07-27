@@ -9,10 +9,6 @@ body {
     color: #00BCD4;
     margin: 0 0 60px 0;
 }
-.container {
-    width: 100%;
-    padding: 0;
-}
 
 a {
     text-decoration: none;
@@ -22,10 +18,14 @@ a:active {
     text-decoration: none;
 }
 
-/***** home page ****/
+/********************** HOME PAGE ********************/
 .home-page {
     background-image: url("../images/background3.jpg");
     background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 header {
     text-align: center;
@@ -36,7 +36,6 @@ header h1 {
     font-family: "Megrim", cursive;
     font-size: 100px;
 }
-
 header img {
     border: 2px solid #00487B;
     border-radius: 50%;
@@ -44,6 +43,24 @@ header img {
 .button-spacing {
     margin: 20px;
 }
+#scoreboard-container {
+    background-color: #002;
+    opacity: .75;
+    padding: 20px 25%;
+}
+#scoreboard-container h2{
+    text-align: center;
+    padding: 5px;
+}
+
+/***** auth forms *****/
+#LogInForm, #signUpForm {
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+
+/*************************** GAME PAGE *******************/
 
 /*****nav*****/
 nav {
@@ -58,57 +75,27 @@ nav {
     margin: 0;
     margin-bottom: 50px;
 }
-
 nav button svg {
     width: 35px !important;
     height: 35px !important;
-    margin-right: 10px;
+    margin: 10px;
 }
-
-/***** footer styling *****/
-#footer {
-    position: absolute;
-    bottom: 0;
-    background-color: #00BCD4;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    height: 20px;
-}
-#footer img {
-    border-radius: 50%;
-}
-
-/***** rules page ****/
-#rules-container {
-    color: #002;
-}
-#rules-container li {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
-
-/***** auth forms *****/
-#LogInForm, #signUpForm {
-  margin: 0 auto;
-  text-align: center;
-  width: 700px;
-}
-
-/***** GAME PAGE *****/
+/*****Score*****/
 #score-container {
     text-align: center;
-    border: 1px solid #00BCD4;
     margin-left: 10px;
 }
-
 #make-a-guess {
-    background-color: #00BCD4;
-    margin-bottom: 20px;
-    margin-left: 10px;
     text-align: center;
 }
+#guesstherules {
+    margin: 10px !important;
+    color: #00BCD4 !important;  
+}
+#rule1guess>div>div, #rule2guess>div>div {
+    color: #00BCD4 !important;
+}
+
 /*****pieces*****/
 #pieces-container {
     text-align: center;
@@ -144,12 +131,6 @@ nav button svg {
 }
 #alienRedSmall {
   filter: hue-rotate(255deg);
-}
-
-/*****buttons******/
-#button-container {
-    padding: 50px 0 10px 0;
-    text-align: center;
 }
 
 /*****venn diagram*****/
@@ -194,34 +175,26 @@ nav button svg {
   border-radius: 50%;
   margin-left: 20%;
 }
-
-
 .pretty.circle label i {
     padding: 0px;
 }
-
 .pretty i {
     padding: 0px;
     font-size: 2em !important;
     margin-top: 20%;
     margin-left: 20%;
 }
-
 .pretty i:before {
     background-color: transparent;
 }
-
-
- #board-container {
+#board-container {
     z-index: -9999;
 } 
-
 .rotateAway {
         -webkit-animation: 10s;
         animation-fill-mode: forwards;
         animation-name: rotateaway;
 }
-
 @-webkit-keyframes rotateaway {
 		from {
                 -webkit-transform: rotate(0deg) scale(1);
@@ -230,11 +203,9 @@ nav button svg {
                 -webkit-transform: rotate(-720deg) scale(0.001);
 		}
 }
-
 #rotate {
 		-webkit-animation: rotation 2s infinite linear;
 }
-
 @-webkit-keyframes rotation {
 		from {
 				-webkit-transform: rotate(0deg);
@@ -242,6 +213,12 @@ nav button svg {
 		to {
 				-webkit-transform: rotate(359deg);
 		}
+}
+
+/*****options******/
+#button-container {
+    padding: 3% 10%;
+    text-align: center;
 }
 
 /***** checklist component*****/
@@ -276,4 +253,28 @@ input {
     margin: 0;
     text-align: center;
     background-color: transparent;
+}
+
+/***** rules modal ****/
+#rules-container {
+    color: #002;
+}
+#rules-container li {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/***** footer styling *****/
+#footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #00BCD4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+}
+#footer img {
+    border-radius: 50%;
 }

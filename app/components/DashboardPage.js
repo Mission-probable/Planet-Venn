@@ -10,21 +10,15 @@ import { Link } from "react-router";
 import Auth from '../utils/Auth';
 import GameSpace from './children/GameSpace';
 import Footer from './children/Footer';
-
+import Score from './children/Score';
 
 class DashboardPage extends React.Component {
-
 
   constructor(props) {
     super(props);
 
     this.state = {
-        secretData: '',
-         pieces: {
-            sun: '/images/sun.gif',
-            sat: '/images/sat.gif',
-            alien: '/images/alien.gif',  
-        }, 
+        secretData: ''
     };
   }
 
@@ -47,19 +41,21 @@ class DashboardPage extends React.Component {
 
   render() {
     return (
-      <div className="container">
+      <div>
     
         <nav> 
             <Row>
-                <Col sm={3} />
+                <Col sm={5}>
+                    <Score />
+                </Col>
             
-                <Col sm={6 }>
+                <Col sm={2}>
                     <Link to="/"><h1 id="logo">Planet Venn</h1></Link>
                 </Col>
                 
-                <Col sm={2} />
+                <Col sm={3} />
 
-                <Col sm={1}>
+                <Col sm={2}>
                     <IconMenu 
                     iconButtonElement={<IconButton><UserIcon color={cyan500} /></IconButton>}
                     anchorOrigin={{ horizontal: 'left', vertical: 'top' }}

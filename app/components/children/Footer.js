@@ -1,4 +1,4 @@
-var React = require("react");
+import React from "react";
 
 //making this a dumb component since it only needs to render
 const Footer = () => {
@@ -9,4 +9,4 @@ const Footer = () => {
 	   	);
 };
 
-module.exports = Footer;
+export default Footer;
