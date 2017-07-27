@@ -54,12 +54,24 @@ nav {
     margin: 0;
     margin-bottom: 50px;
 }
-
 nav button svg {
     width: 35px !important;
     height: 35px !important;
-    margin-right: 10px;
+    margin: 10px;
 }
+/*****Score*****/
+#score-container {
+    text-align: center;
+    margin-left: 10px;
+}
+#make-a-guess {
+
+    text-align: center;
+}
+#guesstherules {
+    color: #00BCD4 !important;  
+}
+
 
 /***** footer styling *****/
 #footer {
@@ -84,17 +96,7 @@ nav button svg {
 }
 
 /***** GAME PAGE *****/
-#score-container {
-    text-align: center;
-    margin-left: 10px;
-}
 
-#make-a-guess {
-    background-color: #00BCD4;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    text-align: center;
-}
 /*****pieces*****/
 #pieces-container {
     text-align: center;

@@ -45,15 +45,15 @@ class DashboardPage extends React.Component {
     
         <nav> 
             <Row>
-                <Col sm={4}>
+                <Col sm={5}>
                     <Score />
                 </Col>
             
-                <Col sm={4}>
+                <Col sm={2}>
                     <Link to="/"><h1 id="logo">Planet Venn</h1></Link>
                 </Col>
                 
-                <Col sm={2} />
+                <Col sm={3} />
 
                 <Col sm={2}>
                     <IconMenu 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Row, Col } from "react-grid-system";
 import FlatButton from 'material-ui/FlatButton';
-import DropDownMenu from 'material-ui/DropDownMenu';
+import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import Snackbar from 'material-ui/Snackbar';
 import TextField from 'material-ui/TextField';
@@ -59,6 +59,17 @@ class Score extends Component {
     }
 
     render() {
+        const categories = [
+            <MenuItem key={1} value={1} primaryText="Red" />,
+            <MenuItem key={2} value={2} primaryText="Green" />,
+            <MenuItem key={3} value={3} primaryText="Blue" />,
+            <MenuItem key={4} value={4} primaryText="Satellite" />,
+            <MenuItem key={5} value={5} primaryText="Alien" />,
+            <MenuItem key={6} value={6} primaryText="Sun" />,
+            <MenuItem key={7} value={7} primaryText="Big" />,
+            <MenuItem key={8} value={8} primaryText="Small" />
+        ];
+
         return (
             <div>
                 <div id="score-container">
@@ -69,36 +80,21 @@ class Score extends Component {
                 <div id="make-a-guess">
                     <Row>
                             
-                        <Col sm={4}>
-                            <DropDownMenu id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}>
-                                <MenuItem value={1} primaryText="Red" />
-                                <MenuItem value={2} primaryText="Green" />
-                                <MenuItem  value={3} primaryText="Blue" />
-                                <MenuItem  value={4} primaryText="Satellite" />
-                                <MenuItem  value={5} primaryText="Alien" />
-                                <MenuItem  value={6} primaryText="Sun" />
-                                <MenuItem  value={7} primaryText="Big" />
-                                <MenuItem  value={8} primaryText="Small" />
-                            </DropDownMenu>
+                        <Col sm={5}>
+                            <SelectField id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}style={{width: "90%", height: "60px"}}>
+                                {categories}
+                            </SelectField>
                         </Col>
 
-                        <Col sm={4}>
-
-                            <FlatButton onTouchTap={this.handleTouchTap} label="Guess" id="guesstherules" className="button-spacing" />
+                        <Col sm={2}>
+                            <FlatButton onTouchTap={this.handleTouchTap} label="Guess" id="guesstherules" />
                             <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
                         </Col>
 
-                        <Col sm={4}>
-                            <DropDownMenu id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}>
-                                <MenuItem value={1} primaryText="Red" />
-                                <MenuItem value={2} primaryText="Green" />
-                                <MenuItem  value={3} primaryText="Blue" />
-                                <MenuItem  value={4} primaryText="Satellite" />
-                                <MenuItem  value={5} primaryText="Alien" />
-                                <MenuItem  value={6} primaryText="Sun" />
-                                <MenuItem  value={7} primaryText="Big" />
-                                <MenuItem  value={8} primaryText="Small" />
-                            </DropDownMenu>
+                        <Col sm={5}>
+                            <SelectField id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}style={{width: "90%", height: "60px"}}>
+                                {categories}
+                            </SelectField>
                         </Col>   
                     </Row>
                 </div>  
