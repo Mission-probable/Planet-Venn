@@ -65,13 +65,15 @@ nav button svg {
     margin-left: 10px;
 }
 #make-a-guess {
-
     text-align: center;
 }
 #guesstherules {
+    margin: 10px !important;
     color: #00BCD4 !important;  
 }
-
+#rule1guess>div>div, #rule2guess>div>div {
+    color: #00BCD4 !important;
+}
 
 /***** footer styling *****/
 #footer {

@@ -80,23 +80,20 @@ class Score extends Component {
                 <div id="make-a-guess">
                     <Row>
                             
-                        <Col sm={5}>
-                            <SelectField id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}style={{width: "90%", height: "60px"}}>
+                        <Col sm={6}>
+                            <SelectField id="rule1guess" value={this.state.value1} onChange={this.handleDropDown1Change}style={{width: "80%", height: "60px"}}>
                                 {categories}
                             </SelectField>
                         </Col>
 
-                        <Col sm={2}>
-                            <FlatButton onTouchTap={this.handleTouchTap} label="Guess" id="guesstherules" />
-                            <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
-                        </Col>
-
-                        <Col sm={5}>
-                            <SelectField id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change}style={{width: "90%", height: "60px"}}>
-                                {categories}
+                        <Col sm={6}>
+                            <SelectField id="rule2guess" value={this.state.value2} onChange={this.handleDropDown2Change} style={{width: "80%", height: "60px"}}>
+                                {categories} 
                             </SelectField>
                         </Col>   
                     </Row>
+                    <FlatButton onTouchTap={this.handleTouchTap} label="Make my Guess" id="guesstherules" />
+                            <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
                 </div>  
             </div> 
         )
