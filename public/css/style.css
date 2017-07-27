@@ -18,7 +18,7 @@ a:active {
     text-decoration: none;
 }
 
-/***** home page ****/
+/********************** HOME PAGE ********************/
 .home-page {
     background-image: url("../images/background3.jpg");
     background-size: cover;
@@ -40,6 +40,16 @@ header img {
 .button-spacing {
     margin: 20px;
 }
+
+
+/***** auth forms *****/
+#LogInForm, #signUpForm {
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+
+/*************************** GAME PAGE *******************/
 
 /*****nav*****/
 nav {
@@ -74,30 +84,6 @@ nav button svg {
 #rule1guess>div>div, #rule2guess>div>div {
     color: #00BCD4 !important;
 }
-
-/***** footer styling *****/
-#footer {
-    position: absolute;
-    bottom: 0;
-    background-color: #00BCD4;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-    height: 20px;
-}
-#footer img {
-    border-radius: 50%;
-}
-
-/***** auth forms *****/
-#LogInForm, #signUpForm {
-  margin: 0 auto;
-  text-align: center;
-  width: 700px;
-}
-
-/***** GAME PAGE *****/
 
 /*****pieces*****/
 #pieces-container {
@@ -134,12 +120,6 @@ nav button svg {
 }
 #alienRedSmall {
   filter: hue-rotate(255deg);
-}
-
-/*****options******/
-#button-container {
-    padding: 50px 0 10px 0;
-    text-align: center;
 }
 
 /*****venn diagram*****/
@@ -224,6 +204,12 @@ nav button svg {
 		}
 }
 
+/*****options******/
+#button-container {
+    padding: 3% 10%;
+    text-align: center;
+}
+
 /***** checklist component*****/
 .checklistDiv {
     height: 100%;
@@ -265,4 +251,19 @@ input {
 #rules-container li {
     font-size: 20px;
     margin-bottom: 10px;
+}
+
+/***** footer styling *****/
+#footer {
+    position: absolute;
+    bottom: 0;
+    background-color: #00BCD4;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    height: 20px;
+}
+#footer img {
+    border-radius: 50%;
 }

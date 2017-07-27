@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import { Row, Col } from "react-grid-system";
 
-import Play from './grandchildren/Play';
+import Pieces from './grandchildren/Pieces';
 import Board from './grandchildren/Board';
+import Options from './grandchildren/Options';
 
 class GameSpace extends Component{
     
@@ -11,13 +12,14 @@ class GameSpace extends Component{
             <div>                
                 <Row>
                     <Col sm={3}>
-                        <Play />
+                        <Pieces />
                     </Col>
                   
                     <Col sm={9}>
                         <Board />
                     </Col>
                 </Row>
+                <Options />
             </div>
         );
     }

@@ -10,7 +10,7 @@ import { Link } from "react-router";
 import Auth from '../utils/Auth';
 import GameSpace from './children/GameSpace';
 import Footer from './children/Footer';
-import Score from './children/grandchildren/great-grandchildren/Score';
+import Score from './children/Score';
 
 class DashboardPage extends React.Component {
 

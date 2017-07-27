@@ -5,8 +5,8 @@ import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';  
 import Dialog from 'material-ui/Dialog'; 
 
-import Rules from './Rules';
-import Checklist from './Checklist';
+import Rules from './great-grandchildren/Rules';
+import Checklist from './great-grandchildren/Checklist';
  
 class Options extends Component {
     constructor(props) {
