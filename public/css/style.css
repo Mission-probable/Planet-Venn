@@ -26,7 +26,6 @@ a:active {
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-
 }
 header {
     text-align: center;
@@ -37,7 +36,6 @@ header h1 {
     font-family: "Megrim", cursive;
     font-size: 100px;
 }
-
 header img {
     border: 2px solid #00487B;
     border-radius: 50%;
@@ -52,8 +50,8 @@ header img {
 }
 #scoreboard-container h2{
     text-align: center;
+    padding: 5px;
 }
-
 
 /***** auth forms *****/
 #LogInForm, #signUpForm {
