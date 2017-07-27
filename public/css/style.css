@@ -22,6 +22,11 @@ a:active {
 .home-page {
     background-image: url("../images/background3.jpg");
     background-size: cover;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
 }
 header {
     text-align: center;
@@ -39,6 +44,14 @@ header img {
 }
 .button-spacing {
     margin: 20px;
+}
+#scoreboard-container {
+    background-color: #002;
+    opacity: .75;
+    padding: 20px 25%;
+}
+#scoreboard-container h2{
+    text-align: center;
 }
 
 

@@ -2,6 +2,8 @@ import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from"react-router";
 
+import ScoreBoard from './children/ScoreBoard';
+
 const HomePage = () => (
 
         <div className="home-page">
@@ -11,6 +13,7 @@ const HomePage = () => (
                	<Link to="/login"><RaisedButton label="Sign In" primary={true} className="button-spacing" /> </Link>
                 <Link to="/play"><RaisedButton label="Just Play" primary={true} className="button-spacing" /> </Link>
             </header>
+            <ScoreBoard />
         </div>
 
 );
