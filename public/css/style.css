@@ -292,30 +292,14 @@ input {
     font-size: 200%;
     color: #6BD3FF;
     text-align: center;
-    /* font-family: 'Monoton', cursive;    */
-    font-family: 'Bungee Shade', cursive;
+    /* font-family: 'Monoton', cursive;     */
+    font-family: 'Bungee Shade', cursive; 
     line-height: 175%;
 }
 
 #nameField {
     text-align: left;
 }
-
-/* .highScores {
-  animation: blink-animation 1s steps(5, start) infinite;
-  font-size: 200%;
-  padding-bottom: 10%;
-}
-@keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-}
-@-webkit-keyframes blink-animation {
-  to {
-    visibility: hidden;
-  }
-} */
 
 #rowDesc {
     text-decoration: underline;
