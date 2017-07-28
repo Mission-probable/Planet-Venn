@@ -287,3 +287,57 @@ input {
 #footer img {
     border-radius: 50%;
 }
+
+#scoreboard-container {
+    font-size: 200%;
+    color: #6BD3FF;
+    text-align: center;
+    /* font-family: 'Monoton', cursive;     */
+    font-family: 'Bungee Shade', cursive; 
+    line-height: 175%;
+}
+
+#nameField {
+    text-align: left;
+}
+
+#rowDesc {
+    text-decoration: underline;
+    font-size: 140%;
+    padding-bottom: 1%;
+}
+
+.highScores{
+    position: relative;
+    padding-top: 5%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* High Scores scrolling animation */
+.highScores{
+    animation: typewriter 4s steps(100) 1 normal both,
+               blinkTextCursor infinite normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinkTextCursor{
+    from{border-right-color: transparent;}
+    to{border-right-color: transparent;}
+}
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    50%, 100% {
+        width: 80%;
+    }
+}
