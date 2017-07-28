@@ -11,11 +11,11 @@ class GameSpace extends Component{
         return (
             <div>                
                 <Row>
-                    <Col sm={3}>
+                    <Col sm={4}>
                         <Pieces />
                     </Col>
                   
-                    <Col sm={9}>
+                    <Col sm={8}>
                         <Board />
                     </Col>
                 </Row>
