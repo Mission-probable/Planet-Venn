@@ -338,15 +338,15 @@ input {
 
 /* High Scores scrolling animation */
 .highScores{
-  animation: typewriter 4s steps(100) 1 normal both,
-             blinkTextCursor infinite normal;
-             animation-fill-mode: forwards;
+    animation: typewriter 4s steps(100) 1 normal both,
+               blinkTextCursor infinite normal;
+    animation-fill-mode: forwards;
     animation-iteration-count: infinite;
 }
 
 @keyframes blinkTextCursor{
-  from{border-right-color: transparent;}
-  to{border-right-color: transparent;}
+    from{border-right-color: transparent;}
+    to{border-right-color: transparent;}
 }
 
 @keyframes typewriter {
