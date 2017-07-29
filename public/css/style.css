@@ -162,16 +162,16 @@ nav button svg {
     background-image: url("../images/planet2.png");
     background-size: cover;
     /* background-color: #AFB0A3; */
-    margin-left: -200px;
-    padding-left: 100px;
+    margin-left: -31%;
+    padding-left: 12%;
 }
 
 #venn #category3 {
     border: 0;
-    height: 250px;
-    width: 100px;
-    left: -100px;
-    top: 100px;
+    height: 275px;
+    width: 130px;
+    left: -133px;
+    top: 40px;
     position: relative;
     text-align: center;
     z-index: 10;
@@ -179,10 +179,9 @@ nav button svg {
 
 /*****black hole*****/
 #category4 {
-    width: 350px;
-    height: 350px;
+    width: 41%;
     border-radius: 50%;
-    margin-left: 15%;
+    margin-left: 12%;
 }
 .pretty.circle label i {
     padding: 0px;
@@ -233,7 +232,8 @@ nav button svg {
 /***** checklist component*****/
 .checklistDiv {
     height: 100%;
-    background-color: #00BCD4;
+    /* background-color: #00BCD4; */
+    background-color: white;
     padding: 5px;
     font-size: 15px;
 }

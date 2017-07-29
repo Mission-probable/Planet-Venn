@@ -40,17 +40,12 @@ class Score extends Component {
     }
 
     // For the snackbar component
-    handleTouchTap() {
-        this.setState({
-        open: true,
-        });
+    handleTouchTap() { this.setState({ open: true, });
     }
 
     // IF THE USER GUESSED CORRECTLY
     handleActionTouchTap() {
-        this.setState({
-        open: false,
-        });
+        this.setState({ open: false, });
         playAgain();
     }
 
