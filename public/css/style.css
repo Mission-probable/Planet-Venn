@@ -233,7 +233,7 @@ nav button svg {
 /***** checklist component*****/
 .checklistDiv {
     height: 100%;
-    background-color: #00BCD4;
+    background-color: white;
     padding: 5px;
     font-size: 15px;
 }

@@ -1,22 +1,27 @@
 import React, {Component} from "react";
 import FlatButton from 'material-ui/FlatButton';
+import Checkbox from 'material-ui/Checkbox';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import CheckBoxOutlineBlank from 'material-ui/svg-icons/toggle/check-box-outline-blank';
+
+const ruleTypes = [
+     'Red', 'Blue', 'Green', 'Satellite', 'Sun', 'Alien', 'Big', 'Small',
+];
 
 class Checklist extends Component {
-	handleClick(event) {
-    	// prevents default submission
-  	  	event.preventDefault();
-  	  	// clears input fields
-  	  	var inputs = document.getElementsByTagName("input");
-		for(var i = 0; i < inputs.length; i++) {
-    		if(inputs[i].type == "checkbox") {
-        		inputs[i].checked = false; 
-    		}  
-		}
-	}
+    constructor(props) {
+        super(props);
+        this.unCheckAll = this.unCheckAll.bind(this);
+        this.state = { checked: false, };
+    }
+
+    unCheckAll() {
+        console.log("Why won't it uncheck????");
+        this.setState({ checked: false, })
+    }
 		
     render() {
 		return (
-			
             <div className="checklistDiv ">
                 <h3 >Checklist (Optional)</h3>
                 
@@ -31,129 +36,20 @@ class Checklist extends Component {
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td> Red </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                            <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                            <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Blue </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Green </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Satellite </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Sun </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Alien </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Big </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td> Small </td>
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td> 
-                                <td className="cell">
-                                    <div className="pretty plain o-danger smooth a-jelly">
-                                        <input type="checkbox" /> 
-                                        <label><i className="g-mdi" data-icon="clear"></i> </label>
-                                    </div>
-                                </td>
-                            </tr>
+                            {ruleTypes.map( (category, index) => (
+                                <tr key={index}>
+                                    <td> {category} </td>
+                                    <td className="cell">
+                                        <Checkbox checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                    </td> 
+                                    <td className="cell">
+                                        <Checkbox checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
-                    <FlatButton label="Reset Table" onClick={this.handleClick} />
+                    <FlatButton label="Reset Table" onClick={this.unCheckAll} />
                 </div>
             </div>		
 		);
@@ -161,4 +57,3 @@ class Checklist extends Component {
 };
 
 export default Checklist;
-
