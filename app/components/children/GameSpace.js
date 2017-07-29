@@ -40,30 +40,15 @@ class GameSpace extends Component{
         return (
             <div>                
                 <Row>
-                    <Col sm={3}>
-                        {Object.keys(items).map((key) => {
-          const { id, active, still, className, left, top, type, hideSourceOnDrag } = items[key];
-          return (
-            <Pieces
-                key={key}
-                id={id}
-                active={active}
-                still={still}
-                className={className}
-                left={left}
-                top={top}
-                type={type}
-                hideSourceOnDrag={hideSourceOnDrag}
-              />
-          );
-        })}
+
+              
+                    <Col sm={4}>
+                        <Pieces />
                     </Col>
                   
-                    <Col sm={9}>
-                        <Venn accepts={ItemTypes.ALIEN} id='' moveItem={this.moveItem}/>
-                        <Venn accepts={ItemTypes.ALIEN} id='' moveItem={this.moveItem}/>
-                        <Venn accepts={ItemTypes.ALIEN} id='' moveItem={this.moveItem}/>
-                        <Venn accepts={ItemTypes.ALIEN} id='' moveItem={this.moveItem}/>
+                    <Col sm={8}>
+                        <Board />
+
                     </Col>
                 </Row>
                 <Options />

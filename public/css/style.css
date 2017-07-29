@@ -55,9 +55,9 @@ header img {
 
 /***** auth forms *****/
 #LogInForm, #signUpForm {
-  margin: 0 auto;
-  text-align: center;
-  width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    width: 700px;
 }
 
 /*************************** GAME PAGE *******************/
@@ -102,35 +102,39 @@ nav button svg {
     margin: 10px;
 }
 .big {
-  padding: 5px;
-  margin-left: 20px;
-  margin-right: 20px;
-  width: 100px;
-  height: 100px;
-  z-index: 3;
+    padding: 5px;
+    margin: 5% 5% 0 5%;
+    /* width: 100px;
+    height: 100px; */
+    width: 30%;
+    height: 30%;
+    z-index: 3;
 }
 .small {
-  width: 40px;
-  height: 40px;
-  z-index: 5;
+    /* width: 40px;
+    height: 40px; */
+    width: 10%;
+    height: 10%;
+    margin-bottom: 10%;
+    z-index: 5;
 }
 #dropHere7 {
-  z-index: 7;
+    z-index: 7;
 }
 #sunRedBig, #sunRedSmall {
-  filter: saturate(4);
+    filter: saturate(4);
 }
 #sunGreenBig, #satRedBig, #alienBlueBig {
-  filter: hue-rotate(90deg);
+    filter: hue-rotate(90deg);
 }
 #sunBlueSmall {
-  filter: hue-rotate(180deg);
+    filter: hue-rotate(180deg);
 }
 #satGreenSmall {
-  filter: hue-rotate(235deg);
+    filter: hue-rotate(235deg);
 }
 #alienRedSmall {
-  filter: hue-rotate(255deg);
+    filter: hue-rotate(255deg);
 }
 
 /*****venn diagram*****/
@@ -140,40 +144,44 @@ nav button svg {
     border-radius: 50%;
     display: flex;
     float: left;
-    opacity: .9;
+
     text-align: center;
 }
 
 #category1 {
-    background-image: url("../images/io.jpg");
+    background-image: url("../images/planet5.png");
     background-size: cover;
     padding-right: 100px;
+    opacity: .8;
+    border-style: solid;
+    border-width: 2px;
+    border-color:#754936;
 }
 
 #category2 {
-    background-color: #AFB0A3;
-    margin-left: -200px;
-    padding-left: 100px;
+    background-image: url("../images/planet2.png");
+    background-size: cover;
+    /* background-color: #AFB0A3; */
+    margin-left: -31%;
+    padding-left: 12%;
 }
 
 #venn #category3 {
     border: 0;
-    height: 250px;
-    width: 100px;
-    left: -100px;
-    top: 100px;
+    height: 275px;
+    width: 130px;
+    left: -133px;
+    top: 40px;
     position: relative;
     text-align: center;
     z-index: 10;
-    opacity: 1;
 }
 
 /*****black hole*****/
 #category4 {
-  width: 350px;
-  height: 350px;
-  border-radius: 50%;
-  margin-left: 20%;
+    width: 41%;
+    border-radius: 50%;
+    margin-left: 12%;
 }
 .pretty.circle label i {
     padding: 0px;
@@ -224,7 +232,8 @@ nav button svg {
 /***** checklist component*****/
 .checklistDiv {
     height: 100%;
-    background-color: #00BCD4;
+    /* background-color: #00BCD4; */
+    background-color: white;
     padding: 5px;
     font-size: 15px;
 }
@@ -277,4 +286,58 @@ input {
 }
 #footer img {
     border-radius: 50%;
+}
+
+#scoreboard-container {
+    font-size: 200%;
+    color: #6BD3FF;
+    text-align: center;
+    /* font-family: 'Monoton', cursive;     */
+    font-family: 'Bungee Shade', cursive; 
+    line-height: 175%;
+}
+
+#nameField {
+    text-align: left;
+}
+
+#rowDesc {
+    text-decoration: underline;
+    font-size: 140%;
+    padding-bottom: 1%;
+}
+
+.highScores{
+    position: relative;
+    padding-top: 5%;  
+    width: 24em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    font-size: 180%;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+/* High Scores scrolling animation */
+.highScores{
+    animation: typewriter 4s steps(100) 1 normal both,
+               blinkTextCursor infinite normal;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes blinkTextCursor{
+    from{border-right-color: transparent;}
+    to{border-right-color: transparent;}
+}
+
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    50%, 100% {
+        width: 80%;
+    }
 }
