@@ -11,15 +11,23 @@ const ruleTypes = [
 class Checklist extends Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
         this.unCheckAll = this.unCheckAll.bind(this);
-        this.state = { checked: false, };
+        this.state = { checked: false };
     }
 
     unCheckAll() {
-        console.log("Why won't it uncheck????");
-        this.setState({ checked: false, })
+        this.setState({ checked: false })
     }
-		
+
+    handleChange(event) {
+        if (this.state.checked === true) {
+            this.setState({ checked: false })
+        } else {
+            this.setState({ checked: true })
+        }
+    }
+  	
     render() {
 		return (
             <div className="checklistDiv ">
@@ -40,10 +48,10 @@ class Checklist extends Component {
                                 <tr key={index}>
                                     <td> {category} </td>
                                     <td className="cell">
-                                        <Checkbox checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                        <Checkbox checked={this.state.checked} onCheck={this.handleChange} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
                                     </td> 
                                     <td className="cell">
-                                        <Checkbox checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                        <Checkbox checked={this.state.checked} onCheck={this.handleChange} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
                                     </td>
                                 </tr>
                             ))}
