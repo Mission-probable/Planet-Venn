@@ -1,6 +1,6 @@
 import React from "react";
 
-//making this a dumb component since it only needs to render
+//dumb component
 const Footer = () => {
 	    return (
             <div id="footer">
