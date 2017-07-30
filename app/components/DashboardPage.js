@@ -19,9 +19,7 @@ class DashboardPage extends React.Component {
 
     this.state = {
         secretData: '',
-        hideSourceDrag: true
     };
-    this.handleHideSourceClick = this.handleHideSourceClick.bind(this);
   }
 
   componentDidMount() {
@@ -41,14 +39,7 @@ class DashboardPage extends React.Component {
     xhr.send();
   }
 
-  handleHideSourceClick() {
-    this.setState({
-      hideSourceOnDrag: !this.state.hideSourceOnDrag
-    });
-  }
-
   render() {
-    const { hideSourceOnDrag } = this.state.hideSourceDrag;
     return (
       <div>
     
@@ -77,7 +68,7 @@ class DashboardPage extends React.Component {
             </Row>
         </nav>
 
-        <GameSpace hideSourceOnDrag={hideSourceOnDrag} />
+        <GameSpace />
         
         <Footer />
 

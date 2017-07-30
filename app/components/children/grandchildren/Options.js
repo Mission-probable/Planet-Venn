@@ -59,12 +59,9 @@ class Options extends Component {
                     </Col>
                     <Col sm={2} />
                 </Row>
-
             </div>
-
         )
-    }   
-   
+    }    
 };
 
 export default Options;
