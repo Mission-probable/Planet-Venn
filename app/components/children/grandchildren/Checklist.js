@@ -39,7 +39,28 @@ class Checklist extends Component {
     }
 
     unCheckAll() {
-        this.setState({ checked: false })
+        this.setState(update(this.state, {
+            catOne: {
+                Red: { $merge: { checked: false } },
+                Blue: { $merge: { checked: false } },
+                Green: { $merge: { checked: false } },
+                Satellite: { $merge: { checked: false } },
+                Sun: { $merge: { checked: false } },
+                Alien: { $merge: { checked: false } },
+                Big: { $merge: { checked: false } },
+                Small: { $merge: { checked: false } }
+            },
+            catTwo: {
+                Red: { $merge: { checked: false } },
+                Blue: { $merge: { checked: false } },
+                Green: { $merge: { checked: false } },
+                Satellite: { $merge: { checked: false } },
+                Sun: { $merge: { checked: false } },
+                Alien: { $merge: { checked: false } },
+                Big: { $merge: { checked: false } },
+                Small: { $merge: { checked: false } }
+            }
+        }))
     }
 
     handleChange(cat, val) {
