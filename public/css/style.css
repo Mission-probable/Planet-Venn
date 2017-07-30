@@ -55,9 +55,13 @@ header img {
 
 /***** auth forms *****/
 #LogInForm, #signUpForm {
-    margin: 0 auto;
+    margin: 15% 25% 10% 25%;
     text-align: center;
-    width: 700px;
+    width: 50%;
+}
+#LogInForm>div>div>div>span, #signUpForm>div>div>div>span {
+    color: #002 !important;
+    font-size: 28px !important;
 }
 
 /*************************** GAME PAGE *******************/

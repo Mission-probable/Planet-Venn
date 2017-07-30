@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
-import { Card, CardText } from 'material-ui/Card';
-import RaisedButton from 'material-ui/RaisedButton';
+import { Card, CardHeader, CardText } from 'material-ui/Card';
+import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
 const SignUpForm = ({
@@ -10,11 +10,9 @@ const SignUpForm = ({
   errors,
   user,
 }) => (
-  <Card id="signUpForm" className="container">
+  <Card id="signUpForm">
+    <CardHeader title="Sign Up" avatar="./images/planet.jpg"/>
     <form action="/" onSubmit={onSubmit}>
-      <h2 className="card-heading">Sign Up</h2>
-
-      {errors.summary && <p className="error-message">{errors.summary}</p>}
 
       <div className="field-line">
         <TextField
@@ -47,11 +45,9 @@ const SignUpForm = ({
         />
       </div>
 
-      <div className="button-line">
-        <RaisedButton type="submit" label="Create New Account" primary />
-      </div>
+        <FlatButton type="submit" label="Create New Account" primary />
 
-      <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>
+      <CardText>Already have an account? <Link to={'/login'}><FlatButton type="submit" label="Sign In" primary /></Link></CardText>
     </form>
   </Card>
 );
