@@ -8,10 +8,12 @@ import {cyan500} from 'material-ui/styles/colors';
 import { Link } from "react-router";
 
 import Auth from '../utils/Auth';
-import GameSpace from './children/GameSpace';
-import Footer from './children/Footer';
 import Score from './children/Score';
-
+import Pieces from './children//Pieces';
+import Board from './children/Board';
+import Options from './children/Options';
+import Footer from './children/Footer';
+               
 class DashboardPage extends React.Component {
 
   constructor(props) {
@@ -68,7 +70,16 @@ class DashboardPage extends React.Component {
             </Row>
         </nav>
 
-        <GameSpace />
+        <Row>
+            <Col sm={4}>
+                <Pieces />
+            </Col>
+            
+            <Col sm={8}>
+                <Board />
+            </Col>
+        </Row>
+        <Options />
         
         <Footer />
 
