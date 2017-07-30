@@ -38,7 +38,7 @@ class HomePage extends Component {
                     <Link to="/play"><RaisedButton label="Just Play" primary={true} className="button-spacing" /> </Link>
                     <RaisedButton label="High Scores" primary={true} className="button-spacing" onTouchTap={this.handleScoresOpen} />
                 </header>
-               <Dialog  actions={<FlatButton label="Close High Scores" primary={true} onTouchTap={this.handleScoresClose} />} modal={false} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} >
+               <Dialog   modal={false} autoScrollBodyContent={true} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} >
                     <ScoreBoard />
                 </Dialog>
             </div>
