@@ -15,7 +15,7 @@ function shuffle(a) {
 	    a[j] = x;
 	}	
 }
-var allRules = ["red", "blue", "green", "sat", "alien", "sun", "big", "small"];
+var allRules = ["red", "blue", "green", "satellite", "alien", "sun", "big", "small"];
 shuffle(allRules);
 checkRules();
 
@@ -30,8 +30,8 @@ function checkRules() {
         }
     }
 
-    if (allRules[1] === "sat" || allRules[1] === "alien" || allRules[1] === "sun") {
-        if (allRules[2] != "sat" && allRules[2] != "alien" && allRules[2] != "sun") {
+    if (allRules[1] === "satellite" || allRules[1] === "alien" || allRules[1] === "sun") {
+        if (allRules[2] != "satellite" && allRules[2] != "alien" && allRules[2] != "sun") {
             return;
         } else {
             shuffle(allRules);
@@ -177,12 +177,25 @@ function stopAnimate() {
         
         if (shape === "alien" && alreadyPlaced === "true") {
             $("." + i).attr("src", "./images/alien_still.gif");
-        } else if (shape === "sat" && alreadyPlaced === "true") {
+        } else if (shape === "satellite" && alreadyPlaced === "true") {
             $("." + i).attr("src", "./images/sat_still.gif");
         } else if (shape === "sun" && alreadyPlaced === "true") {
             $("." + i).attr("src", "./images/sun_still.gif");
         }
         $("#" + i).attr("data-placed", "false");
+    }
+}
+
+function ruleGuess() {
+    var rule1 = $("#category1").attr("data-rule");
+    var rule2 = $("#category2").attr("data-rule");
+    var rule1guess = $("#rule1guess").text();
+    var rule2guess = $("#rule2guess").text();
+    console.log (`rule1:${rule1}, rule2:${rule2}, rule1guess: ${rule1guess}, rule2guess: ${rule2guess}`);
+    if (rule1 === rule1guess && rule2 === rule2guess) {
+        return true;
+    } else {
+        return false;
     }
 }
 
@@ -204,41 +217,9 @@ $(document).on("click", "#resetPieces", function() {
     resetPieces();
 });
 
-$(document).on("click", "#guesstherules", function() {
-    event.preventDefault();
-    
-    var rule1 = $("#category1").attr("data-rule");
-    var rule2 = $("#category2").attr("data-rule");
-    var rule1guess = $("#rule1guess").val();
-    var rule2guess = $("#rule2guess").val();
-
-    if (rule1 === rule1guess && rule2 === rule2guess) {
-        alert("CONGRATULATIONS, YOU HAVE GUESSED CORRECTLY!!!");
-    } else {
-        $(".blackhole").toggleClass("rotate rotateAway");
-    }
-});
-
 function playAgain() {
     resetPieces();
     shuffle(allRules);
     checkRules();
     startGame();
 };
-
-
-
-
-
-// These functions are for the snackbar in Pieces.js component
-    // For testing, 
-    // For a correct guess, enter a = 1
-    // For an incorrect guess, enter a = 0
-function getMessage() {
-    var a = 1;
-    if (a === 1) {
-        return "CONGRATULATIONS, YOU HAVE WON!!";
-    } else {
-        return "Sorry, you guessed incorrectly";
-    }
-}

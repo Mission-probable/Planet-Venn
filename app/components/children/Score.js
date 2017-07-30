@@ -12,7 +12,8 @@ class Score extends Component {
         this.state = {
             value1: 1,
             value2: 2,
-            message: getMessage(),
+            message: '',
+            guess: false,
             action: 'PLAY AGAIN?',
             open: false,
         };
@@ -21,6 +22,7 @@ class Score extends Component {
         this.handleTouchTap = this.handleTouchTap.bind(this);
         this.handleActionTouchTap = this.handleActionTouchTap.bind(this);
         this.handleRequestClose = this.handleRequestClose.bind(this);
+        this.guessButtonClick = this.guessButtonClick.bind(this);
     }
 
     componentDidMount() {
@@ -49,20 +51,33 @@ class Score extends Component {
         playAgain();
     }
 
+    guessButtonClick() {
+        if (ruleGuess()) {
+            this.setState({ 
+                message: "Congratulations! You won!",
+                guess: true 
+            })
+        } else {
+            this.setState({
+                message: "Sorry, that's wrong. Keep trying."
+            })
+        }
+    }
+
     handleRequestClose() {
         this.setState({ open: false, });
     }
 
     render() {
         const categories = [
-            <MenuItem key={1} value={1} primaryText="Red" />,
-            <MenuItem key={2} value={2} primaryText="Green" />,
-            <MenuItem key={3} value={3} primaryText="Blue" />,
-            <MenuItem key={4} value={4} primaryText="Satellite" />,
-            <MenuItem key={5} value={5} primaryText="Alien" />,
-            <MenuItem key={6} value={6} primaryText="Sun" />,
-            <MenuItem key={7} value={7} primaryText="Big" />,
-            <MenuItem key={8} value={8} primaryText="Small" />
+            <MenuItem key={1} value={1} primaryText="red" />,
+            <MenuItem key={2} value={2} primaryText="green" />,
+            <MenuItem key={3} value={3} primaryText="blue" />,
+            <MenuItem key={4} value={4} primaryText="satellite" />,
+            <MenuItem key={5} value={5} primaryText="alien" />,
+            <MenuItem key={6} value={6} primaryText="sun" />,
+            <MenuItem key={7} value={7} primaryText="big" />,
+            <MenuItem key={8} value={8} primaryText="small" />
         ];
 
         return (
@@ -87,8 +102,8 @@ class Score extends Component {
                             </SelectField>
                         </Col>   
                     </Row>
-                    <FlatButton onTouchTap={this.handleTouchTap} label="Make my Guess" id="guesstherules" />
-                            <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
+                    <FlatButton onTouchTap={this.handleTouchTap} label="Make my Guess" id="guesstherules" onClick={this.guessButtonClick} />
+                        <Snackbar open={this.state.open} message={this.state.message} action={this.state.action} onActionTouchTap={this.handleActionTouchTap} onRequestClose={this.handleRequestClose} />
                 </div>  
             </div> 
         )
