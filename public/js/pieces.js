@@ -175,11 +175,11 @@ function stopAnimate() {
     for (var i = 0; i < 12; i++) {
         var shape = $("." + i).attr("data-shape");
         
-        if (shape === "alien" && alreadyPlaced === "true") {
+        if (shape === "alien") {
             $("." + i).attr("src", "./images/alien_still.gif");
-        } else if (shape === "satellite" && alreadyPlaced === "true") {
+        } else if (shape === "sat") {
             $("." + i).attr("src", "./images/sat_still.gif");
-        } else if (shape === "sun" && alreadyPlaced === "true") {
+        } else if (shape === "sun") {
             $("." + i).attr("src", "./images/sun_still.gif");
         }
         $("#" + i).attr("data-placed", "false");
