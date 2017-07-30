@@ -1,4 +1,5 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
+import update from 'react/lib/update';
 import FlatButton from 'material-ui/FlatButton';
 import Checkbox from 'material-ui/Checkbox';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
@@ -13,18 +14,51 @@ class Checklist extends Component {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.unCheckAll = this.unCheckAll.bind(this);
-        this.state = { checked: false };
+        this.state = {
+            catOne: {
+                Red: { checked: false },
+                Blue: { checked: false },
+                Green: { checked: false },
+                Satellite: { checked: false },
+                Sun: { checked: false },
+                Alien: { checked: false },
+                Big: { checked: false },
+                Small: { checked: false }
+            },
+            catTwo: {
+                Red: { checked: false },
+                Blue: { checked: false },
+                Green: { checked: false },
+                Satellite: { checked: false },
+                Sun: { checked: false },
+                Alien: { checked: false },
+                Big: { checked: false },
+                Small: { checked: false }
+            }
+        };
     }
 
     unCheckAll() {
         this.setState({ checked: false })
     }
 
-    handleChange(event) {
-        if (this.state.checked === true) {
-            this.setState({ checked: false })
+    handleChange(cat, val) {
+        if (this.state[cat][val].checked === true) {
+            this.setState(update(this.state, {
+                [cat]: {
+                    [val]: {
+                        $merge: { checked: false }
+                    }
+                }
+            }))
         } else {
-            this.setState({ checked: true })
+            this.setState(update(this.state, {
+                [cat]: {
+                    [val]: {
+                        $merge: { checked: true }
+                    }
+                }
+            }))
         }
     }
   	
@@ -48,10 +82,10 @@ class Checklist extends Component {
                                 <tr key={index}>
                                     <td> {category} </td>
                                     <td className="cell">
-                                        <Checkbox checked={this.state.checked} onCheck={this.handleChange} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                        <Checkbox checked={this.state.catOne[category].checked} onCheck={() => this.handleChange('catOne', category)} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
                                     </td> 
                                     <td className="cell">
-                                        <Checkbox checked={this.state.checked} onCheck={this.handleChange} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
+                                        <Checkbox checked={this.state.catTwo[category].checked} onCheck={() => this.handleChange('catTwo', category)} checkedIcon={<NavigationClose />} uncheckedIcon={<CheckBoxOutlineBlank />} />
                                     </td>
                                 </tr>
                             ))}
