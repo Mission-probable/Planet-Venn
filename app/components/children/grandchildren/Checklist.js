@@ -60,7 +60,7 @@ class Checklist extends Component {
                 Big: { $merge: { checked: false } },
                 Small: { $merge: { checked: false } }
             }
-        }))
+        }));
     }
 
     handleChange(cat, val) {
