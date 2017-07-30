@@ -14,7 +14,7 @@ class Score extends Component {
             value2: 2,
             message: '',
             guess: false,
-            action: 'PLAY AGAIN?',
+            action: '',
             open: false,
         };
         this.handleDropDown1Change = this.handleDropDown1Change.bind(this);
@@ -53,8 +53,9 @@ class Score extends Component {
 
     guessButtonClick() {
         if (ruleGuess()) {
-            this.setState({ 
+            this.setState({           
                 message: "Congratulations! You won!",
+                action: "Play Again?",
                 guess: true 
             })
         } else {
