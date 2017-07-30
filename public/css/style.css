@@ -43,15 +43,6 @@ header img {
 .button-spacing {
     margin: 20px;
 }
-#scoreboard-container {
-    background-color: #002;
-    opacity: .75;
-    padding: 20px 25%;
-}
-#scoreboard-container h2{
-    text-align: center;
-    padding: 5px;
-}
 
 /***** auth forms *****/
 #LogInForm, #signUpForm {
@@ -292,12 +283,10 @@ input {
     border-radius: 50%;
 }
 
+/***** scoreboard *****/
 #scoreboard-container {
-    font-size: 200%;
-    color: #6BD3FF;
-    text-align: center;
-    /* font-family: 'Monoton', cursive;     */
-    font-family: 'Bungee Shade', cursive; 
+    color: #002;
+    text-align: center; 
     line-height: 175%;
 }
 
@@ -312,6 +301,8 @@ input {
 }
 
 .highScores{
+    font-size: 200%;
+    font-family: 'Bungee Shade', cursive; 
     position: relative;
     padding-top: 5%;  
     width: 24em;
