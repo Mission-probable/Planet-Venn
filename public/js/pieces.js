@@ -164,7 +164,7 @@ function startGame() {
 function animate() {
     if (itemShape === "alien" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/alien.gif");
-    } else if (itemShape === "sat" && alreadyPlaced === "true") {
+    } else if (itemShape === "satellite" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sat.gif");
     } else if (itemShape === "sun" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sun.gif");
