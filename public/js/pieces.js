@@ -191,8 +191,19 @@ function ruleGuess() {
     var rule2 = $("#category2").attr("data-rule");
     var rule1guess = $("#rule1guess").text();
     var rule2guess = $("#rule2guess").text();
-    console.log (`rule1:${rule1}, rule2:${rule2}, rule1guess: ${rule1guess}, rule2guess: ${rule2guess}`);
+
     if (rule1 === rule1guess && rule2 === rule2guess) {
+        var score = $("#moves").html();
+        var userId = 
+
+        console.log("score from pieces.js 197: ", score);
+         $.ajax({
+            method: "POST",
+            url: "/saved/" + userId,
+            data: {
+                score: score
+            }
+        });
         return true;
     } else {
         return false;
