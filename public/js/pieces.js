@@ -50,6 +50,11 @@ function checkRules() {
 }
 
 function startGame() {
+
+    $.get("/auth/login").then(function(data) {
+        console.log ("pieces.js 56, get user data: ", data);
+    })
+
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");

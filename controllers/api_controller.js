@@ -7,10 +7,8 @@ router.get('/dashboard', (req, res) => {
   res.status(200).json({});
 });
 
-
-router.route("/saved/:id")
 //save a new score to the user
-.post(function(req, res) {
+router.post("/save/:id", (req, res) => {
     var newScore = new Scores(req.body);
     newScore.save(function(error, doc) {
         if (error) {
@@ -28,7 +26,7 @@ router.route("/saved/:id")
     });
 })
 //get user scores
-.get(function(req, res) {
+router.get("saved/:id", (req, res) => {
     Scores.findOne({ "_id": req.params.id })
     .populate("scores")
     .exec(function(error, doc) {
@@ -41,8 +39,7 @@ router.route("/saved/:id")
 });
 
 //get top 5 scores
-router.route("/scores")
-.get(function(req, res) {
+router.get("/scores", (req, res) => {
     Scores.find({})
     .limit(5)
     .sort({ scores: 1 }) 
@@ -55,6 +52,5 @@ router.route("/scores")
     })
     
 })
-
 
 module.exports = router;
