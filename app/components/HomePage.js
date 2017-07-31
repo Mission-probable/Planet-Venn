@@ -32,13 +32,13 @@ class HomePage extends Component {
         return (
             <div className="home-page">
                 <header>
-                    <h1><img src="./images/planet.jpg" alt="blue planet" width="100"/> Planet Venn</h1>
+                    <h1><img src="/images/planet.jpg" alt="blue planet" width="100"/> Planet Venn</h1>
                     <Link to="/signup"><RaisedButton label="Sign Up" primary={true} className="button-spacing" /> </Link>
                     <Link to="/login"><RaisedButton label="Sign In" primary={true} className="button-spacing" /> </Link>
                     <Link to="/play"><RaisedButton label="Just Play" primary={true} className="button-spacing" /> </Link>
                     <RaisedButton label="High Scores" primary={true} className="button-spacing" onTouchTap={this.handleScoresOpen} />
                 </header>
-               <Dialog   modal={false} autoScrollBodyContent={true} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} >
+                <Dialog modal={false} autoScrollBodyContent={true} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} >
                     <ScoreBoard />
                 </Dialog>
             </div>
