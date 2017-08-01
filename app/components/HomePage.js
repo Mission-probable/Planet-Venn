@@ -17,7 +17,7 @@ class HomePage extends Component {
     }
 
     componentDidMount() {
-        makeItShine();
+        // makeItShine();
     }
 
     handleScoresOpen() {
