@@ -60,7 +60,8 @@ class Score extends Component {
             })
         } else {
             this.setState({
-                message: "Sorry, that's wrong. Keep trying."
+                message: "Sorry, that's wrong. Keep trying.",
+                action: ''
             })
         }
     }
