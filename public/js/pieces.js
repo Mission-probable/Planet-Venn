@@ -182,7 +182,7 @@ function stopAnimate() {
         
         if (shape === "alien") {
             $("." + i).attr("src", "./images/alien_still.gif");
-        } else if (shape === "sat") {
+        } else if (shape === "satellite") {
             $("." + i).attr("src", "./images/sat_still.gif");
         } else if (shape === "sun") {
             $("." + i).attr("src", "./images/sun_still.gif");
@@ -194,8 +194,8 @@ function stopAnimate() {
 function ruleGuess() {
     var rule1 = $("#category1").attr("data-rule");
     var rule2 = $("#category2").attr("data-rule");
-    var rule1guess = $("#rule1guess").text();
-    var rule2guess = $("#rule2guess").text();
+    var rule1guess = $("#rule1guess").text().toLowerCase();
+    var rule2guess = $("#rule2guess").text().toLowerCase();
 
     if (rule1 === rule1guess && rule2 === rule2guess) {
         var score = $("#moves").html();
@@ -211,6 +211,8 @@ function ruleGuess() {
         });
         return true;
     } else {
+        moves++;
+        $("#moves").html(moves);
         return false;
     }
 }
@@ -239,3 +241,22 @@ function playAgain() {
     checkRules();
     startGame();
 };
+
+// For the shine.js
+function makeItShine() {
+    var shine = new Shine(document.getElementById('homepagelogo'));
+
+    var config = new shinejs.Config({
+        numSteps: 10,
+        opacity: 1,
+        offsetPow: 2,
+        shadowRGB: new shinejs.Color(1, 62, 107)
+    });
+
+    window.addEventListener('mousemove', function(event) {
+        shine.light.position.x = event.clientX;
+        shine.light.position.y = event.clientY;
+        shine.config = config;
+        shine.draw();
+    }, false);
+}
