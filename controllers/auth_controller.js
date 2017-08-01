@@ -111,6 +111,7 @@ router.post('/login', (req, res, next) => {
         message: 'Could not process the form.'
       });
     }
+
     return res.json({
       success: true,
       message: 'You have successfully logged in!',
@@ -118,6 +119,15 @@ router.post('/login', (req, res, next) => {
       user: userData
     });
   })(req, res, next);
+});
+
+
+//trying to get logged in user data to use on client side
+//sending an empty object to get request on pieces.js line 54
+//at startGame function
+
+router.get('/login', (req, res) => {
+        res.json(req.body);
 });
 
 module.exports = router;

@@ -91,6 +91,12 @@ nav button svg {
     color: #00BCD4 !important;
 }
 
+#make-a-guess>div>div>div>span {
+    font-size: 20px !important;
+    color: #00BCD4 !important;
+
+}
+
 /*****pieces*****/
 #pieces-container {
     text-align: center;
