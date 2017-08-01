@@ -71,14 +71,14 @@ class Score extends Component {
 
     render() {
         const categories = [
-            <MenuItem key={1} value={1} primaryText="red" />,
-            <MenuItem key={2} value={2} primaryText="green" />,
-            <MenuItem key={3} value={3} primaryText="blue" />,
-            <MenuItem key={4} value={4} primaryText="satellite" />,
-            <MenuItem key={5} value={5} primaryText="alien" />,
-            <MenuItem key={6} value={6} primaryText="sun" />,
-            <MenuItem key={7} value={7} primaryText="big" />,
-            <MenuItem key={8} value={8} primaryText="small" />
+            <MenuItem key={1} value={1} primaryText="Red" />,
+            <MenuItem key={2} value={2} primaryText="Green" />,
+            <MenuItem key={3} value={3} primaryText="Blue" />,
+            <MenuItem key={4} value={4} primaryText="Satellite" />,
+            <MenuItem key={5} value={5} primaryText="Alien" />,
+            <MenuItem key={6} value={6} primaryText="Sun" />,
+            <MenuItem key={7} value={7} primaryText="Big" />,
+            <MenuItem key={8} value={8} primaryText="Small" />
         ];
 
         return (
