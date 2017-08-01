@@ -164,7 +164,7 @@ function startGame() {
 function animate() {
     if (itemShape === "alien" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/alien.gif");
-    } else if (itemShape === "sat" && alreadyPlaced === "true") {
+    } else if (itemShape === "satellite" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sat.gif");
     } else if (itemShape === "sun" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sun.gif");
@@ -177,7 +177,7 @@ function stopAnimate() {
         
         if (shape === "alien") {
             $("." + i).attr("src", "./images/alien_still.gif");
-        } else if (shape === "sat") {
+        } else if (shape === "satellite") {
             $("." + i).attr("src", "./images/sat_still.gif");
         } else if (shape === "sun") {
             $("." + i).attr("src", "./images/sun_still.gif");
@@ -223,3 +223,22 @@ function playAgain() {
     checkRules();
     startGame();
 };
+
+// For the shine.js
+function makeItShine() {
+    var shine = new Shine(document.getElementById('homepagelogo'));
+
+    var config = new shinejs.Config({
+        numSteps: 10,
+        opacity: 1,
+        offsetPow: 2,
+        shadowRGB: new shinejs.Color(1, 62, 107)
+    });
+
+    window.addEventListener('mousemove', function(event) {
+        shine.light.position.x = event.clientX;
+        shine.light.position.y = event.clientY;
+        shine.config = config;
+        shine.draw();
+    }, false);
+}
