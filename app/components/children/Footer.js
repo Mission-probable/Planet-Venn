@@ -4,7 +4,7 @@ import React from "react";
 const Footer = () => {
 	    return (
             <div id="footer">
-                <a href="https://github.com/Mission-probable/Planet-Venn"><img src="./images/github.png" id="footerLogo" alt="github logo" /></a>
+                <a href="https://github.com/Mission-probable/Planet-Venn"><img src="./images/github.png" alt="github logo" width="30"/></a>
             </div>
 	   	);
 };

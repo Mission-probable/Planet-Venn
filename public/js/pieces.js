@@ -15,14 +15,14 @@ function shuffle(a) {
 	    a[j] = x;
 	}	
 }
-var allRules = ["Red", "Blue", "Green", "Satellite", "Alien", "Sun", "Big", "Small"];
+var allRules = ["red", "blue", "green", "satellite", "alien", "sun", "big", "small"];
 shuffle(allRules);
 checkRules();
 
 // This checks to make sure no 2 rules are the same type (ie, both cannot be colors)
 function checkRules() {
-    if (allRules[1] === "Red" || allRules[1] === "Blue" || allRules[1] === "Green") {
-        if (allRules[2] != "Red" && allRules[2] != "Blue" && allRules[2] != "Green") {
+    if (allRules[1] === "red" || allRules[1] === "blue" || allRules[1] === "green") {
+        if (allRules[2] != "red" && allRules[2] != "blue" && allRules[2] != "green") {
             return;
         } else {
             shuffle(allRules);
@@ -30,8 +30,8 @@ function checkRules() {
         }
     }
 
-    if (allRules[1] === "Satellite" || allRules[1] === "Alien" || allRules[1] === "Sun") {
-        if (allRules[2] != "Satellite" && allRules[2] != "Alien" && allRules[2] != "Sun") {
+    if (allRules[1] === "satellite" || allRules[1] === "alien" || allRules[1] === "sun") {
+        if (allRules[2] != "satellite" && allRules[2] != "alien" && allRules[2] != "sun") {
             return;
         } else {
             shuffle(allRules);
@@ -39,8 +39,8 @@ function checkRules() {
         }
     }
 
-    if (allRules[1] === "Big" || allRules[1] === "Small") {
-        if (allRules[2] != "Big" && allRules[2] != "Small") {
+    if (allRules[1] === "big" || allRules[1] === "small") {
+        if (allRules[2] != "big" && allRules[2] != "small") {
             return;
         } else {
             shuffle(allRules);
@@ -167,17 +167,11 @@ function startGame() {
 }
 
 function animate() {
-
-    if (itemShape === "Alien" && alreadyPlaced === "true") {
-        $("#" + id).attr("src", "./images/Alien.gif");
-    } else if (itemShape === "Satellite" && alreadyPlaced === "true") {
-
     if (itemShape === "alien" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/alien.gif");
     } else if (itemShape === "satellite" && alreadyPlaced === "true") {
-
         $("#" + id).attr("src", "./images/sat.gif");
-    } else if (itemShape === "Sun" && alreadyPlaced === "true") {
+    } else if (itemShape === "sun" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sun.gif");
     }
 }
@@ -186,11 +180,11 @@ function stopAnimate() {
     for (var i = 0; i < 12; i++) {
         var shape = $("." + i).attr("data-shape");
         
-        if (shape === "Alien") {
-            $("." + i).attr("src", "./images/Alien_still.gif");
-        } else if (shape === "Satellite") {
+        if (shape === "alien") {
+            $("." + i).attr("src", "./images/alien_still.gif");
+        } else if (shape === "sat") {
             $("." + i).attr("src", "./images/sat_still.gif");
-        } else if (shape === "Sun") {
+        } else if (shape === "sun") {
             $("." + i).attr("src", "./images/sun_still.gif");
         }
         $("#" + i).attr("data-placed", "false");
@@ -245,22 +239,3 @@ function playAgain() {
     checkRules();
     startGame();
 };
-
-// For the shine.js
-function makeItShine() {
-    var shine = new Shine(document.getElementById('homepagelogo'));
-
-    var config = new shinejs.Config({
-        numSteps: 10,
-        opacity: 1,
-        offsetPow: 2,
-        shadowRGB: new shinejs.Color(1, 62, 107)
-    });
-
-    window.addEventListener('mousemove', function(event) {
-        shine.light.position.x = event.clientX;
-        shine.light.position.y = event.clientY;
-        shine.config = config;
-        shine.draw();
-    }, false);
-}
