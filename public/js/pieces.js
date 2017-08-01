@@ -50,6 +50,11 @@ function checkRules() {
 }
 
 function startGame() {
+
+    $.get("/auth/login").then(function(data) {
+        console.log ("pieces.js 56, get user data: ", data);
+    })
+
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -162,9 +167,15 @@ function startGame() {
 }
 
 function animate() {
+
     if (itemShape === "Alien" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/Alien.gif");
     } else if (itemShape === "Satellite" && alreadyPlaced === "true") {
+
+    if (itemShape === "alien" && alreadyPlaced === "true") {
+        $("#" + id).attr("src", "./images/alien.gif");
+    } else if (itemShape === "satellite" && alreadyPlaced === "true") {
+
         $("#" + id).attr("src", "./images/sat.gif");
     } else if (itemShape === "Sun" && alreadyPlaced === "true") {
         $("#" + id).attr("src", "./images/sun.gif");
@@ -191,8 +202,19 @@ function ruleGuess() {
     var rule2 = $("#category2").attr("data-rule");
     var rule1guess = $("#rule1guess").text();
     var rule2guess = $("#rule2guess").text();
-    console.log (`rule1:${rule1}, rule2:${rule2}, rule1guess: ${rule1guess}, rule2guess: ${rule2guess}`);
+
     if (rule1 === rule1guess && rule2 === rule2guess) {
+        var score = $("#moves").html();
+        var userId = 
+
+        console.log("score from pieces.js 197: ", score);
+         $.ajax({
+            method: "POST",
+            url: "/saved/" + userId,
+            data: {
+                score: score
+            }
+        });
         return true;
     } else {
         return false;
