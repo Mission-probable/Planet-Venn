@@ -99,17 +99,17 @@ nav button svg {
 .big {
     padding: 5px;
     margin: 5% 5% 0 5%;
-    /* width: 100px;
-    height: 100px; */
-    width: 30%;
-    height: 30%;
+     width: 100px;
+    height: 100px; 
+    /* width: 30%;
+    height: 30%; */
     z-index: 3;
 }
 .small {
-    /* width: 40px;
-    height: 40px; */
-    width: 10%;
-    height: 10%;
+     width: 40px;
+    height: 40px; 
+    /* width: 10%;
+    height: 10%; */
     margin-bottom: 10%;
     z-index: 5;
 }
@@ -164,19 +164,26 @@ nav button svg {
 #venn #category3 {
     border: 0;
     height: 275px;
-    width: 130px;
-    left: -133px;
+    width: 14%;
+    left: -15%;
     top: 40px;
     position: relative;
     text-align: center;
     z-index: 10;
 }
 
+#category3 {
+    height: 275px;
+    width: 130px;
+    left: -133px;
+}
+
+
 /*****black hole*****/
 #category4 {
-    width: 41%;
+    width: 350px;
     border-radius: 50%;
-    margin-left: 12%;
+    margin-left: 100px;
 }
 .pretty.circle label i {
     padding: 0px;
@@ -425,4 +432,37 @@ input {
  #homepagelogo {
     text-shadow: 0 0 5px #013e6b, 0 0 10px #013e6b, 0 0 15px #013e6b, 0 0 20px #025fa2, 0 0 35px #025fa2, 0 0 40px #025fa2, 0 0 50px #025fa2, 0 0 75px #025fa2; 
     color: #00BCD4;
+}
+
+
+
+/* For responsiveness */
+@media screen and (max-width: 980px) {
+    .big {
+        /* width: 100px; */
+        width: 80px;
+        height: 80px;
+    }
+    .small {
+        /* width: 40px; */
+        width: 32px;
+        height: 32px;
+    }
+    #venn div {
+        height: 245px;
+        width: 175px;
+    }
+    #category1 {
+        border: none;
+        padding-right: 70px;
+    }
+    #category4 {
+        width: 245px;
+        margin-left: 60px;
+    }
+
+    #venn #category3 {
+        height: 190px;
+        top: 30px;
+    }
 }
