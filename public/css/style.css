@@ -75,6 +75,13 @@ nav button svg {
     height: 35px !important;
     margin: 10px;
 }
+#score-modal {
+    color: #002 !important;
+}
+#score-header {
+    text-align: center !important;
+}
+
 /*****Score*****/
 #score-container {
     text-align: center;
@@ -137,6 +144,54 @@ nav button svg {
     filter: hue-rotate(255deg);
 }
 
+/*****options******/
+#button-container {
+    margin-top: 5%;
+    text-align: center;
+}
+
+/***** checklist component*****/
+.checklistDiv {
+    height: 100%;
+    background-color: white;
+    padding: 5px;
+    font-size: 15px;
+}
+.tablePanel {
+    text-align: center;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+}
+td {
+    padding: 8px 4px;
+}
+#left {
+    padding: 10px;
+}
+.panel-body {
+ margin-left: 10%;
+}
+input {
+    width: 100%;
+    border: 0px solid;
+    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: transparent;
+}
+
+/***** rules modal ****/
+#rules-container {
+    color: #002;
+}
+#rules-container li {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
 /*****venn diagram*****/
 #venn div {
     height: 350px;
@@ -230,55 +285,6 @@ nav button svg {
 		}
 }
 
-/*****options******/
-#button-container {
-    padding: 3% 10%;
-    text-align: center;
-}
-
-/***** checklist component*****/
-.checklistDiv {
-    height: 100%;
-    /* background-color: #00BCD4; */
-    background-color: white;
-    padding: 5px;
-    font-size: 15px;
-}
-.tablePanel {
-    text-align: center;
-}
-table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
-    padding: 5px;
-}
-td {
-    padding: 8px 4px;
-}
-#left {
-    padding: 10px;
-}
-.panel-body {
- margin-left: 10%;
-}
-input {
-    width: 100%;
-    border: 0px solid;
-    font-size: 20px;
-    padding: 0;
-    margin: 0;
-    text-align: center;
-    background-color: transparent;
-}
-
-/***** rules modal ****/
-#rules-container {
-    color: #002;
-}
-#rules-container li {
-    font-size: 20px;
-    margin-bottom: 10px;
-}
 
 /***** footer styling *****/
 #footer {

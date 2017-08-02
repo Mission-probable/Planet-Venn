@@ -1,3 +1,4 @@
+
 let moves = 0;
 var itemShape = "";
 var itemColor = "";
@@ -8,7 +9,6 @@ var currentUserEmail = "";
 
 function getUserEmail() {
     currentUserEmail = $("#userEmail").val();
-    console.log(currentUserEmail);
 }
 
 // This shuffles and picks 2 rules to use to play
@@ -203,8 +203,6 @@ function ruleGuess() {
         var score = $("#moves").html();
         $(".blackhole").addClass("rotateAway");
 
-        console.log("score from pieces.js 209: ", score);
-         console.log("userEmail from pieces.js 210: " ,currentUserEmail);
          $.ajax({
             method: "POST",
             url: "/api/save/" + currentUserEmail,
@@ -218,6 +216,29 @@ function ruleGuess() {
         $("#moves").html(moves);
         return false;
     }
+}
+
+function getScores() {
+    $.ajax({
+        method: "GET",
+        url: "/api/saved/" + currentUserEmail
+    }).done(function(data) {
+        if (data.scores.length === 0) {
+            $("#score-header").html("<p>You don't have any scores yet.  Start playing!</p>");
+        } else {
+            $("#score-header").html(`<h2>${data.name} 's Scores</h2>`);
+        }
+
+        for (var i = 0; i < data.scores.length; i++) {
+            var formatDate= new Date(data.scores[i].date);
+            formatDate = formatDate.toDateString();
+            $("#my-dates").prepend(`<p>On ${formatDate}, you scored: </p>`);
+        }
+        for (var i = 0; i < data.scores.length; i++) {
+            $("#my-scores").prepend(`<p> ${data.scores[i].score} </p>`);
+        }
+
+    });
 }
 
 function resetPieces() {

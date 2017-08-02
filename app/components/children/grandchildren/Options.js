@@ -5,8 +5,8 @@ import FlatButton from 'material-ui/FlatButton';
 import DropDownMenu from 'material-ui/DropDownMenu';  
 import Dialog from 'material-ui/Dialog'; 
 
-import Rules from './grandchildren/Rules';
-import Checklist from './grandchildren/Checklist';
+import Rules from './Rules';
+import Checklist from './Checklist';
  
 class Options extends Component {
     constructor(props) {
@@ -45,14 +45,14 @@ class Options extends Component {
                 <Row>  
                     <Col sm={2} />
                      <Col sm={3}>
-                        <FlatButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} className="button-spacing" />
+                        <FlatButton label="Rules"  onTouchTap={this.handleRulesOpen} primary={true} />
                         <Dialog  actions={<FlatButton label="Close Rules" primary={true} onTouchTap={this.handleRulesClose} />} modal={false} open={this.state.rulesOpen} onRequestClose={this.handleRulesClose} >
                             <Rules />
                         </Dialog>
                     </Col>
                     <Col sm={2} />
                     <Col sm={3}>
-                        <FlatButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} className="button-spacing" />
+                        <FlatButton label="Checklist"  onTouchTap={this.handleDrawerToggle} primary={true} />
                         <Drawer open={this.state.drawerOpen} openSecondary={true} >
                             <Checklist />
                         </Drawer>
