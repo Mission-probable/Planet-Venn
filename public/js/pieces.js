@@ -223,11 +223,17 @@ function getScores() {
         url: "/api/saved/" + currentUserEmail
     }).done(function(data) {
         console.log("pieces 225 get scores data: ", data.scores);
-          for (var i = 0; i < data.scores.length; i++) {
-            $("#myScores").append(`<p>Date: ${data.scores[i].date} </p>`);
+        if (data.scores.length === 0) {
+            $("#score-header").html("<p>You don't have any scores yet.  Start playing!</p>");
+        } else {
+            $("#score-header").html(`<h1>${data.name} 's Scores</h1>`);
+        }
+
+        for (var i = 0; i < data.scores.length; i++) {
+            $("#my-dates").append(`<p>Date: ${data.scores[i].date} </p>`);
         }
         for (var i = 0; i < data.scores.length; i++) {
-            $("#myScores").append(`<p>score: ${data.scores[i].score} </p>`);
+            $("#my-scores").append(`<p>score: ${data.scores[i].score} </p>`);
         }
 
     });

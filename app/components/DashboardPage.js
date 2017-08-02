@@ -72,9 +72,9 @@ class DashboardPage extends React.Component {
                     <IconButton><ScoreIcon onClick={this.handleScoresOpen} color={cyan500} /></IconButton>
                     <Dialog modal={true} actions={<FlatButton label="Close" primary={true} onTouchTap={this.handleScoresClose} />} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} autoScrollBodyContent={true} >
                         <div id="score-modal">
-                            <h1>My Scores</h1>
-                            <div id="myDates"></div>
-                            <div id="myScores"></div>
+                            <div id="score-header"><h4>You must be signed in to save and see your scores!</h4></div>
+                            <div id="my-dates"></div>
+                            <div id="my-scores"></div>
                         </div>
                     </Dialog>
                     <Link to="/logout"> <IconButton><UserIcon color={cyan500} /></IconButton></Link>
