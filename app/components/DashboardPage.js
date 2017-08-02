@@ -1,9 +1,10 @@
 import React from 'react';
 import { Row, Col } from 'react-grid-system';
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
 import UserIcon from 'material-ui/svg-icons/action/account-circle';
+import ScoreIcon from 'material-ui/svg-icons/toggle/star';
 import {cyan500} from 'material-ui/styles/colors';
 import { Link } from "react-router";
 
@@ -20,8 +21,10 @@ class DashboardPage extends React.Component {
 
     this.state = {
         secretData: '',
-        scores: []
+        scoresOpen: false
     };
+    this.handleScoresOpen = this.handleScoresOpen.bind(this);
+    this.handleScoresClose = this.handleScoresClose.bind(this);
   }
 
   componentDidMount() {
@@ -41,9 +44,13 @@ class DashboardPage extends React.Component {
     xhr.send();
   }
 
-  getScores() {
+  handleScoresOpen() {
     getScores();
+    this.setState({ scoresOpen: true })
   }
+   handleScoresClose() {
+    this.setState({ scoresOpen: false })
+   }
 
   render() {
     return (
@@ -62,14 +69,16 @@ class DashboardPage extends React.Component {
                 <Col sm={3} />
 
                 <Col sm={2}>
-                    <IconMenu 
-                    iconButtonElement={<IconButton><UserIcon color={cyan500} /></IconButton>}
-                    anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    targetOrigin={{ horizontal: 'left', vertical: 'top' }}
-                    >
-                        <MenuItem primaryText="Scores" onClick={this.getScores} />
-                        <Link to="/logout"><MenuItem primaryText="Sign Out" /></Link>
-                    </IconMenu>
+                    <IconButton><ScoreIcon onClick={this.handleScoresOpen} color={cyan500} /></IconButton>
+                    <Dialog modal={true} actions={<FlatButton label="Close" primary={true} onTouchTap={this.handleScoresClose} />} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} autoScrollBodyContent={true} >
+                        <div id="score-modal">
+                            <h1>My Scores</h1>
+                            <div id="myDates"></div>
+                            <div id="myScores"></div>
+                        </div>
+                    </Dialog>
+                    <Link to="/logout"> <IconButton><UserIcon color={cyan500} /></IconButton></Link>
+       
                 </Col>
             </Row>
         </nav>

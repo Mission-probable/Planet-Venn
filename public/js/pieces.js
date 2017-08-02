@@ -221,6 +221,15 @@ function getScores() {
     $.ajax({
         method: "GET",
         url: "/api/saved/" + currentUserEmail
+    }).done(function(data) {
+        console.log("pieces 225 get scores data: ", data.scores);
+          for (var i = 0; i < data.scores.length; i++) {
+            $("#myScores").append(`<p>Date: ${data.scores[i].date} </p>`);
+        }
+        for (var i = 0; i < data.scores.length; i++) {
+            $("#myScores").append(`<p>score: ${data.scores[i].score} </p>`);
+        }
+
     });
 }
 

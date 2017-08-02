@@ -35,7 +35,6 @@ router.get("/saved/:user", (req, res) => {
         if (error) {
             console.log("get user scores error: ", error);
         } else {
-            console.log(doc);
             res.json(doc);
         }
     })
