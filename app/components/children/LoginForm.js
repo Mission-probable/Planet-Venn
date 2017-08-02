@@ -4,52 +4,52 @@ import { Card, CardText, CardHeader } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 
-const LoginForm = ({
-  onSubmit,
-  onChange,
-  errors,
-  successMessage,
-  user
-}) => (
-  <Card id="LogInForm">
-    <CardHeader title="Sign In" avatar="./images/planet.jpg"/>
-    <form action="/" onSubmit={onSubmit}>
+class LoginForm extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidUpdate() {
+        getUserEmail();
+    }
+    render() {
 
-      <div className="field-line">
-        <TextField
-          floatingLabelText="Email"
-          name="email"
-          errorText={errors.email}
-          onChange={onChange}
-          value={user.email}
-        />
-      </div>
+        return (
+            <Card id="LogInForm">
+                <CardHeader title="Sign In" avatar="./images/planet.jpg"/>
+                <form action="/" onSubmit={this.props.onSubmit}>
 
-      <div className="field-line">
-        <TextField
-          floatingLabelText="Password"
-          type="password"
-          name="password"
-          onChange={onChange}
-          errorText={errors.password}
-          value={user.password}
-        />
-      </div>
+                <div className="field-line">
+                    <TextField
+                    id="userEmail"
+                    floatingLabelText="Email"
+                    name="email"
+                    errorText={this.props.errors.email}
+                    onChange={this.props.onChange}
+                    value={this.props.user.email}
+                    />
+                </div>
 
-      {errors.summary && <p className="error-message">{errors.summary}</p>}
-    <FlatButton type="submit" label="Log In" primary />
-     
-      <CardText>Don't have an account? <Link to={'/signup'}><FlatButton type="submit" label="Create One" primary /></Link></CardText>
-    </form>
-  </Card>
-);
+                <div className="field-line">
+                    <TextField
+                    floatingLabelText="Password"
+                    type="password"
+                    name="password"
+                    onChange={this.props.onChange}
+                    errorText={this.props.errors.password}
+                    value={this.props.user.password}
+                    />
+                </div>
 
-LoginForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errors: PropTypes.object.isRequired,
-  successMessage: PropTypes.string.isRequired,
-  user: PropTypes.object.isRequired
+                {this.props.errors.summary && <p className="error-message">{this.props.errors.summary}</p>}
+                <FlatButton type="submit" label="Log In" primary />
+                
+                <CardText>Don't have an account? <Link to={'/signup'}><FlatButton type="submit" label="Create One" primary /></Link></CardText>
+                </form>
+            </Card>
+        );
+    }
 };
+
+
 
 export default LoginForm;
