@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Options from './grandchildren/Options';
 
 //dumb component
 const Pieces = () => {
@@ -18,6 +19,8 @@ const Pieces = () => {
             <img id="satGreenSmall" className="small piece 10" data-shape="satellite" data-color="green" data-size="small" data-placed="false" src="./images/sat_still.gif" />
             <img id="alienBlueBig" className="big piece 9" data-shape="alien" data-color="blue" data-size="big" data-placed="false" src="./images/alien_still.gif" />
             <img id="sunRedSmall" className="small piece 12" data-shape="sun" data-color="red" data-size="small" data-placed="false" src="./images/sun_still.gif" />
+
+            <Options />
         </div>
     )
 };

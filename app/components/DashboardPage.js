@@ -11,7 +11,7 @@ import Auth from '../utils/Auth';
 import Score from './children/Score';
 import Pieces from './children//Pieces';
 import Board from './children/Board';
-import Options from './children/Options';
+
 import Footer from './children/Footer';
                
 class DashboardPage extends React.Component {
@@ -79,7 +79,7 @@ class DashboardPage extends React.Component {
                 <Board />
             </Col>
         </Row>
-        <Options />
+     
         
         <Footer />
 
