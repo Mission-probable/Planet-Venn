@@ -4,6 +4,12 @@ var itemColor = "";
 var itemSize = "";
 var id = 0;
 var alreadyPlaced = "";
+var currentUserEmail = "";
+
+function getUserEmail() {
+    currentUserEmail = $("#userEmail").val();
+    console.log(currentUserEmail);
+}
 
 // This shuffles and picks 2 rules to use to play
 function shuffle(a) {
@@ -50,10 +56,6 @@ function checkRules() {
 }
 
 function startGame() {
-
-    $.get("/auth/login").then(function(data) {
-        console.log ("pieces.js 56, get user data: ", data);
-    })
 
     // This allows pieces to be draggable/droppable
     $(function() {
@@ -199,12 +201,12 @@ function ruleGuess() {
 
     if (rule1 === rule1guess && rule2 === rule2guess) {
         var score = $("#moves").html();
-        var userId = 
 
-        console.log("score from pieces.js 197: ", score);
+        console.log("score from pieces.js 209: ", score);
+         console.log("userEmail from pieces.js 210: " ,currentUserEmail);
          $.ajax({
             method: "POST",
-            url: "/saved/" + userId,
+            url: "/save/" + currentUserEmail,
             data: {
                 score: score
             }

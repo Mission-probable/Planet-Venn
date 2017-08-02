@@ -8,13 +8,13 @@ router.get('/dashboard', (req, res) => {
 });
 
 //save a new score to the user
-router.post("/save/:id", (req, res) => {
+router.post("/save/:user", (req, res) => {
     var newScore = new Scores(req.body);
     newScore.save(function(error, doc) {
         if (error) {
             console.log("save new score error: ", error);
         } else {
-            User.findOneAndUpdate({ "_id": req.params.id}, { $push: {"scores": doc._id }}, { new: true })
+            User.findOneAndUpdate({ "email": req.params.user}, { $push: {"scores": doc._id }}, { new: true })
             .exec(function(error, doc) {
                 if (error) {
                     console.log("update scores to user error: ", error);
