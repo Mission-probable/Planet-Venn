@@ -1,15 +1,38 @@
 import React, {Component} from 'react';
 import { Row, Col } from 'react-grid-system';
-
-const highScores = [
-    { name: 'Stuart', score: '1', date: '7/28/17' },
-    { name: 'Maria', score: '3', date: '7/28/17' },
-    { name: 'Mary', score: '5', date: '7/28/17' },
-    { name: 'Michael', score: '7', date: '7/28/17' },
-    { name: 'Rudy', score: '9', date: '7/28/17' },
-];
+import axios from 'axios';
+import moment from 'moment';
 
 class ScoreBoard extends Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            highScores: [
+                { name: "", score: "", date: "" },
+            ]
+        }
+    }
+
+    componentDidMount() {
+        axios.get("/api/scores/")
+        .then(function (response) {
+            (response.data).sort(function (a, b) {
+                return a.score - b.score;
+            });
+            console.log(response.data);
+            this.setState({
+                highScores: [
+                    { name: "Get name info", score: response.data[0].score, date: moment(response.data[0].date).format('MMMM Do, YYYY') },
+                    { name: "Get name info", score: response.data[1].score, date: moment(response.data[1].date).format('MMMM Do, YYYY') },
+                    { name: "Get name info", score: response.data[2].score, date: moment(response.data[2].date).format('MMMM Do, YYYY') },
+                    { name: "Get name info", score: response.data[3].score, date: moment(response.data[3].date).format('MMMM Do, YYYY') },
+                    { name: "Get name info", score: response.data[4].score, date: moment(response.data[4].date).format('MMMM Do, YYYY') },
+                ]
+            })
+        }.bind(this))
+    }
+
     render() {
         return (
             <div id="scoreboard-container">
@@ -25,21 +48,19 @@ class ScoreBoard extends Component {
                         <div>DATE</div>
                     </Col>
                 </Row>
-
-                {highScores.map( (row, index) => (
-                   <Row key={index}>
-                        <Col sm={4}>
-                            <div id="nameField">{row.name}</div>
-                        </Col>
-                        <Col sm={4}>
-                            <div>{row.score}</div>
-                        </Col>
-                        <Col sm={4}>
-                            <div>{row.date}</div>
-                        </Col>
-                     </Row>
+                {this.state.highScores.map( (row, index) => (
+                    <Row key={index}>
+                            <Col sm={4}>
+                                <div id="nameField">{row.name}</div>
+                            </Col>
+                            <Col sm={4}>
+                                <div>{row.score}</div>
+                            </Col>
+                            <Col sm={4}>
+                                <div>{row.date}</div>
+                            </Col>
+                        </Row>
                 ))}
-  
             </div>
         )
     }

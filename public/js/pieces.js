@@ -201,12 +201,13 @@ function ruleGuess() {
 
     if (rule1 === rule1guess && rule2 === rule2guess) {
         var score = $("#moves").html();
+        $(".blackhole").addClass("rotateAway");
 
         console.log("score from pieces.js 209: ", score);
          console.log("userEmail from pieces.js 210: " ,currentUserEmail);
          $.ajax({
             method: "POST",
-            url: "/save/" + currentUserEmail,
+            url: "/api/save/" + currentUserEmail,
             data: {
                 score: score
             }
@@ -262,3 +263,6 @@ function makeItShine() {
         shine.draw();
     }, false);
 }
+
+
+
