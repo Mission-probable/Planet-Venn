@@ -3,7 +3,7 @@ import { Row, Col } from 'react-grid-system';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import IconButton from 'material-ui/IconButton';
-import UserIcon from 'material-ui/svg-icons/action/account-circle';
+import LogoutIcon from 'material-ui/svg-icons/action/exit-to-app';
 import ScoreIcon from 'material-ui/svg-icons/toggle/star';
 import {cyan500} from 'material-ui/styles/colors';
 import { Link } from "react-router";
@@ -70,14 +70,20 @@ class DashboardPage extends React.Component {
 
                 <Col sm={2}>
                     <IconButton><ScoreIcon onClick={this.handleScoresOpen} color={cyan500} /></IconButton>
-                    <Dialog modal={true} actions={<FlatButton label="Close" primary={true} onTouchTap={this.handleScoresClose} />} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} autoScrollBodyContent={true} >
+                    <Dialog modal={true} actions={<FlatButton label="Close" primary={true} onTouchTap={this.handleScoresClose} />} open={this.state.scoresOpen} onRequestClose={this.handleScoresClose} autoScrollBodyContent={true} contentStyle={{width: "400px"}} >
                         <div id="score-modal">
-                            <div id="score-header"><h4>You must be signed in to save and see your scores!</h4></div>
+                            <div id="score-header"><h4>You must be signed in to save your scores!</h4></div>
+                            <Row>
+                            <Col sm={9}>
                             <div id="my-dates"></div>
+                            </Col>
+                            <Col sm={3}>
                             <div id="my-scores"></div>
+                            </Col>
+                            </Row>
                         </div>
                     </Dialog>
-                    <Link to="/logout"> <IconButton><UserIcon color={cyan500} /></IconButton></Link>
+                    <Link to="/logout"> <IconButton><LogoutIcon color={cyan500} /></IconButton></Link>
        
                 </Col>
             </Row>

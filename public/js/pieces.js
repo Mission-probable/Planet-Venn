@@ -1,3 +1,4 @@
+
 let moves = 0;
 var itemShape = "";
 var itemColor = "";
@@ -222,18 +223,19 @@ function getScores() {
         method: "GET",
         url: "/api/saved/" + currentUserEmail
     }).done(function(data) {
-        console.log("pieces 225 get scores data: ", data.scores);
         if (data.scores.length === 0) {
             $("#score-header").html("<p>You don't have any scores yet.  Start playing!</p>");
         } else {
-            $("#score-header").html(`<h1>${data.name} 's Scores</h1>`);
+            $("#score-header").html(`<h2>${data.name} 's Scores</h2>`);
         }
 
         for (var i = 0; i < data.scores.length; i++) {
-            $("#my-dates").append(`<p>Date: ${data.scores[i].date} </p>`);
+            var formatDate= new Date(data.scores[i].date);
+            formatDate = formatDate.toDateString();
+            $("#my-dates").prepend(`<p>On ${formatDate}, you scored: </p>`);
         }
         for (var i = 0; i < data.scores.length; i++) {
-            $("#my-scores").append(`<p>score: ${data.scores[i].score} </p>`);
+            $("#my-scores").prepend(`<p> ${data.scores[i].score} </p>`);
         }
 
     });
