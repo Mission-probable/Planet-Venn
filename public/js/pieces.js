@@ -8,7 +8,6 @@ var currentUserEmail = "";
 
 function getUserEmail() {
     currentUserEmail = $("#userEmail").val();
-    console.log(currentUserEmail);
 }
 
 // This shuffles and picks 2 rules to use to play
@@ -203,8 +202,6 @@ function ruleGuess() {
         var score = $("#moves").html();
         $(".blackhole").addClass("rotateAway");
 
-        console.log("score from pieces.js 209: ", score);
-         console.log("userEmail from pieces.js 210: " ,currentUserEmail);
          $.ajax({
             method: "POST",
             url: "/api/save/" + currentUserEmail,
@@ -218,6 +215,13 @@ function ruleGuess() {
         $("#moves").html(moves);
         return false;
     }
+}
+
+function getScores() {
+    $.ajax({
+        method: "GET",
+        url: "/api/saved/" + currentUserEmail
+    });
 }
 
 function resetPieces() {

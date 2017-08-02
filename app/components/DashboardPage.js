@@ -11,7 +11,6 @@ import Auth from '../utils/Auth';
 import Score from './children/Score';
 import Pieces from './children//Pieces';
 import Board from './children/Board';
-
 import Footer from './children/Footer';
                
 class DashboardPage extends React.Component {
@@ -21,6 +20,7 @@ class DashboardPage extends React.Component {
 
     this.state = {
         secretData: '',
+        scores: []
     };
   }
 
@@ -39,6 +39,10 @@ class DashboardPage extends React.Component {
       }
     });
     xhr.send();
+  }
+
+  getScores() {
+    getScores();
   }
 
   render() {
@@ -63,7 +67,7 @@ class DashboardPage extends React.Component {
                     anchorOrigin={{ horizontal: 'left', vertical: 'top' }}
                     targetOrigin={{ horizontal: 'left', vertical: 'top' }}
                     >
-                        <MenuItem primaryText="Scores" />
+                        <MenuItem primaryText="Scores" onClick={this.getScores} />
                         <Link to="/logout"><MenuItem primaryText="Sign Out" /></Link>
                     </IconMenu>
                 </Col>

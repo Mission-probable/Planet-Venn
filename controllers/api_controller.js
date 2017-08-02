@@ -11,15 +11,16 @@ router.get('/dashboard', (req, res) => {
 router.post("/save/:user", (req, res) => {
     var newScore = new Scores(req.body);
     newScore.save(function(error, doc) {
+        console.log(doc);
         if (error) {
             console.log("save new score error: ", error);
         } else {
-            User.findOneAndUpdate({ "email": req.params.user}, { $push: {"scores": doc._id }}, { new: true })
-            .populate("scores")
+            User.findOneAndUpdate({ "email": req.params.user }, { $push: {"scores": doc._id} })
             .exec(function(error, doc) {
                 if (error) {
                     console.log("update scores to user error: ", error);
                 } else {
+                    console.log(doc);
                     res.send(doc);
                 }
             });
@@ -27,13 +28,14 @@ router.post("/save/:user", (req, res) => {
     });
 })
 //get user scores
-router.get("/saved/:id", (req, res) => {
-    Scores.findOne({ "_id": req.params.id })
+router.get("/saved/:user", (req, res) => {
+    User.findOne({ "email": req.params.user })
     .populate("scores")
     .exec(function(error, doc) {
         if (error) {
             console.log("get user scores error: ", error);
         } else {
+            console.log(doc);
             res.json(doc);
         }
     })
