@@ -26,7 +26,7 @@ router.post("/save/:user", (req, res) => {
     });
 })
 //get user scores
-router.get("saved/:id", (req, res) => {
+router.get("/saved/:id", (req, res) => {
     Scores.findOne({ "_id": req.params.id })
     .populate("scores")
     .exec(function(error, doc) {
@@ -41,7 +41,6 @@ router.get("saved/:id", (req, res) => {
 //get top 5 scores
 router.get("/scores", (req, res) => {
     Scores.find({})
-    .limit(5)
     .sort({ scores: 1 }) 
     .exec(function(error, doc) {
         if (error) {

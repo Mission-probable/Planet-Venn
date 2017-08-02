@@ -207,7 +207,7 @@ function ruleGuess() {
          console.log("userEmail from pieces.js 210: " ,currentUserEmail);
          $.ajax({
             method: "POST",
-            url: "/save/" + currentUserEmail,
+            url: "/api/save/" + currentUserEmail,
             data: {
                 score: score
             }
@@ -263,3 +263,6 @@ function makeItShine() {
         shine.draw();
     }, false);
 }
+
+
+
