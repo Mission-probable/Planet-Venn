@@ -15,6 +15,7 @@ router.post("/save/:user", (req, res) => {
             console.log("save new score error: ", error);
         } else {
             User.findOneAndUpdate({ "email": req.params.user}, { $push: {"scores": doc._id }}, { new: true })
+            .populate("scores")
             .exec(function(error, doc) {
                 if (error) {
                     console.log("update scores to user error: ", error);
