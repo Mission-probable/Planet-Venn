@@ -271,6 +271,7 @@ $(document).on("click", "#resetPieces", function() {
 });
 
 function playAgain() {
+    moves = 0;
     resetPieces();
     shuffle(allRules);
     checkRules();
