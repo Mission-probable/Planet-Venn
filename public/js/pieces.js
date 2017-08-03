@@ -56,7 +56,7 @@ function checkRules() {
 }
 
 function startGame() {
-
+    moves = 0;
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -203,12 +203,23 @@ function ruleGuess() {
         var score = $("#moves").html();
         $(".blackhole").addClass("rotateAway");
 
-         $.ajax({
-            method: "POST",
-            url: "/api/save/" + currentUserEmail,
-            data: {
-                score: score
-            }
+        // Ajax request to get the current user's info
+        $.ajax({
+            method: "GET",
+            url: "/api/getuser/" + currentUserEmail
+        })
+        .done(function(data) {
+            var userName = data.name;
+            
+            // Ajax request to post the score to the db
+            $.ajax({
+                method: "POST",
+                url: "/api/save/" + currentUserEmail,
+                data: {
+                    score: score,
+                    name: userName
+                }
+            });
         });
         return true;
     } else {
@@ -249,7 +260,6 @@ function resetPieces() {
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     $(".piece").attr("data-placed", "false");
-    moves = 0;
     $("#moves").html(moves);
 }
 
@@ -260,6 +270,7 @@ $(document).on("click", "#resetPieces", function() {
 });
 
 function playAgain() {
+    moves = 0;
     resetPieces();
     shuffle(allRules);
     checkRules();
