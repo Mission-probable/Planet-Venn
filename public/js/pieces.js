@@ -56,7 +56,7 @@ function checkRules() {
 }
 
 function startGame() {
-
+    moves = 0;
     // This allows pieces to be draggable/droppable
     $(function() {
         console.log("~~~~~~~~~~~~~~~~~~~~~~~~~~");
@@ -260,7 +260,6 @@ function resetPieces() {
     // This enables it to be picked up and moved around again
     $(".piece").attr("style", "position: relative");
     $(".piece").attr("data-placed", "false");
-    moves = 0;
     $("#moves").html(moves);
 }
 
