@@ -6,6 +6,10 @@ const ScoreSchema = new mongoose.Schema({
         trim: true
     },
 
+    name: {
+        type: String
+    },
+
     date: {
         type: Date,
         default: Date.now

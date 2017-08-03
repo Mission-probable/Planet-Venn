@@ -203,11 +203,14 @@ function ruleGuess() {
         var score = $("#moves").html();
         $(".blackhole").addClass("rotateAway");
 
+        // var userName = localStorage.getItem('userName');
+
          $.ajax({
             method: "POST",
             url: "/api/save/" + currentUserEmail,
             data: {
-                score: score
+                score: score,
+                name: userName
             }
         });
         return true;

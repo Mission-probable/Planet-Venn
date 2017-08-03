@@ -11,7 +11,7 @@ router.get('/dashboard', (req, res) => {
 router.post("/save/:user", (req, res) => {
     var newScore = new Scores(req.body);
     newScore.save(function(error, doc) {
-        console.log(doc);
+        // console.log(doc);
         if (error) {
             console.log("save new score error: ", error);
         } else {
@@ -20,7 +20,11 @@ router.post("/save/:user", (req, res) => {
                 if (error) {
                     console.log("update scores to user error: ", error);
                 } else {
-                    console.log(doc);
+                    console.log("~~~~~~~~~~~~~~~");
+                    console.log(doc.name);
+                    console.log("~~~~~~~~~~~~~~~");
+                    // localStorage.setItem("userName", doc.name);
+                    getUserName(doc.name);
                     res.send(doc);
                 }
             });
