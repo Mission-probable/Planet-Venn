@@ -7,7 +7,8 @@ const ScoreSchema = new mongoose.Schema({
     },
 
     name: {
-        type: String
+        type: String,
+        trim: true
     },
 
     date: {

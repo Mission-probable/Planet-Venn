@@ -28,7 +28,12 @@ class ScoreBoard extends Component {
                     { name: response.data[2].name, score: response.data[2].score, date: moment(response.data[2].date).format('MMMM Do, YYYY') },
                     { name: response.data[3].name, score: response.data[3].score, date: moment(response.data[3].date).format('MMMM Do, YYYY') },
                     { name: response.data[4].name, score: response.data[4].score, date: moment(response.data[4].date).format('MMMM Do, YYYY') },
-                ]
+                    { name: response.data[5].name, score: response.data[5].score, date: moment(response.data[5].date).format('MMMM Do, YYYY') },
+                    { name: response.data[6].name, score: response.data[6].score, date: moment(response.data[6].date).format('MMMM Do, YYYY') },
+                    { name: response.data[7].name, score: response.data[7].score, date: moment(response.data[7].date).format('MMMM Do, YYYY') },
+                    { name: response.data[8].name, score: response.data[8].score, date: moment(response.data[8].date).format('MMMM Do, YYYY') },
+                    { name: response.data[9].name, score: response.data[9].score, date: moment(response.data[9].date).format('MMMM Do, YYYY') },
+                ]   
             })
         }.bind(this))
     }
