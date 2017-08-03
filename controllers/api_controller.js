@@ -24,7 +24,7 @@ router.post("/save/:user", (req, res) => {
                     console.log(doc.name);
                     console.log("~~~~~~~~~~~~~~~");
                     // localStorage.setItem("userName", doc.name);
-                    getUserName(doc.name);
+                   
                     res.send(doc);
                 }
             });
@@ -55,7 +55,18 @@ router.get("/scores", (req, res) => {
             res.json(doc);
         }
     })
-    
 })
+
+//get a specific user
+router.get("/getuser/:user", (req, res) => {
+    User.findOne({ "email": req.params.user })
+    .exec(function(error, doc) {
+        if (error) {
+            console.log("users router error: ", error);
+        } else {
+            res.json(doc);
+        }
+    })
+});
 
 module.exports = router;
