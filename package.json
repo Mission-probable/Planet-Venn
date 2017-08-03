@@ -26,7 +26,6 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "jsonwebtoken": "^7.2.1",
-    "local-storage": "^1.4.2",
     "material-ui": "^0.16.5",
     "moment": "^2.18.1",
     "mongoose": "^4.11.2",
