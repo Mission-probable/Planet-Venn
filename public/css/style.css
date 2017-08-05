@@ -273,7 +273,7 @@ input {
                 -webkit-transform: rotate(-720deg) scale(0.001);
 		}
 }
-#rotate {
+.rotate {
 		-webkit-animation: rotation 2s infinite linear;
 }
 @-webkit-keyframes rotation {
