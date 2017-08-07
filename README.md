@@ -1,7 +1,7 @@
 # Planet Venn
 
 ### Learning Game that utilizes logic and pattern recognition.
-
+:alien:[Try it here](https://morning-hamlet-93020.herokuapp.com/)
 # Title Page
 <img src="https://user-images.githubusercontent.com/22500207/28852493-831cbd3c-76f7-11e7-9b61-c73e40a3b3f3.png" width="750" alt="Title Page">
 
